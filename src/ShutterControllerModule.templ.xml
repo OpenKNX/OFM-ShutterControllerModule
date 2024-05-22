@@ -333,70 +333,70 @@
 									<ParameterBlock Id="%AID%_PB-%TT%%CC%01" Name="SHC%C%Wrapper" Inline="true">
 
 										<!-- Jalousie Prozent Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
 										<!-- Prozent Lamelle Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" />
 
 										<!-- Beschattung Einschalten -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" />
 										<!-- Beschattung Einschalten Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
 										<!-- Beschattung Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
 										<!-- Sperre Kanal -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
 										<!-- Sperre Kanal Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
 										<!-- Aktiver Modus -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
 
 
 										<!-- Modus Handbetrieb Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
 										<!-- Modus Handbetrieb Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%00901" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" />
 										<!-- Modus Handbetrieb Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%01001" />
 										<!-- Handbetrieb Steuerung Auf/Ab -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01101" />
 										<!-- Handbetrieb Steuerung Stopp/Schritt -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01201" />
 										<!-- Handbetrieb Steuerung Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%014_R-%TT%%CC%01301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01301" />
 										<!-- Handbetrieb Steuerung Lamelle Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%015_R-%TT%%CC%01401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%014_R-%TT%%CC%01401" />
 
 										<!-- Fenster Offen Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%015_R-%TT%%CC%01501" />
 										<!-- Fenster Offen -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01601" />
 										<!-- Fenster Offen Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01701" />
 										<!-- Fenster Offen Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01801" />
 
 										<!-- Modus Nacht Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%020_R-%TT%%CC%01901" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01901" />
 										<!-- Modus Nacht -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%021_R-%TT%%CC%02001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%020_R-%TT%%CC%02001" />
 										<!-- Modus Nacht Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%022_R-%TT%%CC%02101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%021_R-%TT%%CC%02101" />
 										<!-- Modus Nacht Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%023_R-%TT%%CC%02201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%022_R-%TT%%CC%02201" />
 
 										<!-- Modus 1 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%024_R-%TT%%CC%02301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%023_R-%TT%%CC%02301" />
 										<!-- Modus 1 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%025_R-%TT%%CC%02401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%024_R-%TT%%CC%02401" />
 										<!-- Modus 1 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%026_R-%TT%%CC%02501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%025_R-%TT%%CC%02501" />
 
 										<!-- Modus 2 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%026_R-%TT%%CC%02601" />
 										<!-- Modus 2 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%028_R-%TT%%CC%02701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02701" />
 										<!-- Modus 2 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%029_R-%TT%%CC%02801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%028_R-%TT%%CC%02801" />
 
 
 

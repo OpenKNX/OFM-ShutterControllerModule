@@ -60,10 +60,10 @@
 								<TypeTime  SizeInBit="16" Unit="Minutes" minInclusive="0" maxInclusive="1440" UIHint="Time_mmss" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-MinutesBeforeAfterSunSetRise" Name="MinutesBeforeAfterSunSetRise">
-          						<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="0" maxInclusive="240" />
+          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="240" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-WaitTimeShadowControl" Name="WaitTimeShadowControl">
-          						<TypeNumber SizeInBit="16" Type="signedInt" minInclusive="0" maxInclusive="720" />
+          						<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="720" />
 							</ParameterType>
 						</ParameterTypes>
 						<Parameters>
