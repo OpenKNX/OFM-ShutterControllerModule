@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer"
-	xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
+<KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
 	<ManufacturerData>
 		<Manufacturer>
 			<ApplicationPrograms>
@@ -22,7 +21,7 @@
 							<Parameter Id="%AID%_P-%TT%%CC%003" Name="Channel%C%IgnoreFirstManualCommandIfShadowActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Ersten Manuellen Fahrbefehl nach Beschattungsstart ignorieren" Value="0" />
 
 							<!-- Nacht Modus -->
-							<Parameter Id="%AID%_P-%TT%%CC%004" Name="Channel%C%NaNightModeActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Nachtmodus" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%004" Name="Channel%C%NightModeActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Nachtmodus" Value="0" />
 
 
 							<!-- Von Uhrzeit aktiv -->
@@ -204,7 +203,7 @@
 							<!-- Sperre Kanal Aktiv -->
 							<ComObject Id="%AID%_O-%TT%%CC%006" Number="%K6%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%LockActive" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
 							<!-- Aktiver Modus -->
-							<ComObject Id="%AID%_O-%TT%%CC%007" Number="%K7%" ObjectSize="1 Byte" DatapointType="DPST-17-1" Name="CH%C%NightMode" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="%AID%_O-%TT%%CC%007" Number="%K7%" ObjectSize="1 Byte" DatapointType="DPST-17-1" Name="CH%C%ActiveMode" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
 
 
 							<!-- Modus Handbetrieb Aktiv -->
@@ -237,9 +236,9 @@
 							<!-- Modus Nacht -->
 							<ComObject Id="%AID%_O-%TT%%CC%020" Number="%K20%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%NightMode" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
 							<!-- Modus Nacht Sperre -->
-							<ComObject Id="%AID%_O-%TT%%CC%021" Number="%K21%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%Mode1Lock" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="%AID%_O-%TT%%CC%021" Number="%K21%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%NightMode1Lock" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
 							<!-- Modus Nacht Sperre Rückmeldung -->
-							<ComObject Id="%AID%_O-%TT%%CC%022" Number="%K22%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%Mode1LockActive" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="%AID%_O-%TT%%CC%022" Number="%K22%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%NightModeLockActive" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
 
 
 							<!-- Modus 1 Aktiv -->
@@ -262,68 +261,68 @@
 							<!-- Jalousie Prozent Ausgang -->
 							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_O-%TT%%CC%000" Text="%C%: Jalousie Prozent Ausgang" FunctionText="{{0:-}} Jalousie Prozent setzten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Prozent Lamelle Ausgang -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00101" RefId="%AID%_O-%TT%%CC%001" Text="%C%: Lamelle Prozent Ausgang" FunctionText="{{0:-}} Lamelle Prozent setzten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_O-%TT%%CC%001" Text="%C%: Lamelle Prozent Ausgang" FunctionText="{{0:-}} Lamelle Prozent setzten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 							<!-- Beschattung Einschalten -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00201" RefId="%AID%_O-%TT%%CC%002" Text="%C%: Beschattung Einschalten" FunctionText="{{0:-}} Beschattung Einschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" RefId="%AID%_O-%TT%%CC%002" Text="%C%: Beschattung Einschalten" FunctionText="{{0:-}} Beschattung Einschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Beschattung Einschalten Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00301" RefId="%AID%_O-%TT%%CC%003" Text="%C%: Beschattung Eingeschalten" FunctionText="{{0:-}} Beschattung Eingeschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" RefId="%AID%_O-%TT%%CC%003" Text="%C%: Beschattung Eingeschalten" FunctionText="{{0:-}} Beschattung Eingeschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Beschattung Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00401" RefId="%AID%_O-%TT%%CC%004" Text="%C%: Beschattung Aktiv" FunctionText="{{0:-}} Beschattung Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" RefId="%AID%_O-%TT%%CC%004" Text="%C%: Beschattung Aktiv" FunctionText="{{0:-}} Beschattung Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Sperre Kanal -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00501" RefId="%AID%_O-%TT%%CC%005" Text="%C%: Sperre" FunctionText="{{0:-}} Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" RefId="%AID%_O-%TT%%CC%005" Text="%C%: Sperre" FunctionText="{{0:-}} Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Sperre Kanal Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00601" RefId="%AID%_O-%TT%%CC%006" Text="%C%: Sperre Aktiv" FunctionText="{{0:-}} Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_O-%TT%%CC%006" Text="%C%: Sperre Aktiv" FunctionText="{{0:-}} Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Aktiver Modus -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00701" RefId="%AID%_O-%TT%%CC%007" Text="%C%: Aktiver Modus" FunctionText="{{0:-}} Aktiver Modus" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" RefId="%AID%_O-%TT%%CC%007" Text="%C%: Aktiver Modus" FunctionText="{{0:-}} Aktiver Modus" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 
 							<!-- Modus Handbetrieb Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00801" RefId="%AID%_O-%TT%%CC%008" Text="%C%: Handbetrieb Aktiv" FunctionText="{{0:-}} Handbetrieb Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" RefId="%AID%_O-%TT%%CC%008" Text="%C%: Handbetrieb Aktiv" FunctionText="{{0:-}} Handbetrieb Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus Handbetrieb Sperre -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" Text="%C%: Handbetrieb Sperre" FunctionText="{{0:-}} Handbetrieb Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" Text="%C%: Handbetrieb Sperre" FunctionText="{{0:-}} Handbetrieb Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus Handbetrieb Sperre Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01001" RefId="%AID%_O-%TT%%CC%010" Text="%C%: Handbetrieb Sperre Aktiv" FunctionText="{{0:-}} Handbetrieb Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%010_R-%TT%%CC%01001" RefId="%AID%_O-%TT%%CC%010" Text="%C%: Handbetrieb Sperre Aktiv" FunctionText="{{0:-}} Handbetrieb Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Handbetrieb Steuerung Auf/Ab -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01101" RefId="%AID%_O-%TT%%CC%011" Text="%C%: Handbetrieb Auf/Ab" FunctionText="{{0:-}} Handbetrieb Auf/Ab" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%011_R-%TT%%CC%01101" RefId="%AID%_O-%TT%%CC%011" Text="%C%: Handbetrieb Auf/Ab" FunctionText="{{0:-}} Handbetrieb Auf/Ab" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Handbetrieb Steuerung Stopp/Schritt -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01201" RefId="%AID%_O-%TT%%CC%012" Text="%C%: Handbetrieb Stopp/Schritt" FunctionText="{{0:-}} Handbetrieb Stopp/Schritt" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%012_R-%TT%%CC%01201" RefId="%AID%_O-%TT%%CC%012" Text="%C%: Handbetrieb Stopp/Schritt" FunctionText="{{0:-}} Handbetrieb Stopp/Schritt" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Handbetrieb Steuerung Prozent -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01301" RefId="%AID%_O-%TT%%CC%013" Text="%C%: Handbetrieb Prozent" FunctionText="{{0:-}} Handbetrieb Prozent" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%013_R-%TT%%CC%01301" RefId="%AID%_O-%TT%%CC%013" Text="%C%: Handbetrieb Prozent" FunctionText="{{0:-}} Handbetrieb Prozent" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Handbetrieb Steuerung Lamelle Prozent -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01401" RefId="%AID%_O-%TT%%CC%014" Text="%C%: Handbetrieb Lamelle Prozent" FunctionText="{{0:-}} Handbetrieb Lamelle Prozent" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%014_R-%TT%%CC%01401" RefId="%AID%_O-%TT%%CC%014" Text="%C%: Handbetrieb Lamelle Prozent" FunctionText="{{0:-}} Handbetrieb Lamelle Prozent" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 							<!-- Fenster Offen Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01501" RefId="%AID%_O-%TT%%CC%015" Text="%C%: Fenster offen Aktiv" FunctionText="{{0:-}} Fenster offen Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%015_R-%TT%%CC%01501" RefId="%AID%_O-%TT%%CC%015" Text="%C%: Fenster offen Aktiv" FunctionText="{{0:-}} Fenster offen Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Fenster Offen -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01601" RefId="%AID%_O-%TT%%CC%016" Text="%C%: Fenster offen" FunctionText="{{0:-}} Fenster offen" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%016_R-%TT%%CC%01601" RefId="%AID%_O-%TT%%CC%016" Text="%C%: Fenster offen" FunctionText="{{0:-}} Fenster offen" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Fenster Offen Sperre -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01701" RefId="%AID%_O-%TT%%CC%017" Text="%C%: Fenster offen Sperre" FunctionText="{{0:-}} Fenster offen Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%017_R-%TT%%CC%01701" RefId="%AID%_O-%TT%%CC%017" Text="%C%: Fenster offen Sperre" FunctionText="{{0:-}} Fenster offen Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Fenster Offen Sperre Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01801" RefId="%AID%_O-%TT%%CC%018" Text="%C%: Fenster offen Sperre Aktive" FunctionText="{{0:-}} Fenster offen Sperre Aktive" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%018_R-%TT%%CC%01801" RefId="%AID%_O-%TT%%CC%018" Text="%C%: Fenster offen Sperre Aktive" FunctionText="{{0:-}} Fenster offen Sperre Aktive" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 							<!-- Modus Nacht Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%01901" RefId="%AID%_O-%TT%%CC%019" Text="%C%: Nachtmodus Aktiv" FunctionText="{{0:-}} Nachtmodus Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%019_R-%TT%%CC%01901" RefId="%AID%_O-%TT%%CC%019" Text="%C%: Nachtmodus Aktiv" FunctionText="{{0:-}} Nachtmodus Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus Nacht -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02001" RefId="%AID%_O-%TT%%CC%020" Text="%C%: Nachtmodus Einschalten" FunctionText="{{0:-}} Nachtmodus Einschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%020_R-%TT%%CC%02001" RefId="%AID%_O-%TT%%CC%020" Text="%C%: Nachtmodus Einschalten" FunctionText="{{0:-}} Nachtmodus Einschalten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus Nacht Sperre -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02101" RefId="%AID%_O-%TT%%CC%021" Text="%C%: Nachtmodus Sperre" FunctionText="{{0:-}} Nachtmodus Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%021_R-%TT%%CC%02101" RefId="%AID%_O-%TT%%CC%021" Text="%C%: Nachtmodus Sperre" FunctionText="{{0:-}} Nachtmodus Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus Nacht Sperre Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02201" RefId="%AID%_O-%TT%%CC%022" Text="%C%: Nachtmodus Sperre Aktiv" FunctionText="{{0:-}} Nachtmodus Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%022_R-%TT%%CC%02201" RefId="%AID%_O-%TT%%CC%022" Text="%C%: Nachtmodus Sperre Aktiv" FunctionText="{{0:-}} Nachtmodus Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 							<!-- Modus 1 Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02301" RefId="%AID%_O-%TT%%CC%023" Text="%C%: Beschattungsmodus 1 Aktiv" FunctionText="{{0:-}} Beschattungsmodus 1 Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%023_R-%TT%%CC%02301" RefId="%AID%_O-%TT%%CC%023" Text="%C%: Beschattungsmodus 1 Aktiv" FunctionText="{{0:-}} Beschattungsmodus 1 Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus 1 Sperre -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02401" RefId="%AID%_O-%TT%%CC%024" Text="%C%: Beschattungsmodus 1 Sperre" FunctionText="{{0:-}} Beschattungsmodus 1 Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%024_R-%TT%%CC%02401" RefId="%AID%_O-%TT%%CC%024" Text="%C%: Beschattungsmodus 1 Sperre" FunctionText="{{0:-}} Beschattungsmodus 1 Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus 1 Sperre Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02501" RefId="%AID%_O-%TT%%CC%025" Text="%C%: Beschattungsmodus 1 Sperre Aktiv" FunctionText="{{0:-}} Beschattungsmodus 1 Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%025_R-%TT%%CC%02501" RefId="%AID%_O-%TT%%CC%025" Text="%C%: Beschattungsmodus 1 Sperre Aktiv" FunctionText="{{0:-}} Beschattungsmodus 1 Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 							<!-- Modus 2 Aktiv -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02601" RefId="%AID%_O-%TT%%CC%026" Text="%C%: Beschattungsmodus 2 Aktiv" FunctionText="{{0:-}} Beschattungsmodus 2 Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%026_R-%TT%%CC%02601" RefId="%AID%_O-%TT%%CC%026" Text="%C%: Beschattungsmodus 2 Aktiv" FunctionText="{{0:-}} Beschattungsmodus 2 Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus 2 Sperre -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02701" RefId="%AID%_O-%TT%%CC%027" Text="%C%: Beschattungsmodus 2 Sperre" FunctionText="{{0:-}} Beschattungsmodus 2 Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%027_R-%TT%%CC%02701" RefId="%AID%_O-%TT%%CC%027" Text="%C%: Beschattungsmodus 2 Sperre" FunctionText="{{0:-}} Beschattungsmodus 2 Sperre" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 							<!-- Modus 2 Sperre Rückmeldung -->
-							<ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%02801" RefId="%AID%_O-%TT%%CC%028" Text="%C%: Beschattungsmodus 2 Sperre Aktiv" FunctionText="{{0:-}} Beschattungsmodus 2 Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+							<ComObjectRef Id="%AID%_O-%TT%%CC%028_R-%TT%%CC%02801" RefId="%AID%_O-%TT%%CC%028" Text="%C%: Beschattungsmodus 2 Sperre Aktiv" FunctionText="{{0:-}} Beschattungsmodus 2 Sperre Aktiv" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 						</ComObjectRefs>
 					</Static>
@@ -334,70 +333,70 @@
 									<ParameterBlock Id="%AID%_PB-%TT%%CC%01" Name="SHC%C%Wrapper" Inline="true">
 
 										<!-- Jalousie Prozent Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00001" />
 										<!-- Prozent Lamelle Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00101" />
 
 										<!-- Beschattung Einschalten -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00201" />
 										<!-- Beschattung Einschalten Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00301" />
 										<!-- Beschattung Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00401" />
 										<!-- Sperre Kanal -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00501" />
 										<!-- Sperre Kanal Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00601" />
 										<!-- Aktiver Modus -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00701" />
 
 
 										<!-- Modus Handbetrieb Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00801" />
 										<!-- Modus Handbetrieb Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00901" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%00901" />
 										<!-- Modus Handbetrieb Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01001" />
 										<!-- Handbetrieb Steuerung Auf/Ab -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01101" />
 										<!-- Handbetrieb Steuerung Stopp/Schritt -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01201" />
 										<!-- Handbetrieb Steuerung Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%014_R-%TT%%CC%01301" />
 										<!-- Handbetrieb Steuerung Lamelle Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%015_R-%TT%%CC%01401" />
 
 										<!-- Fenster Offen Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01501" />
 										<!-- Fenster Offen -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01601" />
 										<!-- Fenster Offen Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01701" />
 										<!-- Fenster Offen Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01801" />
 
 										<!-- Modus Nacht Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%01901" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%020_R-%TT%%CC%01901" />
 										<!-- Modus Nacht -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02001" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%021_R-%TT%%CC%02001" />
 										<!-- Modus Nacht Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02101" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%022_R-%TT%%CC%02101" />
 										<!-- Modus Nacht Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02201" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%023_R-%TT%%CC%02201" />
 
 										<!-- Modus 1 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02301" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%024_R-%TT%%CC%02301" />
 										<!-- Modus 1 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02401" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%025_R-%TT%%CC%02401" />
 										<!-- Modus 1 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02501" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%026_R-%TT%%CC%02501" />
 
 										<!-- Modus 2 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02601" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02601" />
 										<!-- Modus 2 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02701" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%028_R-%TT%%CC%02701" />
 										<!-- Modus 2 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%02801" />
+										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%029_R-%TT%%CC%02801" />
 
 
 
@@ -409,16 +408,16 @@
 										<!-- Kanal Deaktivieren -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%002_R-%TT%%CC%00201" />
 
-					  					<ParameterSeparator Id="%AID%_PS-nnn" Text="Handbetrieb" UIHint="Headline" />		
-		   								<!-- Ersten Manuellen Fahrbefehl wenn Beschattung aktiv ignorieren -->
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Handbetrieb" UIHint="Headline" />
+										<!-- Ersten Manuellen Fahrbefehl wenn Beschattung aktiv ignorieren -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
 
 
-					  					<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtmodus" UIHint="Headline" />		
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtmodus" UIHint="Headline" />
 										<!-- Nacht Modus -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%004_R-%TT%%CC%00401" />
 
-		
+
 
 										<!-- Von Uhrzeit aktiv -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%005_R-%TT%%CC%00501" />
@@ -442,7 +441,7 @@
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201" />
 
 
-					  					<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 1" UIHint="Headline" />		
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 1" UIHint="Headline" />
 										<!-- Beschattungs Modus 1 -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301" />
 
@@ -490,8 +489,8 @@
 
 										<!-- Maximale Wolken -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%030_R-%TT%%CC%03001" />
-										
-										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 2" UIHint="Headline" />	
+
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 2" UIHint="Headline" />
 
 
 
