@@ -79,9 +79,9 @@
 							<!-- Helligkeit Aktiv -->
 							<Parameter Id="%AID%_P-%TT%%CC%024" Name="Channel%C%Mode1BrightnessActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Helligkeitlimit" Value="0" />
 							<!-- Minimale Helligkeit -->
-							<Parameter Id="%AID%_P-%TT%%CC%025" Name="Channel%C%Mode1BrightnessMin" ParameterType="%AID%_PT-BrightnessLimit" Text="Minimale Hellikeit [lux] 1000x" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%025" Name="Channel%C%Mode1BrightnessMin" ParameterType="%AID%_PT-BrightnessLimit" Text="Minimale Hellikeit [lux] 1000x" Value="15" />
 							<!-- Helligkeit Hysterese-->
-							<Parameter Id="%AID%_P-%TT%%CC%026" Name="Channel%C%Mode1Hysterese" ParameterType="%AID%_PT-BrightnessHysteresis" Text="Minimale Hellikeit [lux] 1000x" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%026" Name="Channel%C%Mode1Hysterese" ParameterType="%AID%_PT-BrightnessHysteresis" Text="Hellikeit Hysteres" Value="5" />
 
 							<!-- UV-Index Aktiv -->
 							<Parameter Id="%AID%_P-%TT%%CC%027" Name="Channel%C%Mode1UVIActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="UV-Index" Value="0" />
@@ -329,7 +329,7 @@
 					<Dynamic>
 						<ChannelIndependentBlock>
 							<ParameterBlock Id="%AID%_PB-%C%1" Name="SHC%C%Page" Text="Beschattung %C%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="numeric" HelpContext="SHC-Shadow">
-								<Channel Id="%AID%_CH-SHC%CC%" Name="f%CC%IW" Number="SHC%CC%" Text="Beschattung %CC%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001">
+								<Channel Id="%AID%_CH-SHC%CC%" Name="f%CC%SHC" Number="SHC%CC%" Text="Beschattung %CC%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001">
 									<ParameterBlock Id="%AID%_PB-%TT%%CC%01" Name="SHC%C%Wrapper" Inline="true">
 
 										<!-- Jalousie Prozent Ausgang -->
