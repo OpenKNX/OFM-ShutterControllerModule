@@ -71,6 +71,9 @@
 						<ParameterRefs>
 						</ParameterRefs>
 						<ComObjectTable>
+							<!-- Beschattung täglich aktivieren -->
+							<ComObject Number="0" Id="%AID%_O-%TT%00000" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="ShadowControlDailyActivation" Text="Beschattung täglich aktivieren" FunctionText="Beschattung täglich aktivieren" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
+						
 						</ComObjectTable>
 						<ComObjectRefs>
 					
