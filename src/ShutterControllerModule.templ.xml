@@ -30,9 +30,9 @@
 							<Parameter Id="%AID%_P-%TT%%CC%006" Name="Channel%C%NightModeFromTime" ParameterType="%AID%_PT-ActivationTime" Text="Ab" Value="1320" />
 
 							<!-- Minuten vor/nach Sonnenuntergang aktiv -->
-							<Parameter Id="%AID%_P-%TT%%CC%007" Name="Channel%C%NightModeSunSet" ParameterType="%AID%_PT-%AID%_PT-SunRiseSet" Text="Sonnenuntergang" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%007" Name="Channel%C%NightModeSunSet" ParameterType="%AID%_PT-SunRiseSet" Text="Sonnenuntergang" Value="0" />
 							<!-- Minuten nach Sonnenuntergang -->
-							<Parameter Id="%AID%_P-%TT%%CC%008" Name="Channel%C%NightModeSunSetMinutesOffset" ParameterType="%AID%_PT-%AID%_PT-MinutesBeforeAfterSunSetRise" Text="Minuten" Value="30" />
+							<Parameter Id="%AID%_P-%TT%%CC%008" Name="Channel%C%NightModeSunSetMinutesOffset" ParameterType="%AID%_PT-MinutesBeforeAfterSunSetRise" Text="Minuten" Value="30" />
 
 
 							<!-- Von Uhrzeit aktiv -->
@@ -41,9 +41,9 @@
 							<Parameter Id="%AID%_P-%TT%%CC%010" Name="Channel%C%NightModeToTime" ParameterType="%AID%_PT-ActivationTime" Text="Bis" Value="420" />
 
 							<!-- Minuten vor/nach Sonnenaufgang aktiv -->
-							<Parameter Id="%AID%_P-%TT%%CC%011" Name="Channel%C%NightModeSunRise" ParameterType="%AID%_PT-%AID%_PT-SunRiseSet" Text="Sonnenaufgang" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%011" Name="Channel%C%NightModeSunRise" ParameterType="%AID%_PT-SunRiseSet" Text="Sonnenaufgang" Value="0" />
 							<!-- Minuten nach Sonnenaufgang -->
-							<Parameter Id="%AID%_P-%TT%%CC%012" Name="Channel%C%NightModeSunRiseMinutesOffset" ParameterType="%AID%_PT-%AID%_PT-MinutesBeforeAfterSunSetRise" Text="Minuten" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%012" Name="Channel%C%NightModeSunRiseMinutesOffset" ParameterType="%AID%_PT-MinutesBeforeAfterSunSetRise" Text="Minuten" Value="0" />
 
 
 							<!-- Beschattungs Modus 1 -->
@@ -73,7 +73,7 @@
 							<!-- Temperaturprognose Aktiv -->
 							<Parameter Id="%AID%_P-%TT%%CC%022" Name="Channel%C%Mode1TemperatureForecast" ParameterType="%AID%_PT-OnOffYesNo" Text="Temperaturprognose" Value="0" />
 							<!-- Minimum Temperatur -->
-							<Parameter Id="%AID%_P-%TT%%CC%023" Name="Channel%C%Mode1TemperatureForecastMin" ParameterType="%AID%_PT-TemperaturForecastLimit" Text="TemperaturLimit" Value="18" />
+							<Parameter Id="%AID%_P-%TT%%CC%023" Name="Channel%C%Mode1TemperatureForecastMin" ParameterType="%AID%_PT-TemperaturLimit" Text="TemperaturLimit" Value="18" />
 
 
 							<!-- Helligkeit Aktiv -->
@@ -92,7 +92,7 @@
 							<Parameter Id="%AID%_P-%TT%%CC%029" Name="Channel%C%Mode1RainActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Bei Regen nicht beschatten" Value="1" />
 
 							<!-- Maximale Wolken -->
-							<Parameter Id="%AID%_P-%TT%%CC%030" Name="Channel%C%Mode1Clouds" ParameterType="%AID%_PT-MaxCloudLimit" Text="Maximale Bewölkung" Value="2" />
+							<Parameter Id="%AID%_P-%TT%%CC%030" Name="Channel%C%Mode1Clouds" ParameterType="%AID%_PT-MaxCloudLimit" Text="Maximale Bewölkung" Value="101" />
 
 
 						</Parameters>

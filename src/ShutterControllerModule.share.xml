@@ -71,40 +71,9 @@
 						<ParameterRefs>
 						</ParameterRefs>
 						<ComObjectTable>
-							<!-- Beschattung täglich aktivieren -->
-							<ComObject Number="0" Id="%AID%_O-%TT%00000" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="ShadowControlDailyActivation" Text="Beschattung täglich aktivieren" FunctionText="Beschattung täglich aktivieren" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Beschattung täglich aktivieren Status-->
-							<ComObject Number="1" Id="%AID%_O-%TT%00001" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="ShadowControlDailyActivationStatus" Text="Beschattung täglich aktivieren Status" FunctionText="Beschattung täglich aktivieren Status" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Temperatur Eingang -->
-							<ComObject Number="2" Id="%AID%_O-%TT%00002" ObjectSize="2 Bytes" DatapointType="DPST-9-1" Name="TemperatureInput" Text="Temperatur Eingang" FunctionText="Temperatur Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Temperatur Progonse Eingang -->
-							<ComObject Number="3" Id="%AID%_O-%TT%00003" ObjectSize="2 Bytes" DatapointType="DPST-9-1" Name="TemperatureForecastInput" Text="Temperaturprognose Eingang" FunctionText="Temperaturprognose Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Helligkeit Eingang -->
-							<ComObject Number="4" Id="%AID%_O-%TT%00004" ObjectSize="2 Bytes" DatapointType="DPST-9-4" Name="BrightnessInput" Text="Helligkeit Eingang" FunctionText="Helligkeit Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- UVI Eingang -->
-							<ComObject Number="5" Id="%AID%_O-%TT%00005" ObjectSize="1 Byte" DatapointType="DPST-5-5" Name="UVIInput" Text="UVI Eingang" FunctionText="UVI Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Regen Eingang -->
-							<ComObject Number="6" Id="%AID%_O-%TT%00006" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="RainInput" Text="Regen Eingang" FunctionText="Regen Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
-							<!-- Wolken Eingang -->
-							<ComObject Number="7" Id="%AID%_O-%TT%00007" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CloudsInput" Text="Wolken Eingang" FunctionText="Wolken Eingang" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Priority="Low" />
 						</ComObjectTable>
 						<ComObjectRefs>
-							<!-- Beschattung täglich aktivieren -->
-							<ComObjectRef Id="%AID%_O-%TT%00000_R-%TT%0000001" RefId="%AID%_O-%TT%00000" />
-							<!-- Beschattung täglich aktivieren Status -->
-							<ComObjectRef Id="%AID%_O-%TT%00001_R-%TT%0000101" RefId="%AID%_O-%TT%00001" />
-							<!-- Temperatur Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00002_R-%TT%0000201" RefId="%AID%_O-%TT%00002" />
-							<!-- Temperatur Progonse Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00003_R-%TT%0000301" RefId="%AID%_O-%TT%00003" />
-							<!-- Helligkeit Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00004_R-%TT%0000401" RefId="%AID%_O-%TT%00004" />
-							<!-- UVI Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00005_R-%TT%0000501" RefId="%AID%_O-%TT%00005" />
-							<!-- Regen Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00006_R-%TT%0000601" RefId="%AID%_O-%TT%00006" />
-							<!-- Wolken Eingang -->
-							<ComObjectRef Id="%AID%_O-%TT%00007_R-%TT%0000701" RefId="%AID%_O-%TT%00007" />
+					
 						</ComObjectRefs>
 					</Static>
 					<Dynamic>
@@ -112,23 +81,7 @@
 							<ParameterBlock Id="%AID%_PB-nnn" Name="ShutterControllerSettings" Text="Jalousiensteuerung" Icon="cog" HelpContext="SHC-ShutterControllerModuleSettings">
 							</ParameterBlock>
 							
-							<!-- Beschattung täglich aktivieren -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00000_R-%TT%0000001" />
-							<!-- Beschattung täglich aktivieren Status -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00001_R-%TT%0000101" />
-							<!-- Temperatur Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00002_R-%TT%0000201" />
-							<!-- Temperatur Progonse Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00003_R-%TT%0000301" />
-							<!-- Helligkeit Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00004_R-%TT%0000401" />
-							<!-- UVI Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00005_R-%TT%0000501" />
-							<!-- Regen Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00006_R-%TT%0000601" />
-							<!-- Wolken Eingang -->
-							<ComObjectRefRef RefId="%AID%_O-%TT%00007_R-%TT%0000701" />
-
+						
 							<op:include href="ShutterControllerModule.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="SHC" IsInner="true" />
 						</Channel>
 					</Dynamic>
