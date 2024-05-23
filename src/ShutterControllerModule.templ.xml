@@ -17,8 +17,8 @@
 							<Parameter Id="%AID%_P-%TT%%CC%002" Name="Channel%C%Deactivated" ParameterType="%AID%_PT-OnOffYesNo" Text="Kanal Deaktivieren" Value="0" />
 
 
-							<!-- Ersten Manuellen Fahrbefehl wenn Beschattung aktiv ignorieren -->
-							<Parameter Id="%AID%_P-%TT%%CC%003" Name="Channel%C%IgnoreFirstManualCommandIfShadowActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Ersten Manuellen Fahrbefehl nach Beschattungsstart ignorieren" Value="0" />
+							<!-- Ersten Manuellen Fahrbefehl startet Beschattung wenn erlaubt -->
+							<Parameter Id="%AID%_P-%TT%%CC%003" Name="Channel%C%IgnoreFirstManualCommandIfShadowActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Erster manueller Fahrbefehl startet Beschattung wenn diese zulässig ist" Value="0" />
 
 							<!-- Nacht Modus -->
 							<Parameter Id="%AID%_P-%TT%%CC%004" Name="Channel%C%NightModeActiv" ParameterType="%AID%_PT-OnOffYesNo" Text="Nachtmodus" Value="0" />
@@ -94,6 +94,26 @@
 							<!-- Maximale Wolken -->
 							<Parameter Id="%AID%_P-%TT%%CC%030" Name="Channel%C%Mode1Clouds" ParameterType="%AID%_PT-MaxCloudLimit" Text="Maximale Bewölkung" Value="101" />
 
+							<!-- Beschattungsmodus nur starten wenn % Manuell kleiner gleich -->
+							<Parameter Id="%AID%_P-%TT%%CC%031" Name="Channel%C%Mode1ActivationOnlyIfLessThan" ParameterType="%AID%_PT-Percent" Text="Beschattungsmodus nur starten aktuelle Position kleiner gleich" Value="0" />
+
+							<!-- Beschattungsposition -->
+							<Parameter Id="%AID%_P-%TT%%CC%032" Name="Channel%C%Mode1ShadowPosition" ParameterType="%AID%_PT-Percent" Text="Beschattungsposition" Value="100" />
+
+							<!-- Lammellenposition -->
+							<Parameter Id="%AID%_P-%TT%%CC%033" Name="Channel%C%SlatShadowPosition" ParameterType="%AID%_PT-Percent" Text="Lamellenstellung" Value="50" />
+
+							<!-- OffsetLamellenposition -->
+							<Parameter Id="%AID%_P-%TT%%CC%034" Name="Channel%C%SlatPositionIfElevationLessThan" ParameterType="%AID%_PT-SlatPositionIfElevationLessThan" Text="Nachführung wenn Höhenwinkel kleiner" Value="45" />
+
+							<!-- Mindeständerung Lamellennachführung -->
+							<Parameter Id="%AID%_P-%TT%%CC%035" Name="Channel%C%MinChangeForSlatAdaption" ParameterType="%AID%_PT-MinChangeForSlatAdaption" Text="Mindeständerung Lamellennachführung" Value="10" />
+
+							<!-- OffsetLamellenposition -->
+							<Parameter Id="%AID%_P-%TT%%CC%036" Name="Channel%C%OffsetSlatPosition" ParameterType="%AID%_PT-OffsetSlatPosition" Text="Offset Lamellenstellung °" Value="0" />
+
+							<!-- Nach Beschattung -->
+							<Parameter Id="%AID%_P-%TT%%CC%037" Name="Channel%C%AfterShadow" ParameterType="%AID%_PT-AfterShadow" Text="Nach Beschattung" Value="1" />
 
 						</Parameters>
 						<ParameterRefs>
@@ -184,13 +204,34 @@
 							<ParameterRef Id="%AID%_P-%TT%%CC%030_R-%TT%%CC%03001" RefId="%AID%_P-%TT%%CC%030" />
 
 
+							<!-- Beschattungsmodus nur starten wenn % Manuell kleiner gleich -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%031_R-%TT%%CC%03101" RefId="%AID%_P-%TT%%CC%031" />
+
+							<!-- Beschattungsposition -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%032_R-%TT%%CC%03201" RefId="%AID%_P-%TT%%CC%032" />
+
+							<!-- Lammellenposition -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%033_R-%TT%%CC%03301" RefId="%AID%_P-%TT%%CC%033" />
+
+							<!-- OffsetLamellenposition -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%034_R-%TT%%CC%03401" RefId="%AID%_P-%TT%%CC%034" />
+
+							<!-- Mindeständerung Lamellennachführung -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%035_R-%TT%%CC%03501" RefId="%AID%_P-%TT%%CC%035" />
+
+							<!-- OffsetLamellenposition -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%036_R-%TT%%CC%03601" RefId="%AID%_P-%TT%%CC%036" />
+
+							<!-- Nach Beschattung -->
+							<ParameterRef Id="%AID%_P-%TT%%CC%037_R-%TT%%CC%03701" RefId="%AID%_P-%TT%%CC%037" />
+
 						</ParameterRefs>
 						<ComObjectTable>
 
 							<!-- Jalousie Prozent Ausgang -->
 							<ComObject Id="%AID%_O-%TT%%CC%000" Number="%K0%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ShutterPercentOutput" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
 							<!-- Prozent Lamelle Ausgang -->
-							<ComObject Id="%AID%_O-%TT%%CC%001" Number="%K1%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ShutterLamellaOutput" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="%AID%_O-%TT%%CC%001" Number="%K1%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ShutterSlatOutput" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
 
 							<!-- Beschattung Einschalten -->
 							<ComObject Id="%AID%_O-%TT%%CC%002" Number="%K2%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%ShadowControl" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
@@ -219,7 +260,7 @@
 							<!-- Handbetrieb Steuerung Prozent -->
 							<ComObject Id="%AID%_O-%TT%%CC%013" Number="%K13%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ManualPercent" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
 							<!-- Handbetrieb Steuerung Lamelle Prozent -->
-							<ComObject Id="%AID%_O-%TT%%CC%014" Number="%K14%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ManualLamellaPercent" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+							<ComObject Id="%AID%_O-%TT%%CC%014" Number="%K14%" ObjectSize="1 Byte" DatapointType="DPST-5-1" Name="CH%C%ManualSlatPercent" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
 
 							<!-- Fenster Offen Aktiv -->
 							<ComObject Id="%AID%_O-%TT%%CC%015" Number="%K15%" ObjectSize="1 Bit" DatapointType="DPST-1-1" Name="CH%C%WindowOpenModeActive" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -408,11 +449,6 @@
 										<!-- Kanal Deaktivieren -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%002_R-%TT%%CC%00201" />
 
-										<ParameterSeparator Id="%AID%_PS-nnn" Text="Handbetrieb" UIHint="Headline" />
-										<!-- Ersten Manuellen Fahrbefehl wenn Beschattung aktiv ignorieren -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
-
-
 										<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtmodus" UIHint="Headline" />
 										<!-- Nacht Modus -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%004_R-%TT%%CC%00401" />
@@ -490,9 +526,32 @@
 										<!-- Maximale Wolken -->
 										<ParameterRefRef RefId="%AID%_P-%TT%%CC%030_R-%TT%%CC%03001" />
 
+										<!-- Beschattungsmodus nur starten wenn % Manuell kleiner gleich -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%031_R-%TT%%CC%03101" />
+
+										<!-- Ersten Manuellen Fahrbefehl startet Beschattung wenn zulässig -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
+
+
+										<!-- Beschattungsposition -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%032_R-%TT%%CC%03201" />
+
+										<!-- Lammellenposition -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%033_R-%TT%%CC%03301" />
+
+										<!-- OffsetLamellenposition -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%034_R-%TT%%CC%03401" />
+
+										<!-- Mindeständerung Lamellennachführung -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%035_R-%TT%%CC%03501" />
+
+										<!-- OffsetLamellenposition -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%036_R-%TT%%CC%03601" />
+
+										<!-- Nach Beschattung -->
+										<ParameterRefRef RefId="%AID%_P-%TT%%CC%037_R-%TT%%CC%03701" />
+
 										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 2" UIHint="Headline" />
-
-
 
 									</ParameterBlock>
 								</Channel>

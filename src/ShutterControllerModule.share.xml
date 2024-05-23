@@ -15,22 +15,22 @@
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-Azimut" Name="Azimut">
-          						<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="20" maxInclusive="340" />
+								<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="20" maxInclusive="340" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-Elevation" Name="Elevation">
-          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="2" maxInclusive="90" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="2" maxInclusive="90" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-TemperaturLimit" Name="TemperaturLimit">
-          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="40" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="40" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-BrightnessLimit" Name="BrightnessLimit">
-          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="50" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="50" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-BrightnessHysteresis" Name="BrightnessHysteresis">
-          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="20" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="20" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-UVIndex" Name="UVI">
-          						 <TypeFloat Encoding="IEEE-754 Single" minInclusive="0.1" maxInclusive="11" />
+								<TypeFloat Encoding="IEEE-754 Single" minInclusive="0.1" maxInclusive="11" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-MaxCloudLimit" Name="MaxCloudLimit">
 								<TypeRestriction Base="Value" SizeInBit="8">
@@ -49,6 +49,101 @@
 									<Enumeration Text="100%" Value="100" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatPositionIfElevationLessThan" Name="SlatPositionIfElevationLessThan">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
+									<Enumeration Text="1%" Value="1" Id="%ENID%" />
+									<Enumeration Text="2%" Value="2" Id="%ENID%" />
+									<Enumeration Text="3%" Value="3" Id="%ENID%" />
+									<Enumeration Text="4%" Value="4" Id="%ENID%" />
+									<Enumeration Text="5%" Value="5" Id="%ENID%" />
+									<Enumeration Text="6%" Value="6" Id="%ENID%" />
+									<Enumeration Text="7%" Value="7" Id="%ENID%" />
+									<Enumeration Text="8%" Value="8" Id="%ENID%" />
+									<Enumeration Text="9%" Value="9" Id="%ENID%" />
+									<Enumeration Text="10%" Value="10" Id="%ENID%" />
+									<Enumeration Text="11%" Value="11" Id="%ENID%" />
+									<Enumeration Text="12%" Value="12" Id="%ENID%" />
+									<Enumeration Text="13%" Value="13" Id="%ENID%" />
+									<Enumeration Text="14%" Value="14" Id="%ENID%" />
+									<Enumeration Text="15%" Value="15" Id="%ENID%" />
+									<Enumeration Text="16%" Value="16" Id="%ENID%" />
+									<Enumeration Text="17%" Value="17" Id="%ENID%" />
+									<Enumeration Text="18%" Value="18" Id="%ENID%" />
+									<Enumeration Text="19%" Value="19" Id="%ENID%" />
+									<Enumeration Text="20%" Value="20" Id="%ENID%" />
+									<Enumeration Text="21%" Value="21" Id="%ENID%" />
+									<Enumeration Text="22%" Value="22" Id="%ENID%" />
+									<Enumeration Text="23%" Value="23" Id="%ENID%" />
+									<Enumeration Text="24%" Value="24" Id="%ENID%" />
+									<Enumeration Text="25%" Value="25" Id="%ENID%" />
+									<Enumeration Text="26%" Value="26" Id="%ENID%" />
+									<Enumeration Text="27%" Value="27" Id="%ENID%" />
+									<Enumeration Text="28%" Value="28" Id="%ENID%" />
+									<Enumeration Text="29%" Value="29" Id="%ENID%" />
+									<Enumeration Text="30%" Value="30" Id="%ENID%" />
+									<Enumeration Text="31%" Value="31" Id="%ENID%" />
+									<Enumeration Text="32%" Value="32" Id="%ENID%" />
+									<Enumeration Text="33%" Value="33" Id="%ENID%" />
+									<Enumeration Text="34%" Value="34" Id="%ENID%" />
+									<Enumeration Text="35%" Value="35" Id="%ENID%" />
+									<Enumeration Text="36%" Value="36" Id="%ENID%" />
+									<Enumeration Text="37%" Value="37" Id="%ENID%" />
+									<Enumeration Text="38%" Value="38" Id="%ENID%" />
+									<Enumeration Text="39%" Value="39" Id="%ENID%" />
+									<Enumeration Text="40%" Value="40" Id="%ENID%" />
+									<Enumeration Text="41%" Value="41" Id="%ENID%" />
+									<Enumeration Text="42%" Value="42" Id="%ENID%" />
+									<Enumeration Text="43%" Value="43" Id="%ENID%" />
+									<Enumeration Text="44%" Value="44" Id="%ENID%" />
+									<Enumeration Text="45%" Value="45" Id="%ENID%" />
+									<Enumeration Text="46%" Value="46" Id="%ENID%" />
+									<Enumeration Text="47%" Value="47" Id="%ENID%" />
+									<Enumeration Text="48%" Value="48" Id="%ENID%" />
+									<Enumeration Text="49%" Value="49" Id="%ENID%" />
+									<Enumeration Text="50%" Value="50" Id="%ENID%" />
+									<Enumeration Text="51%" Value="51" Id="%ENID%" />
+									<Enumeration Text="52%" Value="52" Id="%ENID%" />
+									<Enumeration Text="53%" Value="53" Id="%ENID%" />
+									<Enumeration Text="54%" Value="54" Id="%ENID%" />
+									<Enumeration Text="55%" Value="55" Id="%ENID%" />
+									<Enumeration Text="56%" Value="56" Id="%ENID%" />
+									<Enumeration Text="57%" Value="57" Id="%ENID%" />
+									<Enumeration Text="58%" Value="58" Id="%ENID%" />
+									<Enumeration Text="59%" Value="59" Id="%ENID%" />
+									<Enumeration Text="60%" Value="60" Id="%ENID%" />
+									<Enumeration Text="61%" Value="61" Id="%ENID%" />
+									<Enumeration Text="62%" Value="62" Id="%ENID%" />
+									<Enumeration Text="63%" Value="63" Id="%ENID%" />
+									<Enumeration Text="64%" Value="64" Id="%ENID%" />
+									<Enumeration Text="65%" Value="65" Id="%ENID%" />
+									<Enumeration Text="66%" Value="66" Id="%ENID%" />
+									<Enumeration Text="67%" Value="67" Id="%ENID%" />
+									<Enumeration Text="68%" Value="68" Id="%ENID%" />
+									<Enumeration Text="69%" Value="69" Id="%ENID%" />
+									<Enumeration Text="70%" Value="70" Id="%ENID%" />
+									<Enumeration Text="71%" Value="71" Id="%ENID%" />
+									<Enumeration Text="72%" Value="72" Id="%ENID%" />
+									<Enumeration Text="73%" Value="73" Id="%ENID%" />
+									<Enumeration Text="74%" Value="74" Id="%ENID%" />
+									<Enumeration Text="75%" Value="75" Id="%ENID%" />
+									<Enumeration Text="76%" Value="76" Id="%ENID%" />
+									<Enumeration Text="77%" Value="77" Id="%ENID%" />
+									<Enumeration Text="78%" Value="78" Id="%ENID%" />
+									<Enumeration Text="79%" Value="79" Id="%ENID%" />
+									<Enumeration Text="80%" Value="80" Id="%ENID%" />
+									<Enumeration Text="81%" Value="81" Id="%ENID%" />
+									<Enumeration Text="82%" Value="82" Id="%ENID%" />
+									<Enumeration Text="83%" Value="83" Id="%ENID%" />
+									<Enumeration Text="84%" Value="84" Id="%ENID%" />
+									<Enumeration Text="85%" Value="85" Id="%ENID%" />
+									<Enumeration Text="86%" Value="86" Id="%ENID%" />
+									<Enumeration Text="87%" Value="87" Id="%ENID%" />
+									<Enumeration Text="88%" Value="88" Id="%ENID%" />
+									<Enumeration Text="89%" Value="89" Id="%ENID%" />
+									<Enumeration Text="90%" Value="90" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
 							<ParameterType Id="%AID%_PT-SunRiseSet" Name="SunRiseSet">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
@@ -57,15 +152,47 @@
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-ActivationTime" Name="ActivationTime">
-								<TypeTime  SizeInBit="16" Unit="Minutes" minInclusive="0" maxInclusive="1440" UIHint="Time_mmss" />
+								<TypeTime SizeInBit="16" Unit="Minutes" minInclusive="0" maxInclusive="1440" UIHint="Time_mmss" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-MinutesBeforeAfterSunSetRise" Name="MinutesBeforeAfterSunSetRise">
-          						<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="240" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="240" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-WaitTimeShadowControl" Name="WaitTimeShadowControl">
-          						<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="720" />
+								<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="0" maxInclusive="720" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-Percent" Name="Percent">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatShadowPositionMode" Name="SlatShadowPositionMode">
+								<TypeRestriction Base="Value" SizeInBit="1">
+									<Enumeration Text="Fixe Prozentangabe" Value="0" Id="%ENID%" />
+									<Enumeration Text="Sonnenstandabhängig" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-OffsetSlatPosition" Name="OffsetSlatPosition">
+								<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-20" maxInclusive="20" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-MinChangeForSlatAdaption" Name="MinChangeForSlatAdaption">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="5%" Value="5" Id="%ENID%" />
+									<Enumeration Text="10%" Value="10" Id="%ENID%" />
+									<Enumeration Text="15%" Value="15" Id="%ENID%" />
+									<Enumeration Text="20%" Value="20" Id="%ENID%" />
+									<Enumeration Text="25%" Value="25" Id="%ENID%" />
+									<Enumeration Text="30%" Value="30" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-AfterShadow" Name="AfterShadow">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="Keine Änderung" Value="0" Id="%ENID%" />
+									<Enumeration Text="Fährt Auf" Value="1" Id="%ENID%" />
+									<Enumeration Text="Lamelle Waagrecht" Value="2" Id="%ENID%" />
+									<Enumeration Text="Position vor Beschattungsstart" Value="3" Id="%ENID%" />
+								</TypeRestriction>
 							</ParameterType>
 						</ParameterTypes>
+
+						
 						<Parameters>
 						</Parameters>
 						<ParameterRefs>
@@ -111,8 +238,8 @@
 						<Channel Name="MainChannel%TT%" Text="Jalousiensteuerung" Number="%TT%" Id="%AID%_CH-%TT%" Icon="wave">
 							<ParameterBlock Id="%AID%_PB-nnn" Name="ShutterControllerSettings" Text="Jalousiensteuerung" Icon="cog" HelpContext="SHC-ShutterControllerModuleSettings">
 							</ParameterBlock>
-							
-							
+
+
 							<!-- Beschattung täglich aktivieren -->
 							<ComObjectRefRef RefId="%AID%_O-%TT%00000_R-%TT%0000001" />
 							<!-- Beschattung täglich aktivieren Status -->
@@ -129,7 +256,7 @@
 							<ComObjectRefRef RefId="%AID%_O-%TT%00006_R-%TT%0000601" />
 							<!-- Wolken Eingang -->
 							<ComObjectRefRef RefId="%AID%_O-%TT%00007_R-%TT%0000701" />
-							
+
 							<op:include href="ShutterControllerModule.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="SHC" IsInner="true" />
 						</Channel>
 					</Dynamic>
