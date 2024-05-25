@@ -12,7 +12,8 @@
 							<Parameter Id="%AID%_P-%TT%%CC%000" Name="Channel%C%Name" ParameterType="%AID%_PT-Text40Byte" Text="Bezeichnung" Value="" />
 
 							<!-- Kanal Aktiv -->
-							<Parameter Id="%AID%_P-%TT%%CC%001" Name="Channel%C%Active" ParameterType="%AID%_PT-ShutterType" Text="Kanalauswahl" Value="0" />
+							<Parameter Id="%AID%_P-%TT%%CC%001" Name="Channel%C%Active" ParameterType="%AID%_PT-ShutterType" Text="Kanal %C%" Value="0" />
+
 							<!-- Kanal Deaktivieren -->
 							<Parameter Id="%AID%_P-%TT%%CC%002" Name="Channel%C%Deactivated" ParameterType="%AID%_PT-OnOffYesNo" Text="Kanal Deaktivieren" Value="0" />
 
@@ -369,192 +370,231 @@
 					</Static>
 					<Dynamic>
 						<ChannelIndependentBlock>
-							<ParameterBlock Id="%AID%_PB-%C%1" Name="SHC%C%Page" Text="Beschattung %C%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="numeric" HelpContext="SHC-Shadow">
-								<Channel Id="%AID%_CH-SHC%CC%" Name="f%CC%SHC" Number="SHC%CC%" Text="Beschattung %CC%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001">
-									<ParameterBlock Id="%AID%_PB-%TT%%CC%01" Name="SHC%C%Wrapper" Inline="true">
+							<ParameterBlock Name="Global">
+								<!-- Kanal Aktiv -->
+								<ParameterRefRef RefId="%AID%_P-%TT%%CC%001_R-%TT%%CC%00101" />
 
-										<!-- Jalousie Prozent Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
-										<!-- Prozent Lamelle Ausgang -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" />
+							</ParameterBlock>
+							<ParameterBlock Name="Channel">
+							<choose ParamRefId="%AID%_P-%TT%%CC%001_R-%TT%%CC%00101">
+								<when test="&gt;0">
 
-										<!-- Beschattung Einschalten -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" />
-										<!-- Beschattung Einschalten Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
-										<!-- Beschattung Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
-										<!-- Sperre Kanal -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
-										<!-- Sperre Kanal Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
-										<!-- Aktiver Modus -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
+									<ParameterBlock Id="%AID%_PB-%C%1" Name="SHC%C%Page" Text="Kanal %C%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="blinds-horizontal" HelpContext="SHC-Shadow">
+										<Channel Id="%AID%_CH-SHC%CC%" Name="f%CC%SHC" Number="SHC%CC%" Text="Kanal %CC%: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001">
+											<ParameterBlock Id="%AID%_PB-%TT%%CC%01" Name="SHC%C%Wrapper" Text="Konfiguration" Inline="true">
 
+												<!-- Jalousie Prozent Ausgang -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
+												<!-- Prozent Lamelle Ausgang -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" />
 
-										<!-- Modus Handbetrieb Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
-										<!-- Modus Handbetrieb Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" />
-										<!-- Modus Handbetrieb Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%01001" />
-										<!-- Handbetrieb Steuerung Auf/Ab -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01101" />
-										<!-- Handbetrieb Steuerung Stopp/Schritt -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01201" />
-										<!-- Handbetrieb Steuerung Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01301" />
-										<!-- Handbetrieb Steuerung Lamelle Prozent -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%014_R-%TT%%CC%01401" />
-
-										<!-- Fenster Offen Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%015_R-%TT%%CC%01501" />
-										<!-- Fenster Offen -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01601" />
-										<!-- Fenster Offen Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01701" />
-										<!-- Fenster Offen Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01801" />
-
-										<!-- Modus Nacht Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01901" />
-										<!-- Modus Nacht -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%020_R-%TT%%CC%02001" />
-										<!-- Modus Nacht Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%021_R-%TT%%CC%02101" />
-										<!-- Modus Nacht Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%022_R-%TT%%CC%02201" />
-
-										<!-- Modus 1 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%023_R-%TT%%CC%02301" />
-										<!-- Modus 1 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%024_R-%TT%%CC%02401" />
-										<!-- Modus 1 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%025_R-%TT%%CC%02501" />
-
-										<!-- Modus 2 Aktiv -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%026_R-%TT%%CC%02601" />
-										<!-- Modus 2 Sperre -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02701" />
-										<!-- Modus 2 Sperre Rückmeldung -->
-										<ComObjectRefRef RefId="%AID%_O-%TT%%CC%028_R-%TT%%CC%02801" />
+												<!-- Beschattung Einschalten -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" />
+												<!-- Beschattung Einschalten Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
+												<!-- Beschattung Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
+												<!-- Sperre Kanal -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
+												<!-- Sperre Kanal Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
+												<!-- Aktiver Modus -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
 
 
+												<!-- Modus Handbetrieb Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
+												<!-- Modus Handbetrieb Sperre -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" />
+												<!-- Modus Handbetrieb Sperre Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%01001" />
+												<!-- Handbetrieb Steuerung Auf/Ab -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01101" />
+												<!-- Handbetrieb Steuerung Stopp/Schritt -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01201" />
+												<!-- Handbetrieb Steuerung Prozent -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01301" />
+												<!-- Handbetrieb Steuerung Lamelle Prozent -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%014_R-%TT%%CC%01401" />
 
-										<!-- Kanal Name -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+												<!-- Fenster Offen Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%015_R-%TT%%CC%01501" />
+												<!-- Fenster Offen -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01601" />
+												<!-- Fenster Offen Sperre -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01701" />
+												<!-- Fenster Offen Sperre Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01801" />
 
-										<!-- Kanal Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%001_R-%TT%%CC%00101" />
-										<!-- Kanal Deaktivieren -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%002_R-%TT%%CC%00201" />
+												<!-- Modus Nacht Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01901" />
+												<!-- Modus Nacht -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%020_R-%TT%%CC%02001" />
+												<!-- Modus Nacht Sperre -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%021_R-%TT%%CC%02101" />
+												<!-- Modus Nacht Sperre Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%022_R-%TT%%CC%02201" />
 
-										<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtmodus" UIHint="Headline" />
-										<!-- Nacht Modus -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%004_R-%TT%%CC%00401" />
+												<!-- Modus 1 Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%023_R-%TT%%CC%02301" />
+												<!-- Modus 1 Sperre -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%024_R-%TT%%CC%02401" />
+												<!-- Modus 1 Sperre Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%025_R-%TT%%CC%02501" />
+
+												<!-- Modus 2 Aktiv -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%026_R-%TT%%CC%02601" />
+												<!-- Modus 2 Sperre -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02701" />
+												<!-- Modus 2 Sperre Rückmeldung -->
+												<ComObjectRefRef RefId="%AID%_O-%TT%%CC%028_R-%TT%%CC%02801" />
 
 
 
-										<!-- Von Uhrzeit aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%005_R-%TT%%CC%00501" />
-										<!-- Von Uhrzeit -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%006_R-%TT%%CC%00601" />
+												<!-- Kanal Name -->
+												<ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
-										<!-- Minuten vor/nach Sonnenuntergang aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%007_R-%TT%%CC%00701" />
-										<!-- Minuten nach Sonnenuntergang -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%008_R-%TT%%CC%00801" />
+												<!-- Kanal Aktiv -->
+												<!-- <ParameterRefRef RefId="%AID%_P-%TT%%CC%001_R-%TT%%CC%00101" /> -->
 
+												<!-- Kanal Deaktivieren -->
+												<ParameterRefRef RefId="%AID%_P-%TT%%CC%002_R-%TT%%CC%00201" />
 
-										<!-- Von Uhrzeit aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%009_R-%TT%%CC%00901" />
-										<!-- Bis Uhrzeit -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%010_R-%TT%%CC%01001" />
+												<!-- Nacht Modus -->
+												<ParameterRefRef RefId="%AID%_P-%TT%%CC%004_R-%TT%%CC%00401" />
 
-										<!-- Minuten vor/nach Sonnenaufgang aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%011_R-%TT%%CC%01101" />
-										<!-- Minuten nach Sonnenaufgang -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201" />
+												<!-- Beschattungs Modus 1 -->
+												<ParameterRefRef RefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301" />
 
+											</ParameterBlock>
+											<choose ParamRefId="%AID%_P-%TT%%CC%004_R-%TT%%CC%00401">												<!-- Nacht Modus -->
+												<when test="1">													<!-- Nacht Modus Aktiv -->
 
-										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 1" UIHint="Headline" />
-										<!-- Beschattungs Modus 1 -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301" />
+													<ParameterBlock Id="%AID%_PB-%C%17" Name="f%CC%SHCNightMode" Text="Nachtmodus" Icon="weather-night" HelpContext="Empty">
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtmodus" UIHint="Headline" />
 
-										<!-- Wartezeit Beschattungsstart -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%014_R-%TT%%CC%01401" />
+														<!-- Von Uhrzeit aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%005_R-%TT%%CC%00501" />
+														<!-- Von Uhrzeit -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%006_R-%TT%%CC%00601" />
 
-										<!-- Wartezeit Beschattungsende -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%015_R-%TT%%CC%01501" />
-
-										<!-- Minimaler Azimut -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%016_R-%TT%%CC%01601" />
-										<!-- Maximaler Azimut -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%017_R-%TT%%CC%01701" />
-
-										<!-- Minimaler Elevation -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%018_R-%TT%%CC%01801" />
-										<!-- Maximaler Elevation -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%019_R-%TT%%CC%01901" />
-
-										<!-- Temperatur Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%020_R-%TT%%CC%02001" />
-										<!-- Minimum Temperatur -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%021_R-%TT%%CC%02101" />
-
-										<!-- Temperaturprognose Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%022_R-%TT%%CC%02201" />
-										<!-- Minimum Temperatur -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%023_R-%TT%%CC%02301" />
+														<!-- Minuten vor/nach Sonnenuntergang aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%007_R-%TT%%CC%00701" />
+														<!-- Minuten nach Sonnenuntergang -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%008_R-%TT%%CC%00801" />
 
 
-										<!-- Helligkeit Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%024_R-%TT%%CC%02401" />
-										<!-- Minimale Helligkeit -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%025_R-%TT%%CC%02501" />
-										<!-- Helligkeit Hysterese-->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%026_R-%TT%%CC%02601" />
+														<!-- Von Uhrzeit aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%009_R-%TT%%CC%00901" />
+														<!-- Bis Uhrzeit -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%010_R-%TT%%CC%01001" />
 
-										<!-- UV-Index Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%027_R-%TT%%CC%02701" />
-										<!-- Minimale UV-Index -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%028_R-%TT%%CC%02801" />
+														<!-- Minuten vor/nach Sonnenaufgang aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%011_R-%TT%%CC%01101" />
+														<!-- Minuten nach Sonnenaufgang -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201" />
 
-										<!-- Regen Aktiv -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%029_R-%TT%%CC%02901" />
+													</ParameterBlock>
+												</when>
+											</choose>
+											<choose ParamRefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301">												<!-- Beschattungs Modus 1 -->
+												<when test="1">													<!-- Beschattungs Modus 1 Aktiv -->
 
-										<!-- Maximale Wolken -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%030_R-%TT%%CC%03001" />
+													<ParameterBlock Id="%AID%_PB-%C%17" Name="f%CC%SHCShadowMode1" Text="Beschattung Modus 1" Icon="sun-angle-outline" HelpContext="Empty">
 
-										<!-- Beschattungsmodus nur starten wenn % Manuell kleiner gleich -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%031_R-%TT%%CC%03101" />
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Wartezeiten" UIHint="Headline" />
 
-										<!-- Ersten Manuellen Fahrbefehl startet Beschattung wenn zulässig -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
+														<!-- Wartezeit Beschattungsstart -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%014_R-%TT%%CC%01401" />
+
+														<!-- Wartezeit Beschattungsende -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%015_R-%TT%%CC%01501" />
+
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Sonnenstand" UIHint="Headline" />
+
+														<!-- Minimaler Azimut -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%016_R-%TT%%CC%01601" />
+														<!-- Maximaler Azimut -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%017_R-%TT%%CC%01701" />
+
+														<!-- Minimaler Elevation -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%018_R-%TT%%CC%01801" />
+														<!-- Maximaler Elevation -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%019_R-%TT%%CC%01901" />
+
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Temperaturgrenzen" UIHint="Headline" />
+
+														<!-- Temperatur Aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%020_R-%TT%%CC%02001" />
+														<!-- Minimum Temperatur -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%021_R-%TT%%CC%02101" />
+
+														<!-- Temperaturprognose Aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%022_R-%TT%%CC%02201" />
+														<!-- Minimum Temperatur -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%023_R-%TT%%CC%02301" />
+
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Helligkeitsgrenzen" UIHint="Headline" />
+
+														<!-- Helligkeit Aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%024_R-%TT%%CC%02401" />
+														<!-- Minimale Helligkeit -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%025_R-%TT%%CC%02501" />
+														<!-- Helligkeit Hysterese-->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%026_R-%TT%%CC%02601" />
+
+														<!-- UV-Index Aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%027_R-%TT%%CC%02701" />
+														<!-- Minimale UV-Index -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%028_R-%TT%%CC%02801" />
 
 
-										<!-- Beschattungsposition -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%032_R-%TT%%CC%03201" />
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Wetter" UIHint="Headline" />
 
-										<!-- Lammellenposition -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%033_R-%TT%%CC%03301" />
+														<!-- Regen Aktiv -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%029_R-%TT%%CC%02901" />
 
-										<!-- OffsetLamellenposition -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%034_R-%TT%%CC%03401" />
+														<!-- Maximale Wolken -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%030_R-%TT%%CC%03001" />
 
-										<!-- Mindeständerung Lamellennachführung -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%035_R-%TT%%CC%03501" />
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattungssteuerung" UIHint="Headline" />
 
-										<!-- OffsetLamellenposition -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%036_R-%TT%%CC%03601" />
+														<!-- Beschattungsmodus nur starten wenn % Manuell kleiner gleich -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%031_R-%TT%%CC%03101" />
 
-										<!-- Nach Beschattung -->
-										<ParameterRefRef RefId="%AID%_P-%TT%%CC%037_R-%TT%%CC%03701" />
+														<!-- Ersten Manuellen Fahrbefehl startet Beschattung wenn zulässig -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
 
-										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 2" UIHint="Headline" />
+														<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattungsparameter" UIHint="Headline" />
 
+														<!-- Beschattungsposition -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%032_R-%TT%%CC%03201" />
+
+														<!-- Lammellenposition -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%033_R-%TT%%CC%03301" />
+
+														<!-- OffsetLamellenposition -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%034_R-%TT%%CC%03401" />
+
+														<!-- Mindeständerung Lamellennachführung -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%035_R-%TT%%CC%03501" />
+
+														<!-- OffsetLamellenposition -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%036_R-%TT%%CC%03601" />
+
+														<!-- Nach Beschattung -->
+														<ParameterRefRef RefId="%AID%_P-%TT%%CC%037_R-%TT%%CC%03701" />
+													</ParameterBlock>
+												</when>
+											</choose>
+											<!-- 
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattung Modus 2" UIHint="Headline" /> -->
+
+
+										</Channel>
 									</ParameterBlock>
-								</Channel>
+								</when>
+							</choose>
 							</ParameterBlock>
 						</ChannelIndependentBlock>
 					</Dynamic>

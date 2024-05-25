@@ -7,6 +7,10 @@
 				<ApplicationProgram>
 					<Static>
 						<ParameterTypes>
+						    <!-- Number of channels (module specific) -->
+             				<ParameterType Id="%AID%_PT-SHCNumChannels" Name="SHCNumChannels">
+                				<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="%N%" />
+              				</ParameterType>
 							<ParameterType Id="%AID%_PT-ShutterType" Name="ShutterType">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<Enumeration Text="Kanal deaktiviert" Value="0" Id="%ENID%" />
@@ -194,8 +198,12 @@
 
 						
 						<Parameters>
+							<!-- Anzahl der Kanäle -->
+							<Parameter Id="%AID%_P-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-SHCNumChannels" Text="Verfügbare Kanäle" Value="%N%" SuffixText=" von %N%" />
 						</Parameters>
 						<ParameterRefs>
+							<!-- Anzahl der Kanäle -->
+							<ParameterRef Id="%AID%_P-%TT%00000_R-%TT%0000001" RefId="%AID%_P-%TT%00000" />
 						</ParameterRefs>
 						<ComObjectTable>
 							<!-- Beschattung täglich aktivieren -->
@@ -235,9 +243,17 @@
 						</ComObjectRefs>
 					</Static>
 					<Dynamic>
-						<Channel Name="MainChannel%TT%" Text="Jalousiensteuerung" Number="%TT%" Id="%AID%_CH-%TT%" Icon="wave">
-							<ParameterBlock Id="%AID%_PB-nnn" Name="ShutterControllerSettings" Text="Jalousiensteuerung" Icon="cog" HelpContext="SHC-ShutterControllerModuleSettings">
+						<Channel Name="MainChannel%TT%" Text="Jalousiensteuerung" Number="%TT%" Id="%AID%_CH-%TT%" Icon="blinds-horizontal">
+							<ParameterBlock Id="%AID%_PB-nnn" Name="ShutterControllerSettings" Text="Basiseinstellung" Icon="cog" HelpContext="SHC-ShutterControllerModuleSettings" Inline="true">
+							
+								<!-- Anzahl der Kanäle -->
+								<ParameterRefRef RefId="%AID%_P-%TT%00000_R-%TT%0000001" />
+								
+								<op:include href="ShutterControllerModule.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Global']/*" type="template" prefix="SHC" IsInner="true" />
+										
 							</ParameterBlock>
+
+							<op:include href="ShutterControllerModule.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Channel']/*" type="template" prefix="SHC" IsInner="true" />
 
 
 							<!-- Beschattung täglich aktivieren -->
@@ -257,7 +273,6 @@
 							<!-- Wolken Eingang -->
 							<ComObjectRefRef RefId="%AID%_O-%TT%00007_R-%TT%0000701" />
 
-							<op:include href="ShutterControllerModule.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="SHC" IsInner="true" />
 						</Channel>
 					</Dynamic>
 				</ApplicationProgram>
@@ -266,11 +281,9 @@
 				<Baggage TargetPath="" Name="Help_de.zip" Id="%FILE-HELP-de%">
 					<FileInfo TimeInfo="%DATETIME%" />
 				</Baggage>
-				<!--
 				<Baggage TargetPath="" Name="Icons.zip" Id="%FILE-ICONS%">
-				<FileInfo TimeInfo="%DATETIME%" />
+					<FileInfo TimeInfo="%DATETIME%" />
 				</Baggage>
-				-->
 			</Baggages>
 		</Manufacturer>
 	</ManufacturerData>
