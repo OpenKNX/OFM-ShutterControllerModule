@@ -711,12 +711,26 @@ void ShutterControllerChannel::execute(CallContext &callContext)
             KoSHC_CShading2LockActive.value(DPT_Switch) ||
             KoSHC_CShading2BreakLockActive.value(DPT_Switch);
     }
+    bool shadingPositionAllowed = false;
+    for (auto mode : _modes)
+    {
+        if (mode->isModeShading())
+        {
+            auto modeShading = (ModeShading *)mode;
+            if (modeShading->isPositionAllowed(callContext))
+            {
+                shadingPositionAllowed = true;
+                break;
+            }
+        }
+    }
     bool readinessUser = shadingControlActive() &&
         !_channelLockActive &&
         _currentWindowOpenHandler == nullptr &&
         _windowOpenState == WindowOpenStateClosed &&
         _currentMode != _modeManual &&
-        !shadingModeLockActive;
+        !shadingModeLockActive &&
+        shadingPositionAllowed;
     if (KoSHC_CShadingReadyUser.valueNoSendCompare(readinessUser, DPT_Switch))
         KoSHC_CShadingReadyUser.objectWritten();
 

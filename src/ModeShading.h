@@ -68,4 +68,6 @@ protected:
     void stop(const CallContext& callContext, const ModeBase* next, PositionController& positionController) override;
     void processInputKo(GroupObject &ko, PositionController& positionController) override;
     bool isModeShading() const override;
+public:
+    bool isPositionAllowed(const CallContext& callContext) const;
 };
