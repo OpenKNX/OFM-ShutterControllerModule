@@ -49,6 +49,18 @@
 							<Parameter Id="%AID%_P-%TT%%CC%000" Name="C%C%Name" ParameterType="%AID%_PT-Text40Byte" Text="Bezeichnung" Value="" />
 							<!-- Zusätzliches Kommunikationsobjekt ohne Sonderfunktion Auswertung -->
 							<Parameter Id="%AID%_P-%TT%%CC%042" Name="C%C%KoWithoutSpecialFunction" ParameterType="%AID%_PT-OnOffYesNo" Text="Zusätzliches Kommunikationsobjekt ohne Sonderfunktion Auswertung" Value="0" />
+<Parameter Id="%AID%_P-%TT%%CC%047" Name="C%C%LockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Kanal freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%048" Name="C%C%ModeEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status aktiver Modus freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%049" Name="C%C%ActorFeedbackEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Aktorrückmeldung freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%050" Name="C%C%ShadingOnOffEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Beschattung ein-/ausschalten freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%051" Name="C%C%ShadingActiveEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattung aktiv freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%052" Name="C%C%ShadingReadyEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattung bereit freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%053" Name="C%C%ManualSwitchEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Handbetrieb schalten freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%054" Name="C%C%ManualPositionEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Handbetrieb Position freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%055" Name="C%C%WindowOpenStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Fenster offen freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%056" Name="C%C%WindowOpenLockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Fenster offen freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%057" Name="C%C%WindowTiltStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Fenster gekippt freigeben" Value="1" />
+								<Parameter Id="%AID%_P-%TT%%CC%058" Name="C%C%WindowTiltLockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Fenster gekippt freigeben" Value="1" />
 
 							<Union SizeInBit="248">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="0" BitOffset="0" />
@@ -221,6 +233,18 @@
 
 							<!-- Zusätzliches Kommunikationsobjekt ohne Sonderfunktion Auswertung -->
 							<ParameterRef Id="%AID%_P-%TT%%CC%042_R-%TT%%CC%04201" RefId="%AID%_P-%TT%%CC%042" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%047_R-%TT%%CC%04701" RefId="%AID%_P-%TT%%CC%047" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%048_R-%TT%%CC%04801" RefId="%AID%_P-%TT%%CC%048" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%049_R-%TT%%CC%04901" RefId="%AID%_P-%TT%%CC%049" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%050_R-%TT%%CC%05001" RefId="%AID%_P-%TT%%CC%050" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%051_R-%TT%%CC%05101" RefId="%AID%_P-%TT%%CC%051" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%052_R-%TT%%CC%05201" RefId="%AID%_P-%TT%%CC%052" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%053_R-%TT%%CC%05301" RefId="%AID%_P-%TT%%CC%053" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%054_R-%TT%%CC%05401" RefId="%AID%_P-%TT%%CC%054" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%055_R-%TT%%CC%05501" RefId="%AID%_P-%TT%%CC%055" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%056_R-%TT%%CC%05601" RefId="%AID%_P-%TT%%CC%056" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%057_R-%TT%%CC%05701" RefId="%AID%_P-%TT%%CC%057" />
+							<ParameterRef Id="%AID%_P-%TT%%CC%058_R-%TT%%CC%05801" RefId="%AID%_P-%TT%%CC%058" />
 
 							<!-- Kanal Art -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_UP-%TT%%CC%001" />
@@ -572,6 +596,9 @@
 														<!-- Schritt/Stopp Ausgang -->
 														<ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
 
+													<!-- Aktorrückmeldung freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%049_R-%TT%%CC%04901">
+													<when test="1">
 														<!-- Jalousie Prozent Eingang -->
 														<ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
 
@@ -583,16 +610,28 @@
 																<ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
 															</when>
 														</choose>
+													</when>
+													</choose>
 													</ParameterBlock>
 
 													<ParameterBlock Id="%AID%_PB-nnn" Name="SHC%C%Wrapper" Text="Kanal" Inline="true" ShowInComObjectTree="true">
 													
+													<!-- Kanal sperren freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%047_R-%TT%%CC%04701">
+													<when test="1">
 														<!-- Sperre Kanal -->
 														<ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" />
 														<!-- Sperre Kanal Aktiv -->
 														<ComObjectRefRef RefId="%AID%_O-%TT%%CC%010_R-%TT%%CC%01001" />
+													</when>
+													</choose>
+													<!-- Aktiven Modus freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%048_R-%TT%%CC%04801">
+													<when test="1">
 														<!-- Aktiver Modus -->
 														<ComObjectRefRef RefId="%AID%_O-%TT%%CC%011_R-%TT%%CC%01101" />
+													</when>
+													</choose>
 													</ParameterBlock>
 
 
@@ -646,14 +685,29 @@
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="Beschattungseinstellung" UIHint="Headline" />
 															<ParameterBlock Id="%AID%_PB-nnn" Name="SHC%C%Wrapper" Text="Beschattungssteuerung" Inline="true" ShowInComObjectTree="true">
 												
+													<!-- Beschattung ein-/ausschalten freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%050_R-%TT%%CC%05001">
+													<when test="1">
 																<!-- Beschattung Einschalten -->
 																<ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
 																<!-- Beschattung Einschalten Rückmeldung -->
 																<ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
+													</when>
+													</choose>
+													<!-- Beschattung aktiv freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%051_R-%TT%%CC%05101">
+													<when test="1">
 																<!-- Beschattung Aktiv -->
 																<ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
+													</when>
+													</choose>
+													<!-- Beschattungsbereitschaft freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%052_R-%TT%%CC%05201">
+													<when test="1">
 																<!-- Status Beschattung Bereit -->
 																<ComObjectRefRef RefId="%AID%_O-%TT%%CC%027_R-%TT%%CC%02701" />
+													</when>
+													</choose>
 
 																<!-- Beschattungsunterbrechnung nach Handbetrieb -->
 																<ParameterRefRef RefId="%AID%_UP-%TT%%CC%016_R-%TT%%CC%01601" HelpContext="%DOC%" IndentLevel="1" />
@@ -762,10 +816,15 @@
 
 													<ParameterSeparator Id="%AID%_PS-nnn" Text="Handbetrieb" UIHint="Headline" />
 
+													<!-- Handbetrieb schalten freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%053_R-%TT%%CC%05301">
+													<when test="1">
 													<!-- Modus Handbetrieb Aus-/Einschalten -->
 													<ComObjectRefRef RefId="%AID%_O-%TT%%CC%012_R-%TT%%CC%01201" />
 													<!-- Modus Handbetrieb Aktiv -->
 													<ComObjectRefRef RefId="%AID%_O-%TT%%CC%013_R-%TT%%CC%01301" />
+													</when>
+													</choose>
 
 													<!-- Handbetrieb Steuerung Auf/Ab -->
 													<ComObjectRefRef RefId="%AID%_O-%TT%%CC%016_R-%TT%%CC%01601" />
@@ -780,6 +839,9 @@
 
 													<!-- Handbetrieb Steuerung Stopp/Schritt -->
 													<ComObjectRefRef RefId="%AID%_O-%TT%%CC%017_R-%TT%%CC%01701" />
+													<!-- Handbetrieb Position freigeben -->
+													<choose ParamRefId="%AID%_P-%TT%%CC%054_R-%TT%%CC%05401">
+													<when test="1">
 													<!-- Handbetrieb Steuerung Prozent -->
 													<ComObjectRefRef RefId="%AID%_O-%TT%%CC%018_R-%TT%%CC%01801" />
 
@@ -790,6 +852,8 @@
 															<!-- Handbetrieb Steuerung Lamelle Prozent -->
 															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%019_R-%TT%%CC%01901" />
 														</when>
+													</choose>
+													</when>
 													</choose>
 
 													<!-- Handbetrieb Auf/Ab Type-->
@@ -905,6 +969,10 @@
 															</choose>
 														</when>
 													</choose>
+													<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+													<ParameterSeparator Id="%AID%_PS-nnn" Text="Kommunikationsobjekte freigeben" UIHint="Headline" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%053_R-%TT%%CC%05301" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%054_R-%TT%%CC%05401" IndentLevel="1" />
 												</ParameterBlock>
 
 
@@ -1034,7 +1102,18 @@
 												<!-- ShutterControllerModule.ModeWindowOpen.xml will be included here -->
 												<op:usePart name="ModeWindowOpen" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Id='WindowOpenParameters']/*" />
 
+												<!-- Kommunikationsobjekte freigeben -->
+												<ParameterBlock Id="%AID%_PB-nnn" Name="SHC%C%KoFreigabe" Text="Kommunikationsobjekte" Inline="true" ShowInComObjectTree="true">
+													<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+													<ParameterSeparator Id="%AID%_PS-nnn" Text="Kommunikationsobjekte freigeben" UIHint="Headline" />
 
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%047_R-%TT%%CC%04701" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%048_R-%TT%%CC%04801" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%049_R-%TT%%CC%04901" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%050_R-%TT%%CC%05001" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%051_R-%TT%%CC%05101" IndentLevel="1" />
+													<ParameterRefRef RefId="%AID%_P-%TT%%CC%052_R-%TT%%CC%05201" IndentLevel="1" />
+												</ParameterBlock>
 											</when>
 										</choose>
 									</ParameterBlock>
