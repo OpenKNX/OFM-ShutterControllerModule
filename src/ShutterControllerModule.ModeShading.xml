@@ -153,6 +153,9 @@
 
 								<!-- Next Offset = 40 -->
 								<!-- Next Id: %AID%_UP-%TT%%CC%%PPP+53% -->
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+53%" Offset="31" BitOffset="5" Name="C%C%Shading%Pn%LockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Beschattungsmodus freigeben" Value="1" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+54%" Offset="31" BitOffset="6" Name="C%C%Shading%Pn%BereitschaftEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus bereit freigeben" Value="1" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+55%" Offset="31" BitOffset="7" Name="C%C%Shading%Pn%ActiveStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus freigeben" Value="1" />
 							</Union>
 
 						</Parameters>
@@ -267,6 +270,9 @@
 
 							<!-- Lamellenstellung bei max. Höhenwinkel -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+52%_R-%TT%%CC%%PPP+52%01" RefId="%AID%_UP-%TT%%CC%%PPP+52%" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+53%_R-%TT%%CC%%PPP+53%01" RefId="%AID%_UP-%TT%%CC%%PPP+53%" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+54%_R-%TT%%CC%%PPP+54%01" RefId="%AID%_UP-%TT%%CC%%PPP+54%" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+55%_R-%TT%%CC%%PPP+55%01" RefId="%AID%_UP-%TT%%CC%%PPP+55%" />
 			
 						</ParameterRefs>
 						<ComObjectTable>
@@ -334,14 +340,29 @@
 														<ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%SHCShadingModeShading%Pn%" Text="Beschattungsmodus %Pn%" Icon="sun-angle-outline" HelpContext="SHC-Beschattungsmodus"  ShowInComObjectTree="true">
 													
 
-															<!-- Modus %Pn%  Aktiv -->
-															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+0%_R-%TT%%CC%%PPP+0%01" />
-															<!-- Modus %Pn%  Bereitschaft -->
-															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+7%_R-%TT%%CC%%PPP+7%01" />
+															<!-- Sperren Beschattungsmodus freigeben -->
+															<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+53%_R-%TT%%CC%%PPP+53%01">
+															<when test="1">
 															<!-- Modus %Pn%  Sperre -->
 															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+1%_R-%TT%%CC%%PPP+1%01" />
 															<!-- Modus %Pn%  Sperre Rückmeldung -->
 															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+2%_R-%TT%%CC%%PPP+2%01" />
+															</when>
+															</choose>
+															<!-- Status Beschattungsmodus freigeben -->
+															<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+55%_R-%TT%%CC%%PPP+55%01">
+															<when test="1">
+															<!-- Modus %Pn%  Aktiv -->
+															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+0%_R-%TT%%CC%%PPP+0%01" />
+															</when>
+															</choose>
+															<!-- Status Beschattungsmodus bereit freigeben -->
+															<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+54%_R-%TT%%CC%%PPP+54%01">
+															<when test="1">
+															<!-- Modus %Pn%  Bereitschaft -->
+															<ComObjectRefRef RefId="%AID%_O-%TT%%CC%%PPP+7%_R-%TT%%CC%%PPP+7%01" />
+															</when>
+															</choose>
 
 															<!-- Beschattungsunterbrechung -->
 															<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+38%_R-%TT%%CC%%PPP+38%01">
@@ -662,7 +683,17 @@
 
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
-												
+															<ParameterSeparator Id="%AID%_PS-nnn" Text="Kommunikationsobjekte freigeben" UIHint="Headline" />
+												<!-- Sperren Beschattungsmodus freigeben -->
+												<ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%%PPP+53%_R-%TT%%CC%%PPP+53%01" />
+												<!-- Status Beschattungsmodus freigeben -->
+												<ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%%PPP+55%_R-%TT%%CC%%PPP+55%01" />
+												<!-- Status Beschattungsmodus bereit freigeben -->
+												<ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%%PPP+54%_R-%TT%%CC%%PPP+54%01" />
+
+															<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+													
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="Diagnose Objekte für Beschattungshinderunggrund" UIHint="Headline" />
 													
 															<!-- Diagnose Objekt für 'Nicht erlaubt' Grund -->
