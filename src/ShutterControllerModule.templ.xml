@@ -8,7 +8,7 @@
 
 					<op:part href="ShutterControllerModule.ModeWindowOpen.xml" name="ModeWindowOpen" instances="2">
 						<!-- Parameter Offset -->
-						<op:param name="%ParamOffset%" value="31" increment="7" />
+						<op:param name="%ParamOffset%" value="32" increment="7" />
 						<!-- KO Offset-->
 						<op:param name="%En%" value="28" increment="4" />
 						<!-- ModeWindowOpen number -->
@@ -21,7 +21,7 @@
 
 					<op:part href="ShutterControllerModule.ModeShading.xml" name="ModeShading" instances="2">
 						<!-- Parameter Offset -->
-						<op:param name="%ParamOffset%" value="45" increment="40" />
+						<op:param name="%ParamOffset%" value="46" increment="50" />
 						<!-- KO Offset-->
 						<op:param name="%En%" value="36" increment="8" />
 						<!-- ModeShading number -->
@@ -62,7 +62,7 @@
 								<Parameter Id="%AID%_P-%TT%%CC%057" Name="C%C%WindowTiltStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Fenster gekippt freigeben" Value="1" />
 								<Parameter Id="%AID%_P-%TT%%CC%058" Name="C%C%WindowTiltLockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Fenster gekippt freigeben" Value="1" />
 
-							<Union SizeInBit="248">
+							<Union SizeInBit="256">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="0" BitOffset="0" />
 
 								<!-- Kanal Type -->
@@ -214,9 +214,11 @@
 
 
 
-								<!-- Next offset: 31-->
-								<!-- Next Id: %AID%_UP-%TT%%CC%047 -->
+<!-- Fassadenneigung (für Schattenkantennachführung) -->
+										<Parameter Id="%AID%_UP-%TT%%CC%059" Offset="31" BitOffset="0" Name="C%C%FacadeInclination" ParameterType="%AID%_PT-FacadeInclination" Text="Fassadenneigung" SuffixText="°" Value="0" />
 
+										<!-- Next offset: 32-->
+										<!-- Next Id: %AID%_UP-%TT%%CC%060 -->
 
 							</Union>
 
@@ -264,6 +266,8 @@
 
 							<!-- Fensterausrichtung -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%046_R-%TT%%CC%04601" RefId="%AID%_UP-%TT%%CC%046" />
+							<!-- Fassadenneigung -->
+							<ParameterRef Id="%AID%_UP-%TT%%CC%059_R-%TT%%CC%05901" RefId="%AID%_UP-%TT%%CC%059" />
 							<!-- Von Uhrzeit -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_UP-%TT%%CC%006" />
 
@@ -674,6 +678,8 @@
 														<when test=">0">
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%046_R-%TT%%CC%04601" HelpContext="SHC-Fenster-Behangausrichtung" IndentLevel="1" />
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="Wählt den passenden Helligkeitssensor anhand des Sonnenstands aus. Zuordnung: Ost=90°, Südost=135°, Süd=180°, Südwest=225°, West=270°. Weitere Details in der Kontexthilfe." UIHint="Information" />
+															<!-- Fassadenneigung -->
+															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%059_R-%TT%%CC%05901" HelpContext="%DOC%" IndentLevel="1" />
 														</when>
 													</choose>
 

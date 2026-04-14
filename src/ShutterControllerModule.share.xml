@@ -194,11 +194,44 @@
 								<TypeNumber SizeInBit="7" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-SlatTrackingMode" Name="SlatTrackingMode">
-								<TypeRestriction Base="Value" SizeInBit="2">
+								<TypeRestriction Base="Value" SizeInBit="3">
 									<Enumeration Text="Nein" Value="0" Id="%ENID%" />
 									<Enumeration Text="Standard" Value="1" Id="%ENID%" />
-									<Enumeration Text="Benutzerdefiniert" Value="2" Id="%ENID%" />
+									<Enumeration Text="Lamellenf&#252;hrung Min/Max" Value="2" Id="%ENID%" />
+									<Enumeration Text="Lamellenf&#252;hrung Experte" Value="3" Id="%ENID%" />
+									<Enumeration Text="Schattenkantennachf&#252;hrung" Value="4" Id="%ENID%" />
+									<Enumeration Text="Schattenkanten- und Lamellenf&#252;hrung" Value="5" Id="%ENID%" />
 								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-RolloPositionMode" Name="RolloPositionMode">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="Nein" Value="0" Id="%ENID%" />
+									<Enumeration Text="Schattenkantennachf&#252;hrung" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-FacadeInclination" Name="FacadeInclination">
+								<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-90" maxInclusive="90" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatWidth" Name="SlatWidth">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="10" maxInclusive="200" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatSpacing" Name="SlatSpacing">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="10" maxInclusive="200" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatAngle" Name="SlatAngle">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="180" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-WindowHeight" Name="WindowHeight">
+								<TypeNumber SizeInBit="16" Type="unsignedInt" minInclusive="50" maxInclusive="500" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-PenetrationDepth" Name="PenetrationDepth">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="200" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-ShadowEdgeChange" Name="ShadowEdgeChange">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="50" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-WindowSillHeight" Name="WindowSillHeight">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="255" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-OffsetSlatPosition" Name="OffsetSlatPosition">
 								<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-20" maxInclusive="20" />
