@@ -29,6 +29,8 @@ enum ModeShadingNotAllowedReason : uint32_t
     ModeShadingNotAllowedReasonTemperatureForecase = 1048576,
     ModeShadingNotAllowedReasonClouds = 2097152,
     ModeShadingNotAllowedReasonUVI = 4194304,
+    ModeShadingNotAllowedReasonProfileAngleSentinel = 8388608,   // Bit 23: Profilwinkel nicht berechenbar
+    ModeShadingNotAllowedReasonFlatRoofGuard        = 16777216,  // Bit 24: Flachdach-Schutz aktiv
   
 };
 
@@ -50,9 +52,11 @@ class ModeShading : public ModeBase
     bool _needWaitTime = false;
     unsigned long _lastHeadingTimeStamp = 0;
     bool _heatingOff = true;
+    float _lastSentShadowPos = -1.0f;
     bool allowedByMeasurmentValues(const CallContext& callContext);
     bool handleMeasurmentValue(bool& allowed, bool enabled, const MeasurementSource *measurementSource, const CallContext &callContext, bool (*predicate)(const MeasurementSource *, uint8_t _channelIndex, uint8_t _index, bool previousAllowed), ModeShadingNotAllowedReason reasonBit);
     void updateDiagnosticKos();
+    float calculateProfileAngle(float elevationDeg, float azimuthDeg, uint8_t orientationEnum, float facadeInclinationDeg) const;
 public:
     ModeShading(uint8_t index);
     bool allowedBySun(const CallContext& callContext);
