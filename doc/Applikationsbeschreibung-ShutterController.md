@@ -225,8 +225,8 @@ Beispiele (vereinfachte Sicht):
 | 3x Sensor mit Azimut (O/S/W) | Dachflaeche | Max(alle 3 Sensoren) — Fallback, da kein unzugeordneter Sensor |
 | 4x Sensor mit Azimut + 1x Sensor ohne Azimut | Dachflaeche | Max(nur der Sensor ohne Azimut) |
 | 4x Sensor mit Azimut + 1x Sensor ohne Azimut | Sued | Azimut-Interpolation nur mit den 4 Azimut-Sensoren |
-| 2x Sensor ohne Azimut | Keine Himmelsrichtungsauswertung | Aggregation ueber alle Sensoren ohne Azimut |
-| 1x Sensor mit Azimut | Keine Himmelsrichtungsauswertung | Aggregation ueber alle gueltigen Sensoren |
+| 2x Sensor ohne Azimut | Keine Himmelsrichtungsauswertung | Aggregation über alle Sensoren ohne Azimut |
+| 1x Sensor mit Azimut | Keine Himmelsrichtungsauswertung | Aggregation über alle gueltigen Sensoren |
 
 <!-- DOC HelpContext="Helligkeit-Sensor-1-5" -->
 ##### Ausrichtung Sensor 1..5
@@ -800,6 +800,17 @@ Diese Angabe wird verwendet, um den passenden Helligkeitssensor fuer die Beschat
 - **Dachflaeche**: Bevorzugt Sensoren ohne Azimut-Zuordnung (z.B. Dachsensor). Die eingestellte Aggregation wird ignoriert — es gilt immer der Maximalwert. Falls keine Sensoren ohne Azimut-Zuordnung vorhanden sind, greift ein automatischer Fallback: alle Sensoren werden mit Max-Aggregation ausgewertet.
 - **Keine Himmelsrichtungsauswertung**: Azimut-basierte Sensorauswahl ist deaktiviert. Alle gueltigen Sensoren werden mit der eingestellten Aggregation (Mittelwert/Maximum) zusammengefasst.
 
+<!-- DOC HelpContext="Fassadenneigung" -->
+#### Fassadenneigung
+
+Die Neigung der Fassade in Grad, gemessen gegenüber der Senkrechten (0° = senkrechte Wand).
+
+- **0°**: Senkrechte Fassade (Standardfall)
+- **Positiver Wert**: Fassade neigt sich nach außen (z.B. überhängende Dachkante)
+- **Negativer Wert**: Fassade neigt sich nach innen (z.B. nach innen geneigte Wand)
+
+Dieser Wert wird für die Berechnung des Profilwinkels bei der **Lamellennachführung (Experte)** und der **Schattenkantennachführung** verwendet. Bei senkrechten Fenstern kann der Standardwert 0° belassen werden.
+
 <!-- DOC -->
 #### Nur starten wenn aktuelle Position kleiner gleich
 
@@ -861,6 +872,70 @@ Zwischen diesen beiden Werten wird die Lamellenstellung linear interpoliert.
 
 Hat die Jalousie sehr breite oder sehr schmale Lamellenblätter oder ist das Fenster nicht senkrecht verbaut, kann es notwendig sein zum errechnete Wert der Jalousiennachführung einen zusätzlichen Kippwinkel-Offset anzugeben.
 Der Kippwinkel-Offset kann positiv oder negativ sein um mehr oder weniger zu kippen.
+
+<!-- DOC HelpContext="Lamellenbreite" -->
+#### Lamellenbreite
+
+Die physische Breite einer einzelnen Lamelle in Millimetern (gemessen quer zur Lamellenachse).
+
+Dieser Wert wird für die geometrische Berechnung des optimalen Kippwinkels bei der **Lamellennachführung (Experte)** benötigt. Den Wert finden Sie in der technischen Dokumentation des Jalousie-Herstellers.
+
+<!-- DOC HelpContext="Lamellenabstand" -->
+#### Lamellenabstand
+
+Der Abstand zwischen zwei benachbarten Lamellenachsen in Millimetern (Achsmaß).
+
+Dieser Wert wird zusammen mit der Lamellenbreite für die geometrische Berechnung des kritischen Kippwinkels verwendet, ab dem die Lamellen den Lichtstrahl vollständig sperren. Den Wert finden Sie in der technischen Dokumentation des Jalousie-Herstellers.
+
+<!-- DOC HelpContext="Lamellenwinkel-bei-Fahrbefehl-0" -->
+#### Lamellenwinkel bei Fahrbefehl 0%
+
+Der physische Winkel der Lamellen in Grad, wenn der Aktor den Stellwert 0% empfängt.
+
+Dieser Kalibrierungswert wird benötigt, damit die berechnete optimale Lamellenstellung korrekt auf den vom Aktor erwarteten Prozentwert abgebildet wird. Verschiedene Aktoren und Montagevarianten können unterschiedliche Konventionen verwenden.
+
+<!-- DOC HelpContext="Lamellenwinkel-bei-Fahrbefehl-100" -->
+#### Lamellenwinkel bei Fahrbefehl 100%
+
+Der physische Winkel der Lamellen in Grad, wenn der Aktor den Stellwert 100% empfängt.
+
+**Hinweis:** Ein Wert kleiner als "Lamellenwinkel bei Fahrbefehl 0%" ist ausdrücklich erlaubt und notwendig für Lamellen, die umgekehrt montiert sind. Die Nachführungsformel invertiert das Mapping automatisch.
+
+<!-- DOC HelpContext="Fensterhoehe" -->
+#### Fensterhöhe
+
+Die lichte Höhe der Fensterscheibe in Zentimetern (Innenkante Blendrahmen oben bis Innenkante Blendrahmen unten bzw. Fensterbank).
+
+Dieser Wert wird für die Berechnung der optimalen Jalousie- oder Rolladenposition bei der **Schattenkantennachführung** benötigt. Zusammen mit der aktuellen Sonnenposition wird berechnet, wie weit der Behang abgesenkt sein muss, damit die Schattenkante die konfigurierte Eindringtiefe nicht überschreitet.
+
+<!-- DOC HelpContext="Max-Eindringtiefe" -->
+#### Max. Eindringtiefe
+
+Die maximale Sonneneindringtiefe im Raum in Zentimetern, gemessen ab der Fensterscheibe (Innenmaß).
+
+Wenn die Sonne tiefer als dieser Wert in den Raum eindringen würde, schließt die Jalousie oder der Rollladen weiter, bis die Schattenkante genau auf der konfigurierten Tiefe liegt. Bei sehr flachem Sonnenstand (Schattenkante wäre jenseits der Fenstertiefe) wird der Behang vollständig geschlossen.
+
+<!-- DOC HelpContext="Mindestverschiebung-Schattenkante" -->
+#### Mindestverschiebung Schattenkante
+
+Mindestverschiebung der berechneten Schattenkante in Zentimetern, bevor ein neuer Positionsbefehl an den Aktor gesendet wird.
+
+Verhindert zu häufige kleine Positionskorrekturen bei langsam wandernder Sonne. Ein Wert von 5–10 cm ist für die meisten Anwendungen empfehlenswert.
+
+<!-- DOC HelpContext="Bruestungshoehe" -->
+#### Brüstungshöhe
+
+Höhe der Fensterbrüstung in Zentimetern, gemessen vom Fußboden bis zur Unterkante der Fensterscheibe.
+
+Dieser Wert wird zusammen mit der Fensterhöhe verwendet, um die absolute Position der Schattenkante im Raum zu bestimmen. Bei bodentiefen Fenstern (z.B. Terrassentür bis zum Boden) ist dieser Wert 0.
+
+<!-- DOC HelpContext="Positionsnachfuehrung" -->
+#### Positionsnachführung
+
+Aktiviert die dynamische Positionsnachführung für Rollläden basierend auf der aktuellen Sonnenposition.
+
+- **Nein**: Keine Positionsnachführung. Der Rollladen fährt auf die konfigurierte Beschattungsposition und bleibt dort.
+- **Schattenkantennachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
 
 <!-- DOC -->
 ### Temperaturgrenzen
