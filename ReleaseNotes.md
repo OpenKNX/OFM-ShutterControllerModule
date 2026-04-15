@@ -1,7 +1,16 @@
+v 0.6.3
+- Feature: Neuer Beschattungsmodus 6 „Geo. Positions- und Lamellennachführung (Min/Max)" – entspricht Modus 5 mit konfigurierbarer Min./Max.-Begrenzung für Position und Lamellenstellung. Wenn Min. Position > Max. Position konfiguriert ist, wird die Positionsbegrenzung ignoriert. Die Lamellenstellungsbegrenzung verwendet automatisch min/max der beiden Werte (Reihenfolge egal).
+- Breaking: Parameterlayout des Beschattungsmodus-Blocks vergrößert (increment 50 → 52). Betrifft nur Kanäle mit zwei oder mehr konfigurierten Beschattungsmodi. Bestehende ETS-Projekte mit nur einem Beschattungsmodus pro Kanal sind nicht betroffen.
+- Rename: Beschattungsmodus 4 umbenannt: „Schattenkantennachführung" → „Geometrische Positionsnachführung". Beschattungsmodus 5 umbenannt: „Schattenkanten- und Lamellenführung" → „Geometrische Positions- und Lamellennachführung". Die Parameterwerte (4, 5) sind unverändert.
+- Fix: Kritischer Kippwinkel (theta_krit) wurde fälschlicherweise als 90°−atan2(...) berechnet; korrekt ist direkt atan2(...) (Winkelkonvention zur Senkrechten).
+- Fix: Bei Dachflächen-Orientierung wurde sin_alpha ohne Betrag berechnet, was bei negativen Neigungswinkeln zu falschen Positionen führte (jetzt fabsf).
+- Fix: OffsetSlatPosition wurde in Modus 5 nicht auf die berechnete Lamellenstellung angewendet.
+- Fix: Hysterese (MinChangeForSlatAdaption) fehlte in Modus 2 (Standard-Lamellennachführung) vor dem Setzen der Lamellenstellung.
+- Change: Wertebereich „Max. Eindringtiefe" angepasst: 1–200 → 10–255 cm.
 v 0.6.2
 - Feature: Neue Beschattungsmodi 3 „Lamellennachführung Experte", 4 „Schattenkantennachführung", 5 „Schattenkanten- und Lamellennachführung"
 - Feature: Schattenkantennachführung für Rollo (neuer Parameter „Positionsnachführung" im Rollo-Kanal)
-- Feature: Neuer Kanal-Parameter „Fassadenneigung" für geometrische Berechnung
+- Feature: Neuer Kanal-Parameter „Fassadenneigung/Fensterneigung" für geometrische Berechnung
 - Breaking/Rename: Beschattungsmodus-Lamellensteuerung Wert 2 umbenannt: „Benutzerdefiniert" → „Lamellennachführung Min/Max". Der Parameterwert (2) ist unverändert. Bestehende ETS-Projekte laufen ohne Migration weiter; lediglich der angezeigte Text im ETS-Dropdown ändert sich nach einem Update der knxprod.
 v 0.6.1
 - Feature: Positionsprüfung im Status „Beschattung Bereit (Benutzer)" – Beschattungsbereitschaft wird nur signalisiert, wenn die aktuelle Zielposition ≤ dem konfigurierten Grenzwert „Nur wenn Position kleiner als" ist

@@ -26,4 +26,6 @@ Bit 19: Temperatur zu niedrig
 Bit 20: Vorhergesagte Temperatur zu niedrig  
 Bit 21: Bewölkungsgrad zu hoch  
 Bit 22: UV-Index zu niedrig  
+Bit 23: Profilwinkel nicht berechenbar (Sonne trifft Fassade nicht)  
+Bit 24: Flachdach-Schutz aktiv (Fassadenneigung zu gering)  
 

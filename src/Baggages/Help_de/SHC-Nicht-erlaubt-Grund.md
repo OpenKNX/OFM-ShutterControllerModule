@@ -27,5 +27,7 @@ Gibt es mehr als einen Grund, wird der erste dieser Liste angezeigt.
 21: Vorhergesagte Temperatur zu niedrig  
 22: Bewölkungsgrad zu hoch  
 23: UV-Index zu niedrig  
+24: Profilwinkel nicht berechenbar (Sonne trifft Fassade nicht)  
+25: Flachdach-Schutz aktiv (Fassadenneigung zu gering)  
 
 

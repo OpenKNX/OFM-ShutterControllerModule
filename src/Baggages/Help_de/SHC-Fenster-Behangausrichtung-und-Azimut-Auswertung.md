@@ -15,6 +15,6 @@ Beispiele (vereinfachte Sicht):
 | 3x Sensor mit Azimut (O/S/W) | Dachflaeche | Max(alle 3 Sensoren) — Fallback, da kein unzugeordneter Sensor |
 | 4x Sensor mit Azimut + 1x Sensor ohne Azimut | Dachflaeche | Max(nur der Sensor ohne Azimut) |
 | 4x Sensor mit Azimut + 1x Sensor ohne Azimut | Sued | Azimut-Interpolation nur mit den 4 Azimut-Sensoren |
-| 2x Sensor ohne Azimut | Keine Himmelsrichtungsauswertung | Aggregation ueber alle Sensoren ohne Azimut |
-| 1x Sensor mit Azimut | Keine Himmelsrichtungsauswertung | Aggregation ueber alle gueltigen Sensoren |
+| 2x Sensor ohne Azimut | Keine Himmelsrichtungsauswertung | Aggregation über alle Sensoren ohne Azimut |
+| 1x Sensor mit Azimut | Keine Himmelsrichtungsauswertung | Aggregation über alle gueltigen Sensoren |
 

@@ -800,16 +800,16 @@ Diese Angabe wird verwendet, um den passenden Helligkeitssensor fuer die Beschat
 - **Dachflaeche**: Bevorzugt Sensoren ohne Azimut-Zuordnung (z.B. Dachsensor). Die eingestellte Aggregation wird ignoriert — es gilt immer der Maximalwert. Falls keine Sensoren ohne Azimut-Zuordnung vorhanden sind, greift ein automatischer Fallback: alle Sensoren werden mit Max-Aggregation ausgewertet.
 - **Keine Himmelsrichtungsauswertung**: Azimut-basierte Sensorauswahl ist deaktiviert. Alle gueltigen Sensoren werden mit der eingestellten Aggregation (Mittelwert/Maximum) zusammengefasst.
 
-<!-- DOC HelpContext="Fassadenneigung" -->
-#### Fassadenneigung
+<!-- DOC HelpContext="Fassadenneigung/Fensterneigung" -->
+#### Fassadenneigung/Fensterneigung
 
-Die Neigung der Fassade in Grad, gemessen gegenüber der Senkrechten (0° = senkrechte Wand).
+Die Neigung der Fassade oder eines Dachfenster in Grad, gemessen gegenüber der Senkrechten (0° = senkrechte Wand).
 
-- **0°**: Senkrechte Fassade (Standardfall)
-- **Positiver Wert**: Fassade neigt sich nach außen (z.B. überhängende Dachkante)
-- **Negativer Wert**: Fassade neigt sich nach innen (z.B. nach innen geneigte Wand)
+- **0°**: Senkrechte Fassade/Senkrechtes Fenster (Standardfall)
+- **Positiver Wert**: Fassade/Fenster neigt sich nach außen (z.B. überhängende Dachkante)
+- **Negativer Wert**: Fassade/Fenster neigt sich nach innen (z.B. nach innen geneigte Wand)
 
-Dieser Wert wird für die Berechnung des Profilwinkels bei der **Lamellennachführung (Experte)** und der **Schattenkantennachführung** verwendet. Bei senkrechten Fenstern kann der Standardwert 0° belassen werden.
+Dieser Wert wird für die Berechnung des Profilwinkels bei der **Lamellennachführung (Experte)** und der **Geometrischen Positionsnachführung** verwendet. Bei senkrechten Fenstern kann der Standardwert 0° belassen werden.
 
 <!-- DOC -->
 #### Nur starten wenn aktuelle Position kleiner gleich
@@ -824,6 +824,8 @@ Eine Einstellung von 0% startet die Beschattung nur, wenn die Jalousie zuvor vol
 
 Position die bei Beschattungsstart angefahren wird.
 
+Bei den Modi **Geometrische Positionsnachführung**, **Geometrische Positions- und Lamellennachführung** und **Geo. Positions- und Lamellennachführung (Min/Max)** wird die Position normalerweise dynamisch anhand des Sonnenstands berechnet. Die Beschattungsposition wirkt in diesen Modi nur als **Fallback**: Wenn die Sonne so flach steht, dass die berechnete Schattenkante oberhalb der Fensterhöhe liegt (d.h. der Behang muss vollständig abgesenkt sein), wird die hier konfigurierte Position als Zielwert verwendet.
+
 <!-- DOC -->
 #### Lamellenstellenung an Sonnenstand anpassen
 
@@ -832,6 +834,7 @@ Diese Einstellung ist nur für den Gerätetype "Jalousie" vorhanden.
 - **Nein**: Die Lamellenstellung wird nicht an den Sonnenstand angepasst. Stattdessen wird die unter "Lamellenstellung" konfigurierte feste Position verwendet.
 - **Standard**: Die Lamellenstellung wird anhand des Höhenwinkels der Sonne automatisch berechnet (bewährte Formel).
 - **Benutzerdefiniert**: Die Lamellenstellung wird linear zwischen dem Wert bei tiefem Sonnenstand und dem Wert bei hohem Sonnenstand interpoliert.
+- **Geo. Positions- und Lamellennachführung (Min/Max)**: Wie "Geometrische Positions- und Lamellennachführung", jedoch werden Position und Lamellenstellung auf konfigurierbare Min./Max.-Grenzen begrenzt. Die berechneten Werte können den konfigurierten Bereich nicht über- oder unterschreiten.
 
 <!-- DOC HelpContext="Beschattung Lamellenstellung" -->
 #### Lamellenstellung
@@ -887,26 +890,26 @@ Der Abstand zwischen zwei benachbarten Lamellenachsen in Millimetern (Achsmaß).
 
 Dieser Wert wird zusammen mit der Lamellenbreite für die geometrische Berechnung des kritischen Kippwinkels verwendet, ab dem die Lamellen den Lichtstrahl vollständig sperren. Den Wert finden Sie in der technischen Dokumentation des Jalousie-Herstellers.
 
-<!-- DOC HelpContext="Lamellenwinkel-bei-Fahrbefehl-0" -->
-#### Lamellenwinkel bei Fahrbefehl 0%
+<!-- DOC HelpContext="Lamellenwinkel-vollstaendig-geoeffnet-0" -->
+#### Lamellenwinkel vollständig geöffnet (0%)
 
 Der physische Winkel der Lamellen in Grad, wenn der Aktor den Stellwert 0% empfängt.
 
 Dieser Kalibrierungswert wird benötigt, damit die berechnete optimale Lamellenstellung korrekt auf den vom Aktor erwarteten Prozentwert abgebildet wird. Verschiedene Aktoren und Montagevarianten können unterschiedliche Konventionen verwenden.
 
-<!-- DOC HelpContext="Lamellenwinkel-bei-Fahrbefehl-100" -->
-#### Lamellenwinkel bei Fahrbefehl 100%
+<!-- DOC HelpContext="Lamellenwinkel-vollstaendig-geschlossen-100" -->
+#### Lamellenwinkel vollständig geschlossen (100%)
 
 Der physische Winkel der Lamellen in Grad, wenn der Aktor den Stellwert 100% empfängt.
 
-**Hinweis:** Ein Wert kleiner als "Lamellenwinkel bei Fahrbefehl 0%" ist ausdrücklich erlaubt und notwendig für Lamellen, die umgekehrt montiert sind. Die Nachführungsformel invertiert das Mapping automatisch.
+**Hinweis:** Ein Wert kleiner als "Lamellenwinkel vollständig geöffnet (0%)" ist ausdrücklich erlaubt und notwendig für Lamellen, die umgekehrt montiert sind. Die Nachführungsformel invertiert das Mapping automatisch.
 
 <!-- DOC HelpContext="Fensterhoehe" -->
 #### Fensterhöhe
 
 Die lichte Höhe der Fensterscheibe in Zentimetern (Innenkante Blendrahmen oben bis Innenkante Blendrahmen unten bzw. Fensterbank).
 
-Dieser Wert wird für die Berechnung der optimalen Jalousie- oder Rolladenposition bei der **Schattenkantennachführung** benötigt. Zusammen mit der aktuellen Sonnenposition wird berechnet, wie weit der Behang abgesenkt sein muss, damit die Schattenkante die konfigurierte Eindringtiefe nicht überschreitet.
+Dieser Wert wird für die Berechnung der optimalen Jalousie- oder Rolladenposition bei der **Geometrischen Positionsnachführung** benötigt. Zusammen mit der aktuellen Sonnenposition wird berechnet, wie weit der Behang abgesenkt sein muss, damit die Schattenkante die konfigurierte Eindringtiefe nicht überschreitet.
 
 <!-- DOC HelpContext="Max-Eindringtiefe" -->
 #### Max. Eindringtiefe
@@ -935,7 +938,49 @@ Dieser Wert wird zusammen mit der Fensterhöhe verwendet, um die absolute Positi
 Aktiviert die dynamische Positionsnachführung für Rollläden basierend auf der aktuellen Sonnenposition.
 
 - **Nein**: Keine Positionsnachführung. Der Rollladen fährt auf die konfigurierte Beschattungsposition und bleibt dort.
-- **Schattenkantennachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
+- **Geometrische Positionsnachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
+
+<!-- DOC HelpContext="Min-Position-Begrenzung" -->
+#### Min. Position
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde.
+
+Minimale Jalousieposition in Prozent. Die dynamisch berechnete Position wird niemals unter diesen Wert abgesenkt.
+
+Typischer Anwendungsfall: Min. Position = 20% → Die Jalousie ist immer mindestens zu 20% geschlossen, unabhängig vom Sonnenstand. So bleibt ein minimaler Sichtschutz immer erhalten.
+
+Wenn Min. Position größer als Max. Position konfiguriert ist, wird die Begrenzung ignoriert und das Berechnungsergebnis unverändert ausgegeben.
+
+<!-- DOC HelpContext="Max-Position-Begrenzung" -->
+#### Max. Position
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde.
+
+Maximale Jalousieposition in Prozent. Die dynamisch berechnete Position wird niemals über diesen Wert erhöht.
+
+Typischer Anwendungsfall: Max. Position = 80% → Die Jalousie schließt nie vollständig zu. Immer etwas Tageslicht bleibt erhalten, und die Lamellenstellung übernimmt den Blend- und Wärmeschutz.
+
+Wenn Min. Position größer als Max. Position konfiguriert ist, wird die Begrenzung ignoriert und das Berechnungsergebnis unverändert ausgegeben.
+
+<!-- DOC HelpContext="Lamellenstellung-bei-min-Hoehenwinkel-Begrenzung" -->
+#### Lamellenstellung bei min. Höhenwinkel (Begrenzung)
+
+<!-- DOC Skip="2" -->
+In diesem Modus dient dieser Parameter als **untere Begrenzung** der Lamellenstellung. Die dynamisch berechnete Lamellenstellung wird niemals unter den kleineren der beiden Werte (min./max. Höhenwinkel) abgesenkt.
+
+Wenn beide Werte gleich sind, wird die Lamellenstellung auf diesen festen Wert fixiert.
+
+<!-- DOC HelpContext="Lamellenstellung-bei-max-Hoehenwinkel-Begrenzung" -->
+#### Lamellenstellung bei max. Höhenwinkel (Begrenzung)
+
+<!-- DOC Skip="2" -->
+In diesem Modus dient dieser Parameter als **obere Begrenzung** der Lamellenstellung. Die dynamisch berechnete Lamellenstellung wird niemals über den größeren der beiden Werte (min./max. Höhenwinkel) erhöht.
+
+Die Reihenfolge der beiden Werte (welcher ist kleiner, welcher größer) ist unerheblich – das Clipping verwendet automatisch min(Wert1, Wert2) als untere und max(Wert1, Wert2) als obere Grenze.
+
+Standardwerte sind 80%/50% (sinnvoll für Modus "Benutzerdefiniert"). Für kein Lamellen-Clipping: 0% und 100% konfigurieren.
 
 <!-- DOC -->
 ### Temperaturgrenzen
@@ -1143,6 +1188,8 @@ Bit 19: Temperatur zu niedrig
 Bit 20: Vorhergesagte Temperatur zu niedrig  
 Bit 21: Bewölkungsgrad zu hoch  
 Bit 22: UV-Index zu niedrig  
+Bit 23: Profilwinkel nicht berechenbar (Sonne trifft Fassade nicht)  
+Bit 24: Flachdach-Schutz aktiv (Fassadenneigung zu gering)  
 
 <!-- DOC -->
 ### 'Nicht erlaubt' Grund
@@ -1174,6 +1221,8 @@ Gibt es mehr als einen Grund, wird der erste dieser Liste angezeigt.
 21: Vorhergesagte Temperatur zu niedrig  
 22: Bewölkungsgrad zu hoch  
 23: UV-Index zu niedrig  
+24: Profilwinkel nicht berechenbar (Sonne trifft Fassade nicht)  
+25: Flachdach-Schutz aktiv (Fassadenneigung zu gering)  
 
 
 <!-- DOC HelpContext="Fenster Offen/Gekippt" -->

@@ -1,4 +1,4 @@
-﻿### Lamellenwinkel bei Fahrbefehl 0%
+﻿### Lamellenwinkel vollständig geöffnet (0%)
 
 Der physische Winkel der Lamellen in Grad, wenn der Aktor den Stellwert 0% empfängt.
 
