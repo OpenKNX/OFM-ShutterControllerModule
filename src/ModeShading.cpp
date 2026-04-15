@@ -719,11 +719,11 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
 
         if (orientation == 5)
         {
-            // Dachfläche: gamma = Höhenwinkel, sin_alpha = sin(Dachneigung)
+            // Dachfläche: gamma = Höhenwinkel, sin_alpha = |sin(Dachneigung)|
             float elev = (float)callContext.elevation;
             if (elev <= 0.0f)
                 return;
-            sin_alpha = sinf(facadeInclination * DEG2RAD);
+            sin_alpha = fabsf(sinf(facadeInclination * DEG2RAD));
             if (sin_alpha < 0.05f)
             {
                 _notAllowedReason |= ModeShadingNotAllowedReasonFlatRoofGuard;
@@ -865,10 +865,8 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
         if (angleAtMin == angleAtMax)
             break;  // Guard: Division durch Null
 
-        // Kritischer Kippwinkel zur Horizontalen
-        float theta_krit_h = atan2f(a * sinf(beta_rad), b - a * cosf(beta_rad)) * (180.0f / (float)M_PI);
-        // Umrechnung auf Elsner-Winkel (zur Senkrechten)
-        float theta_krit = 90.0f - theta_krit_h;
+        // Kritischer Kippwinkel (in Nutzerkonvention: von der Senkrechten nach unten)
+        float theta_krit = atan2f(a * sinf(beta_rad), b - a * cosf(beta_rad)) * (180.0f / (float)M_PI);
 
         // Guard: Lamelle kann den Strahl nicht sperren (z.B. SlatSpacing > SlatWidth)
         if (theta_krit < 0.0f)
@@ -905,11 +903,11 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
 
         if (orientation == 5)
         {
-            // Dachfläche: gamma = Höhenwinkel, sin_alpha = sin(Dachneigung)
+            // Dachfläche: gamma = Höhenwinkel, sin_alpha = |sin(Dachneigung)|
             float elev = (float)callContext.elevation;
             if (elev <= 0.0f)
                 return;
-            sin_alpha = sinf(facadeInclination * DEG2RAD);
+            sin_alpha = fabsf(sinf(facadeInclination * DEG2RAD));
             if (sin_alpha < 0.05f)
             {
                 _notAllowedReason |= ModeShadingNotAllowedReasonFlatRoofGuard;
@@ -985,11 +983,11 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
 
         if (orientation == 5)
         {
-            // Dachfläche: gamma = Höhenwinkel, sin_alpha = sin(Dachneigung)
+            // Dachfläche: gamma = Höhenwinkel, sin_alpha = |sin(Dachneigung)|
             float elev = (float)callContext.elevation;
             if (elev <= 0.0f)
                 return;
-            sin_alpha = sinf(facadeInclination * DEG2RAD);
+            sin_alpha = fabsf(sinf(facadeInclination * DEG2RAD));
             if (sin_alpha < 0.05f)
             {
                 _notAllowedReason |= ModeShadingNotAllowedReasonFlatRoofGuard;
@@ -1061,8 +1059,7 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
 
         if (angleAtMin != angleAtMax)
         {
-            float theta_krit_h = atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
-            float theta_krit = 90.0f - theta_krit_h;
+            float theta_krit = atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
 
             if (theta_krit < 0.0f)
             {
