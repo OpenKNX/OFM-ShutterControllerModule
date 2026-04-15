@@ -197,17 +197,18 @@
 								<TypeRestriction Base="Value" SizeInBit="3">
 									<Enumeration Text="Nein" Value="0" Id="%ENID%" />
 									<Enumeration Text="Standard" Value="1" Id="%ENID%" />
-									<Enumeration Text="Lamellenführung Min/Max" Value="2" Id="%ENID%" />
-									<Enumeration Text="Lamellenführung Experte" Value="3" Id="%ENID%" />
-									<Enumeration Text="Geometrische Positionsnachführung" Value="4" Id="%ENID%" />
-									<Enumeration Text="Geometrische Positions- und Lamellennachführung" Value="5" Id="%ENID%" />
+									<Enumeration Text="Lamellenführung (Min/Max)" Value="2" Id="%ENID%" />
+									<Enumeration Text="Geo. Positionsnachführung" Value="3" Id="%ENID%" />
+									<Enumeration Text="Geo. Positionsnachführung (Min/Max)" Value="4" Id="%ENID%" />
+									<Enumeration Text="Geo. Positions- und Lamellennachführung" Value="5" Id="%ENID%" />
 									<Enumeration Text="Geo. Positions- und Lamellennachführung (Min/Max)" Value="6" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-RolloPositionMode" Name="RolloPositionMode">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<Enumeration Text="Nein" Value="0" Id="%ENID%" />
-									<Enumeration Text="Schattenkantennachführung" Value="1" Id="%ENID%" />
+									<Enumeration Text="Geo. Positionsnachführung" Value="1" Id="%ENID%" />
+									<Enumeration Text="Geo. Positionsnachführung (Min/Max)" Value="2" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-FacadeInclination" Name="FacadeInclination">

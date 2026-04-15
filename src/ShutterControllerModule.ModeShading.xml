@@ -52,8 +52,7 @@
 								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+29%" Offset="0" BitOffset="4" Name="C%C%Shading%Pn%RainActive" ParameterType="%AID%_PT-OnOffYesNo" Text="Bei Regen nicht beschatten" Value="1" />
 
 								<!-- Lamellenstellung Höhenwinkelabhängig -->
-											<Parameter Id="%AID%_UP-%TT%%CC%%PPP+34%" Offset="0" BitOffset="5" Name="C%C%Shading%Pn%SlatElevationDepending" ParameterType="%AID%_PT-SlatTrackingMode" Text="Lamellenstellenung an Sonnenstand anpassen" Value="1" />
-							
+															<Parameter Id="%AID%_UP-%TT%%CC%%PPP+34%" Offset="0" BitOffset="5" Name="C%C%Shading%Pn%SlatElevationDepending" ParameterType="%AID%_PT-SlatTrackingMode" Text="Positions- und Lamellennachführung" Value="1" />
 								<!-- 2 Bit free -->
 
 								<!-- Wartezeit Beschattungsstart -->
@@ -566,20 +565,7 @@
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
 																		</when>
 																		<when test="3">
-																			<!-- Lamellennachführung Experte -->
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
-																			<!-- Mindeständerung Lamellennachführung -->
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
-																			<!-- Offset Lamellenposition -->
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
-																		</when>
-																		<when test="4">
-																			<!-- Schattenkantennachführung -->
+																			<!-- Geo. Positionsnachführung -->
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
@@ -587,6 +573,19 @@
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellenstellung" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="SHC-Beschattung-Lamellenstellung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+33%_R-%TT%%CC%%PPP+33%01" />
+																		</when>
+																		<when test="4">
+																			<!-- Geo. Positionsnachführung (Min/Max) -->
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellenstellung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="SHC-Beschattung-Lamellenstellung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+33%_R-%TT%%CC%%PPP+33%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Begrenzung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="SHC-Min-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" />
+																			<ParameterRefRef HelpContext="SHC-Max-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" />
 																		</when>
 																		<when test="5">
 																			<!-- Schattenkanten- und Lamellennachführung -->
@@ -608,7 +607,6 @@
 																		</when>
 																		<when test="6">
 																			<!-- Geo. Positions- und Lamellennachführung (Min/Max) -->
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Die Standardwerte für Min./Max. Lamellenstellung (Begrenzung) sind 80%/50%. Für kein Clipping: 0% und 100% einstellen." UIHint="Information" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
@@ -624,7 +622,6 @@
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
 																			<!-- Offset Lamellenposition -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Begrenzung" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="SHC-Min-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" />
 																			<ParameterRefRef HelpContext="SHC-Max-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" />
@@ -640,12 +637,23 @@
 																	<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+32%_R-%TT%%CC%%PPP+32%01" />
 																	<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+63%_R-%TT%%CC%%PPP+63%01">
 																		<when test="1">
-																			<!-- Schattenkantennachführung für Rollo -->
+																			<!-- Geo. Positionsnachführung für Rollo -->
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
+																		</when>
+																		<when test="2">
+																			<!-- Geo. Positionsnachführung (Min/Max) für Rollo -->
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Begrenzung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="SHC-Min-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" />
+																			<ParameterRefRef HelpContext="SHC-Max-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" />
 																		</when>
 																	</choose>
 																</when>

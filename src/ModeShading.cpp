@@ -706,8 +706,8 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
     // <Enumeration Text="Venetian blind" Value="1" Id="%ENID%" />
     // <Enumeration Text="Roller shutter" Value="2" Id="%ENID%" />
 
-    // ── Rollo-Pfad: Schattenkantennachführung für Rollo (kein hasSlat!) ──
-    if (ParamSHC_CType == 2 && ParamSHC_CShading1RolloPositionMode == 1)
+    // ── Rollo-Pfad: Geo. Positionsnachführung für Rollo (kein hasSlat!) ──
+    if (ParamSHC_CType == 2 && ParamSHC_CShading1RolloPositionMode >= 1)
     {
         static const float DEG2RAD = (float)M_PI / 180.0f;
         _notAllowedReason &= ~(ModeShadingNotAllowedReasonProfileAngleSentinel | ModeShadingNotAllowedReasonFlatRoofGuard);
@@ -774,10 +774,23 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
         }
 
         if (callContext.diagnosticLog)
-            logInfoP("Rollo shadow tracking: gamma=%.1f° s_crit=%.1f targetPos=%.1f", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos);
+            logInfoP("Rollo geo position: gamma=%.1f° s_crit=%.1f targetPos=%.1f", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos);
 
-        _lastSentShadowPos = targetPos;
-        positionController.setAutomaticPosition((uint8_t)targetPos);
+        _lastSentShadowPos = targetPos;  // ungeclippt für korrekte Hysterese
+
+        float sendPos = targetPos;
+        if (ParamSHC_CShading1RolloPositionMode == 2)
+        {
+            uint8_t minClipPos = ParamSHC_CShading1MinClipPosition;
+            uint8_t maxClipPos = ParamSHC_CShading1MaxClipPosition;
+            if (minClipPos <= maxClipPos)
+            {
+                if (sendPos < (float)minClipPos) sendPos = (float)minClipPos;
+                if (sendPos > (float)maxClipPos) sendPos = (float)maxClipPos;
+            }
+        }
+
+        positionController.setAutomaticPosition((uint8_t)sendPos);
         return;
     }
 
@@ -842,58 +855,7 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
     }
     case 3:
     {
-        // Lamellennachführung Experte: geometrisch berechnet
-        if (ParamSHC_CType == 2) break;  // Schutzguard: Rollo hat kein Slat
-        static const float DEG2RAD = (float)M_PI / 180.0f;
-        _notAllowedReason &= ~ModeShadingNotAllowedReasonProfileAngleSentinel;
-        float beta_deg = calculateProfileAngle(
-            (float)callContext.elevation,
-            (float)callContext.azimuth,
-            ParamSHC_CWindowOrientation,
-            (float)(int8_t)ParamSHC_CFacadeInclination);
-
-        if (beta_deg <= 0.0f)
-        {
-            _notAllowedReason |= ModeShadingNotAllowedReasonProfileAngleSentinel;
-            return;  // Sonne trifft Fassade nicht
-        }
-
-        float beta_rad = beta_deg * DEG2RAD;
-        float a = (float)ParamSHC_CShading1SlatSpacing;   // Lamellenabstand [mm]
-        float b = (float)ParamSHC_CShading1SlatWidth;     // Lamellenbreite [mm]
-
-        uint8_t angleAtMin = ParamSHC_CShading1SlatAngleAtMin;
-        uint8_t angleAtMax = ParamSHC_CShading1SlatAngleAtMax;
-        if (angleAtMin == angleAtMax)
-            break;  // Guard: Division durch Null
-
-        // Kritischer Kippwinkel (in Nutzerkonvention: von der Senkrechten nach unten)
-        float theta_krit = atan2f(a * sinf(beta_rad), b - a * cosf(beta_rad)) * (180.0f / (float)M_PI);
-
-        // Guard: Lamelle kann den Strahl nicht sperren (z.B. SlatSpacing > SlatWidth)
-        if (theta_krit < 0.0f)
-        {
-            positionController.setAutomaticSlat(100);
-            return;
-        }
-
-        float slatPercent = ((float)theta_krit - (float)angleAtMin) / ((float)angleAtMax - (float)angleAtMin) * 100.0f;
-        if (slatPercent < 0.0f) slatPercent = 0.0f;
-        if (slatPercent > 100.0f) slatPercent = 100.0f;
-        auto slatPosition = (uint8_t)slatPercent;
-
-        if (callContext.diagnosticLog)
-            logInfoP("Case3 Expert slat: beta=%.1f° theta_krit=%.1f° → slat=%d%%", beta_deg, theta_krit, (int)slatPosition);
-
-        if (!callContext.modeNewStarted && abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) < ParamSHC_CShading1MinChangeForSlatAdaption)
-            return;
-
-        positionController.setAutomaticSlat(slatPosition);
-        break;
-    }
-    case 4:
-    {
-        // Schattenkantennachführung (Jalousie): Position + feste Lamellenstellung
+        // Geo. Positionsnachführung (Jalousie): Position + feste Lamellenstellung
         if (ParamSHC_CType == 2) break;  // Schutzguard
         static const float DEG2RAD = (float)M_PI / 180.0f;
         _notAllowedReason &= ~(ModeShadingNotAllowedReasonProfileAngleSentinel | ModeShadingNotAllowedReasonFlatRoofGuard);
@@ -913,7 +875,7 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
             if (sin_alpha < 0.05f)
             {
                 _notAllowedReason |= ModeShadingNotAllowedReasonFlatRoofGuard;
-                return;  // Flachdach — kein sinnvolles Positionstracking
+                return;
             }
             gamma_rad = elev * DEG2RAD;
         }
@@ -930,7 +892,7 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
                 return;
             }
             gamma_rad = beta_deg * DEG2RAD;
-            sin_alpha = 1.0f;  // senkrechte Fassade: sin(90°) = 1
+            sin_alpha = 1.0f;
         }
 
         float windowHeight = (float)ParamSHC_CShading1WindowHeight;
@@ -951,7 +913,6 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
         if (targetPos < 0.0f) targetPos = 0.0f;
         if (targetPos > 100.0f) targetPos = 100.0f;
 
-        // Hysterese in cm
         if (_lastSentShadowPos >= 0.0f && s_crit < windowHeight && s_crit > 0.0f)
         {
             float delta_cm = fabsf(targetPos - _lastSentShadowPos) * windowHeight / 100.0f;
@@ -963,10 +924,97 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
         }
 
         if (callContext.diagnosticLog)
-            logInfoP("Case4 shadow tracking: gamma=%.1f° s_crit=%.1f targetPos=%.1f", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos);
+            logInfoP("Case3 geo position: gamma=%.1f° s_crit=%.1f targetPos=%.1f", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos);
 
         _lastSentShadowPos = targetPos;
         positionController.setAutomaticPosition((uint8_t)targetPos);
+        positionController.setAutomaticSlat(ParamSHC_CShading1SlatShadingPosition);
+        break;
+    }
+    case 4:
+    {
+        // Geo. Positionsnachführung (Min/Max) (Jalousie): wie case 3 + Position-Clipping
+        if (ParamSHC_CType == 2) break;  // Schutzguard
+        static const float DEG2RAD = (float)M_PI / 180.0f;
+        _notAllowedReason &= ~(ModeShadingNotAllowedReasonProfileAngleSentinel | ModeShadingNotAllowedReasonFlatRoofGuard);
+
+        float gamma_rad;
+        float sin_alpha;
+        const uint8_t orientation = ParamSHC_CWindowOrientation;
+        const float facadeInclination = (float)(int8_t)ParamSHC_CFacadeInclination;
+
+        if (orientation == 5)
+        {
+            float elev = (float)callContext.elevation;
+            if (elev <= 0.0f)
+                return;
+            sin_alpha = fabsf(sinf(facadeInclination * DEG2RAD));
+            if (sin_alpha < 0.05f)
+            {
+                _notAllowedReason |= ModeShadingNotAllowedReasonFlatRoofGuard;
+                return;
+            }
+            gamma_rad = elev * DEG2RAD;
+        }
+        else
+        {
+            float beta_deg = calculateProfileAngle(
+                (float)callContext.elevation,
+                (float)callContext.azimuth,
+                orientation,
+                facadeInclination);
+            if (beta_deg <= 0.0f)
+            {
+                _notAllowedReason |= ModeShadingNotAllowedReasonProfileAngleSentinel;
+                return;
+            }
+            gamma_rad = beta_deg * DEG2RAD;
+            sin_alpha = 1.0f;
+        }
+
+        float windowHeight = (float)ParamSHC_CShading1WindowHeight;
+        float maxPenetration = (float)ParamSHC_CShading1MaxPenetrationDepth;
+        float windowSillHeight = (float)ParamSHC_CShading1WindowSillHeight;
+        float minShadowEdgeChange = (float)ParamSHC_CShading1MinShadowEdgeChange;
+
+        float s_crit = (maxPenetration * tanf(gamma_rad) - windowSillHeight) / sin_alpha;
+
+        float targetPos;
+        if (s_crit <= 0.0f)
+            targetPos = 100.0f;
+        else if (s_crit >= windowHeight)
+            targetPos = (float)ParamSHC_CShading1ShadingPosition;
+        else
+            targetPos = (1.0f - s_crit / windowHeight) * 100.0f;
+
+        if (targetPos < 0.0f) targetPos = 0.0f;
+        if (targetPos > 100.0f) targetPos = 100.0f;
+
+        if (_lastSentShadowPos >= 0.0f && s_crit < windowHeight && s_crit > 0.0f)
+        {
+            float delta_cm = fabsf(targetPos - _lastSentShadowPos) * windowHeight / 100.0f;
+            if (delta_cm < minShadowEdgeChange)
+            {
+                positionController.setAutomaticSlat(ParamSHC_CShading1SlatShadingPosition);
+                return;
+            }
+        }
+
+        _lastSentShadowPos = targetPos;  // ungeclippt für korrekte Hysterese
+
+        float sendPos = targetPos;
+        uint8_t minClipPos = ParamSHC_CShading1MinClipPosition;
+        uint8_t maxClipPos = ParamSHC_CShading1MaxClipPosition;
+        if (minClipPos <= maxClipPos)
+        {
+            if (sendPos < (float)minClipPos) sendPos = (float)minClipPos;
+            if (sendPos > (float)maxClipPos) sendPos = (float)maxClipPos;
+        }
+
+        if (callContext.diagnosticLog)
+            logInfoP("Case4 geo pos min/max: gamma=%.1f° s_crit=%.1f targetPos=%.1f sendPos=%.1f", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos, sendPos);
+
+        positionController.setAutomaticPosition((uint8_t)sendPos);
         positionController.setAutomaticSlat(ParamSHC_CShading1SlatShadingPosition);
         break;
     }
