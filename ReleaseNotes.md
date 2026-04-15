@@ -1,7 +1,12 @@
 v 0.6.3
+- Redesign: Beschattungsmodi Jalousie komplett neu strukturiert – aufbauende Modi-Reihe: Nein → Standard → Lamellenführung (Min/Max) → Geo. Positionsnachführung → Geo. Positionsnachführung (Min/Max) → Geo. Positions- und Lamellennachführung → Geo. Positions- und Lamellennachführung (Min/Max).
 - Feature: Neuer Beschattungsmodus 6 „Geo. Positions- und Lamellennachführung (Min/Max)" – entspricht Modus 5 mit konfigurierbarer Min./Max.-Begrenzung für Position und Lamellenstellung. Wenn Min. Position > Max. Position konfiguriert ist, wird die Positionsbegrenzung ignoriert. Die Lamellenstellungsbegrenzung verwendet automatisch min/max der beiden Werte (Reihenfolge egal).
+- Feature: Neuer Rollo-Modus „Geo. Positionsnachführung (Min/Max)" (Wert 2) – entspricht Modus 1 mit Min./Max.-Positionsbegrenzung.
 - Breaking: Parameterlayout des Beschattungsmodus-Blocks vergrößert (increment 50 → 52). Betrifft nur Kanäle mit zwei oder mehr konfigurierten Beschattungsmodi. Bestehende ETS-Projekte mit nur einem Beschattungsmodus pro Kanal sind nicht betroffen.
-- Rename: Beschattungsmodus 4 umbenannt: „Schattenkantennachführung" → „Geometrische Positionsnachführung". Beschattungsmodus 5 umbenannt: „Schattenkanten- und Lamellenführung" → „Geometrische Positions- und Lamellennachführung". Die Parameterwerte (4, 5) sind unverändert.
+- Breaking: Modus 3 (war „Lamellennachführung Experte") wird jetzt „Geo. Positionsnachführung" (Eindringtiefe + feste Lamellenstellung). Der alte Experte-Modus entfällt. Bestehende ETS-Projekte mit Modus 3 müssen neu konfiguriert werden.
+- Rename: Beschattungsmodus 4 umbenannt: „Schattenkantennachführung" → „Geo. Positionsnachführung (Min/Max)". Beschattungsmodus 5 umbenannt: „Schattenkanten- und Lamellenführung" → „Geo. Positions- und Lamellennachführung". Die Parameterwerte (4, 5) sind unverändert.
+- Rename: ETS-Parameter „Lamellenstellenung an Sonnenstand anpassen" (Tippfehler) → „Positions- und Lamellennachführung".
+- Rename: Rollo-Parameter „Schattenkantennachführung" → „Geo. Positionsnachführung" (Wert 1 unverändert).
 - Fix: Kritischer Kippwinkel (theta_krit) wurde fälschlicherweise als 90°−atan2(...) berechnet; korrekt ist direkt atan2(...) (Winkelkonvention zur Senkrechten).
 - Fix: Bei Dachflächen-Orientierung wurde sin_alpha ohne Betrag berechnet, was bei negativen Neigungswinkeln zu falschen Positionen führte (jetzt fabsf).
 - Fix: OffsetSlatPosition wurde in Modus 5 nicht auf die berechnete Lamellenstellung angewendet.
