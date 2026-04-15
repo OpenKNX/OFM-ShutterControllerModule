@@ -214,8 +214,8 @@
 
 
 
-<!-- Fassadenneigung (für Schattenkantennachführung) -->
-										<Parameter Id="%AID%_UP-%TT%%CC%059" Offset="31" BitOffset="0" Name="C%C%FacadeInclination" ParameterType="%AID%_PT-FacadeInclination" Text="Fassadenneigung" SuffixText="°" Value="0" />
+<!-- Fassadenneigung/Fensterneigung (für Schattenkantennachführung) -->
+										<Parameter Id="%AID%_UP-%TT%%CC%059" Offset="31" BitOffset="0" Name="C%C%FacadeInclination" ParameterType="%AID%_PT-FacadeInclination" Text="Fassadenneigung/Fensterneigung" SuffixText="°" Value="0" />
 
 										<!-- Next offset: 32-->
 										<!-- Next Id: %AID%_UP-%TT%%CC%060 -->
@@ -266,7 +266,7 @@
 
 							<!-- Fensterausrichtung -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%046_R-%TT%%CC%04601" RefId="%AID%_UP-%TT%%CC%046" />
-							<!-- Fassadenneigung -->
+							<!-- Fassadenneigung/Fensterneigung -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%059_R-%TT%%CC%05901" RefId="%AID%_UP-%TT%%CC%059" />
 							<!-- Von Uhrzeit -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_UP-%TT%%CC%006" />
@@ -678,7 +678,7 @@
 														<when test=">0">
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%046_R-%TT%%CC%04601" HelpContext="SHC-Fenster-Behangausrichtung" IndentLevel="1" />
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="Wählt den passenden Helligkeitssensor anhand des Sonnenstands aus. Zuordnung: Ost=90°, Südost=135°, Süd=180°, Südwest=225°, West=270°. Weitere Details in der Kontexthilfe." UIHint="Information" />
-															<!-- Fassadenneigung -->
+															<!-- Fassadenneigung/Fensterneigung -->
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%059_R-%TT%%CC%05901" HelpContext="%DOC%" IndentLevel="1" />
 														</when>
 													</choose>
