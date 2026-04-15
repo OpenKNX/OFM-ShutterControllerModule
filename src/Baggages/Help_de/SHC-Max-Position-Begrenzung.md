@@ -1,6 +1,6 @@
 ﻿### Max. Position
 
-Maximale Jalousieposition in Prozent. Die dynamisch berechnete Position wird niemals über diesen Wert erhöht.
+Maximale Position in Prozent. Die dynamisch berechnete Position wird niemals über diesen Wert erhöht.
 
 Typischer Anwendungsfall: Max. Position = 80% → Die Jalousie schließt nie vollständig zu. Immer etwas Tageslicht bleibt erhalten, und die Lamellenstellung übernimmt den Blend- und Wärmeschutz.
 

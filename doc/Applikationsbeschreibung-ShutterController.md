@@ -809,7 +809,7 @@ Die Neigung der Fassade oder eines Dachfenster in Grad, gemessen gegenüber der 
 - **Positiver Wert**: Fassade/Fenster neigt sich nach außen (z.B. überhängende Dachkante)
 - **Negativer Wert**: Fassade/Fenster neigt sich nach innen (z.B. nach innen geneigte Wand)
 
-Dieser Wert wird für die Berechnung des Profilwinkels bei der **Lamellennachführung (Experte)** und der **Geometrischen Positionsnachführung** verwendet. Bei senkrechten Fenstern kann der Standardwert 0° belassen werden.
+Dieser Wert wird für die Berechnung des Profilwinkels bei der **Geometrischen Positionsnachführung** und der **Geo. Positions- und Lamellennachführung** verwendet. Bei senkrechten Fenstern kann der Standardwert 0° belassen werden.
 
 <!-- DOC -->
 #### Nur starten wenn aktuelle Position kleiner gleich
@@ -827,20 +827,23 @@ Position die bei Beschattungsstart angefahren wird.
 Bei den Modi **Geometrische Positionsnachführung**, **Geometrische Positions- und Lamellennachführung** und **Geo. Positions- und Lamellennachführung (Min/Max)** wird die Position normalerweise dynamisch anhand des Sonnenstands berechnet. Die Beschattungsposition wirkt in diesen Modi nur als **Fallback**: Wenn die Sonne so flach steht, dass die berechnete Schattenkante oberhalb der Fensterhöhe liegt (d.h. der Behang muss vollständig abgesenkt sein), wird die hier konfigurierte Position als Zielwert verwendet.
 
 <!-- DOC -->
-#### Lamellenstellenung an Sonnenstand anpassen
+#### Positions- und Lamellennachführung
 
 Diese Einstellung ist nur für den Gerätetype "Jalousie" vorhanden.
 
 - **Nein**: Die Lamellenstellung wird nicht an den Sonnenstand angepasst. Stattdessen wird die unter "Lamellenstellung" konfigurierte feste Position verwendet.
 - **Standard**: Die Lamellenstellung wird anhand des Höhenwinkels der Sonne automatisch berechnet (bewährte Formel).
-- **Benutzerdefiniert**: Die Lamellenstellung wird linear zwischen dem Wert bei tiefem Sonnenstand und dem Wert bei hohem Sonnenstand interpoliert.
-- **Geo. Positions- und Lamellennachführung (Min/Max)**: Wie "Geometrische Positions- und Lamellennachführung", jedoch werden Position und Lamellenstellung auf konfigurierbare Min./Max.-Grenzen begrenzt. Die berechneten Werte können den konfigurierten Bereich nicht über- oder unterschreiten.
+- **Lamellenführung (Min/Max)**: Wie "Standard", jedoch wird die berechnete Lamellenstellung auf konfigurierbare Min./Max.-Grenzen begrenzt.
+- **Geo. Positionsnachführung**: Berechnet die Jalousieposition geometrisch anhand der Sonneneindringtiefe. Die Lamelle wird auf eine feste konfigurierte Stellung gesetzt.
+- **Geo. Positionsnachführung (Min/Max)**: Wie "Geo. Positionsnachführung", jedoch wird die berechnete Position auf konfigurierbare Min./Max.-Grenzen begrenzt.
+- **Geo. Positions- und Lamellennachführung**: Berechnet sowohl Position als auch Lamellenstellung geometrisch anhand der Sonnengeometrie.
+- **Geo. Positions- und Lamellennachführung (Min/Max)**: Wie "Geo. Positions- und Lamellennachführung", jedoch werden Position und Lamellenstellung auf konfigurierbare Min./Max.-Grenzen begrenzt.
 
 <!-- DOC HelpContext="Beschattung Lamellenstellung" -->
 #### Lamellenstellung
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Nein" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Nein" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
 
 Der Wert gibt die Kippstellung der Lamelle in Prozent an. 50% entsprechen der waagrechten Stellung.
 
@@ -848,7 +851,7 @@ Der Wert gibt die Kippstellung der Lamelle in Prozent an. 50% entsprechen der wa
 #### Mindestaenderung Lamellennachfuehrung
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Standard" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Standard" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
 
 Der Wert gibt an, wie oft die Lamellenstellung während des Sonnenverlaufs angepasst wird.
 
@@ -856,7 +859,7 @@ Der Wert gibt an, wie oft die Lamellenstellung während des Sonnenverlaufs angep
 #### Lamellenstellung bei min. Höhenwinkel
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Benutzerdefiniert" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Lamellenführung (Min/Max)" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
 
 Lamellenposition in Prozent beim minimalen Höhenwinkel der Sonne. Typischerweise nahezu geschlossen (z.B. 80%), da der flache Sonnenstand mehr Blendschutz erfordert.
 
@@ -864,7 +867,7 @@ Lamellenposition in Prozent beim minimalen Höhenwinkel der Sonne. Typischerweis
 #### Lamellenstellung bei max. Höhenwinkel
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Benutzerdefiniert" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Lamellenführung (Min/Max)" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
 
 Lamellenposition in Prozent beim maximalen Höhenwinkel der Sonne. Typischerweise offener (z.B. 50% = waagrecht), da der steile Sonnenstand weniger Kippwinkel benötigt.
 
@@ -938,15 +941,16 @@ Dieser Wert wird zusammen mit der Fensterhöhe verwendet, um die absolute Positi
 Aktiviert die dynamische Positionsnachführung für Rollläden basierend auf der aktuellen Sonnenposition.
 
 - **Nein**: Keine Positionsnachführung. Der Rollladen fährt auf die konfigurierte Beschattungsposition und bleibt dort.
-- **Geometrische Positionsnachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
+- **Geo. Positionsnachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
+- **Geo. Positionsnachführung (Min/Max)**: Wie "Geo. Positionsnachführung", jedoch wird die berechnete Position auf konfigurierbare Min./Max.-Grenzen begrenzt.
 
 <!-- DOC HelpContext="Min-Position-Begrenzung" -->
 #### Min. Position
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Geo. Positionsnachführung (Min/Max)" oder "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde, oder wenn unter "Positionsnachführung" "Geo. Positionsnachführung (Min/Max)" eingestellt wurde.
 
-Minimale Jalousieposition in Prozent. Die dynamisch berechnete Position wird niemals unter diesen Wert abgesenkt.
+Minimale Position in Prozent. Die dynamisch berechnete Position wird niemals unter diesen Wert abgesenkt.
 
 Typischer Anwendungsfall: Min. Position = 20% → Die Jalousie ist immer mindestens zu 20% geschlossen, unabhängig vom Sonnenstand. So bleibt ein minimaler Sichtschutz immer erhalten.
 
@@ -956,9 +960,9 @@ Wenn Min. Position größer als Max. Position konfiguriert ist, wird die Begrenz
 #### Max. Position
 
 <!-- DOC Skip="2" -->
-Diese Einstellung ist nur vorhanden, wenn unter "Lamellenstellenung an Sonnenstand anpassen" "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde.
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Geo. Positionsnachführung (Min/Max)" oder "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde, oder wenn unter "Positionsnachführung" "Geo. Positionsnachführung (Min/Max)" eingestellt wurde.
 
-Maximale Jalousieposition in Prozent. Die dynamisch berechnete Position wird niemals über diesen Wert erhöht.
+Maximale Position in Prozent. Die dynamisch berechnete Position wird niemals über diesen Wert erhöht.
 
 Typischer Anwendungsfall: Max. Position = 80% → Die Jalousie schließt nie vollständig zu. Immer etwas Tageslicht bleibt erhalten, und die Lamellenstellung übernimmt den Blend- und Wärmeschutz.
 
