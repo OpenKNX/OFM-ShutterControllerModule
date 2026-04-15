@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
 	<ManufacturerData>
@@ -8,7 +8,7 @@
 					<op:partParams name="ModeShading">
 						<!-- Only developer hints for declaration: -->
 						<!-- Parameter Offset -->
-							<op:param name="%ParamOffset%" value="25" increment="50" />
+								<op:param name="%ParamOffset%" value="25" increment="52" />
 						<!-- ModeShading number -->
 						<op:param name="%Pn%" value="1" />
 						<!-- Parameter ID's -->
@@ -33,7 +33,7 @@
 							<Parameter Id="%AID%_P-%TT%%CC%%PPP+0%" Name="C%C%Index%Pn%" Access="None" ParameterType="%AID%_PT-SHIndex" Text="Index" Value="%Pn%" />
 
 
-							<Union SizeInBit="400">
+								<Union SizeInBit="416">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="%ParamOffset%" BitOffset="0" />
 			
 								<!-- Temperatur Aktiv -->
@@ -157,29 +157,34 @@
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+54%" Offset="31" BitOffset="6" Name="C%C%Shading%Pn%BereitschaftEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus bereit freigeben" Value="1" />
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+55%" Offset="31" BitOffset="7" Name="C%C%Shading%Pn%ActiveStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus freigeben" Value="1" />
 
-										<!-- Lamellenf&#252;hrung Experte (Modus 3): Lamellengeometrie + Kalibrierung -->
+										<!-- Lamellenführung Experte (Modus 3): Lamellengeometrie + Kalibrierung -->
 										<!-- PPP+56 Offset=40: SlatWidth -->
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+56%" Offset="40" BitOffset="0" Name="C%C%Shading%Pn%SlatWidth" ParameterType="%AID%_PT-SlatWidth" Text="Lamellenbreite" SuffixText=" mm" Value="80" />
 										<!-- PPP+57 Offset=41: SlatSpacing -->
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+57%" Offset="41" BitOffset="0" Name="C%C%Shading%Pn%SlatSpacing" ParameterType="%AID%_PT-SlatSpacing" Text="Lamellenabstand" SuffixText=" mm" Value="75" />
 										<!-- PPP+58 Offset=42: SlatAngleAtMin -->
-										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+58%" Offset="42" BitOffset="0" Name="C%C%Shading%Pn%SlatAngleAtMin" ParameterType="%AID%_PT-SlatAngle" Text="Lamellenwinkel bei Fahrbefehl 0%" SuffixText="&#176;" Value="90" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+58%" Offset="42" BitOffset="0" Name="C%C%Shading%Pn%SlatAngleAtMin" ParameterType="%AID%_PT-SlatAngle" Text="Lamellenwinkel vollständig geöffnet (0%)" SuffixText="°" Value="90" />
 										<!-- PPP+59 Offset=43: SlatAngleAtMax -->
-										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+59%" Offset="43" BitOffset="0" Name="C%C%Shading%Pn%SlatAngleAtMax" ParameterType="%AID%_PT-SlatAngle" Text="Lamellenwinkel bei Fahrbefehl 100%" SuffixText="&#176;" Value="10" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+59%" Offset="43" BitOffset="0" Name="C%C%Shading%Pn%SlatAngleAtMax" ParameterType="%AID%_PT-SlatAngle" Text="Lamellenwinkel vollständig geschlossen (100%)" SuffixText="°" Value="10" />
 
-										<!-- Schattenkantennachf&#252;hrung (Modus 4): Fensterparameter + Rollo-Modus -->
+										<!-- Schattenkantennachführung (Modus 4): Fensterparameter + Rollo-Modus -->
 										<!-- PPP+60 Offset=44: WindowHeight (UInt16, 2 Byte) -->
-										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+60%" Offset="44" BitOffset="0" Name="C%C%Shading%Pn%WindowHeight" ParameterType="%AID%_PT-WindowHeight" Text="Fensterh&#246;he" SuffixText=" cm" Value="150" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+60%" Offset="44" BitOffset="0" Name="C%C%Shading%Pn%WindowHeight" ParameterType="%AID%_PT-WindowHeight" Text="Fensterhöhe" SuffixText=" cm" Value="150" />
 										<!-- PPP+61 Offset=46: MaxPenetrationDepth -->
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+61%" Offset="46" BitOffset="0" Name="C%C%Shading%Pn%MaxPenetrationDepth" ParameterType="%AID%_PT-PenetrationDepth" Text="Max. Eindringtiefe" SuffixText=" cm" Value="50" />
 										<!-- PPP+62 Offset=47: MinShadowEdgeChange -->
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+62%" Offset="47" BitOffset="0" Name="C%C%Shading%Pn%MinShadowEdgeChange" ParameterType="%AID%_PT-ShadowEdgeChange" Text="Mindestverschiebung Schattenkante" SuffixText=" cm" Value="10" />
 										<!-- PPP+63 Offset=48: RolloPositionMode -->
-										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+63%" Offset="48" BitOffset="0" Name="C%C%Shading%Pn%RolloPositionMode" ParameterType="%AID%_PT-RolloPositionMode" Text="Positionsnachf&#252;hrung" Value="0" />
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+63%" Offset="48" BitOffset="0" Name="C%C%Shading%Pn%RolloPositionMode" ParameterType="%AID%_PT-RolloPositionMode" Text="Positionsnachführung" Value="0" />
 										<!-- PPP+64 Offset=49: WindowSillHeight -->
-										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+64%" Offset="49" BitOffset="0" Name="C%C%Shading%Pn%WindowSillHeight" ParameterType="%AID%_PT-WindowSillHeight" Text="Br&#252;stungsh&#246;he" SuffixText=" cm" Value="0" />
-							</Union>
+										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+64%" Offset="49" BitOffset="0" Name="C%C%Shading%Pn%WindowSillHeight" ParameterType="%AID%_PT-WindowSillHeight" Text="Brüstungshöhe" SuffixText=" cm" Value="0" />
 
+												<!-- Modus 6: Positions-Clipping -->
+												<!-- PPP+65 Offset=50: MinClipPosition -->
+												<Parameter Id="%AID%_UP-%TT%%CC%%PPP+65%" Offset="50" BitOffset="0" Name="C%C%Shading%Pn%MinClipPosition" ParameterType="%AID%_PT-SHCPercent" Text="Min. Position" SuffixText="%" Value="0" />
+												<!-- PPP+66 Offset=51: MaxClipPosition -->
+												<Parameter Id="%AID%_UP-%TT%%CC%%PPP+66%" Offset="51" BitOffset="0" Name="C%C%Shading%Pn%MaxClipPosition" ParameterType="%AID%_PT-SHCPercent" Text="Max. Position" SuffixText="%" Value="100" />
+								</Union>
 						</Parameters>
 						<ParameterRefs>
 
@@ -314,6 +319,10 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+63%_R-%TT%%CC%%PPP+63%01" RefId="%AID%_UP-%TT%%CC%%PPP+63%" />
 							<!-- Brüstungshöhe -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" RefId="%AID%_UP-%TT%%CC%%PPP+64%" />
+							<!-- Min. Position Begrenzung (Modus 6) -->
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" RefId="%AID%_UP-%TT%%CC%%PPP+65%" />
+							<!-- Max. Position Begrenzung (Modus 6) -->
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" RefId="%AID%_UP-%TT%%CC%%PPP+66%" />
 			
 						</ParameterRefs>
 						<ComObjectTable>
@@ -522,9 +531,6 @@
 															<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+31%_R-%TT%%CC%%PPP+31%01" />
 
 
-															<!-- Beschattungsposition -->
-															<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+32%_R-%TT%%CC%%PPP+32%01" />
-
 															<!-- Gerätetype -->
 															<choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
 																<when test="1">
@@ -532,6 +538,8 @@
 
 																	<!-- Lamellenstellung an Sonnenstand Höhenwinkel anpassen -->
 																	<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+34%_R-%TT%%CC%%PPP+34%01" />
+																	<!-- Beschattungsposition -->
+																	<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+32%_R-%TT%%CC%%PPP+32%01" />
 																	<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+34%_R-%TT%%CC%%PPP+34%01">
 																		<when test="0">
 																			<!-- Lamellenposition (Nein: feste Position) -->
@@ -551,6 +559,9 @@
 												<!-- Lamellenstellung bei max. Höhenwinkel -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+52%_R-%TT%%CC%%PPP+52%01" />
 
+
+																			<!-- Mindestaenderung Lamellennachfuehrung -->
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
 																			<!-- Offset Lamellenposition -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
 																		</when>
@@ -564,6 +575,8 @@
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
 																			<!-- Mindeständerung Lamellennachführung -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
+																			<!-- Offset Lamellenposition -->
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
 																		</when>
 																		<when test="4">
 																			<!-- Schattenkantennachführung -->
@@ -590,12 +603,41 @@
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
 																			<!-- Mindeständerung Lamellennachführung -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
+																			<!-- Offset Lamellenposition -->
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
+																		</when>
+																		<when test="6">
+																			<!-- Geo. Positions- und Lamellennachführung (Min/Max) -->
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Die Standardwerte für Min./Max. Lamellenstellung (Begrenzung) sind 80%/50%. Für kein Clipping: 0% und 100% einstellen." UIHint="Information" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
+																			<!-- Mindeständerung Lamellennachführung -->
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
+																			<!-- Offset Lamellenposition -->
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Begrenzung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="SHC-Min-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" />
+																			<ParameterRefRef HelpContext="SHC-Max-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" />
+																			<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-min-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+51%_R-%TT%%CC%%PPP+51%01" />
+																			<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-max-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+52%_R-%TT%%CC%%PPP+52%01" />
 																		</when>
 																	</choose>
 																</when>
 																<when test="2">
 																	<!-- Gerätetype Rollo -->
 																	<ParameterRefRef HelpContext="%DOC%" IndentLevel="1" RefId="%AID%_UP-%TT%%CC%%PPP+63%_R-%TT%%CC%%PPP+63%01" />
+																	<!-- Beschattungsposition -->
+																	<ParameterRefRef IndentLevel="1" HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+32%_R-%TT%%CC%%PPP+32%01" />
 																	<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+63%_R-%TT%%CC%%PPP+63%01">
 																		<when test="1">
 																			<!-- Schattenkantennachführung für Rollo -->

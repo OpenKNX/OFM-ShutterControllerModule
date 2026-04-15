@@ -21,7 +21,7 @@
 
 					<op:part href="ShutterControllerModule.ModeShading.xml" name="ModeShading" instances="2">
 						<!-- Parameter Offset -->
-						<op:param name="%ParamOffset%" value="46" increment="50" />
+						<op:param name="%ParamOffset%" value="46" increment="52" />
 						<!-- KO Offset-->
 						<op:param name="%En%" value="36" increment="8" />
 						<!-- ModeShading number -->
