@@ -835,6 +835,8 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
         auto slatPosition = (uint8_t)targetSlatPosition;
         if (callContext.diagnosticLog)
             logInfoP("Calculated slat position %d for elevation %lf (t=%.2f, low=%d, high=%d)", (int)slatPosition, callContext.elevation, t, (int)posLow, (int)posHigh);
+        if (!callContext.modeNewStarted && abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) < ParamSHC_CShading1MinChangeForSlatAdaption)
+            break;
         positionController.setAutomaticSlat(slatPosition);
         break;
     }
@@ -1068,6 +1070,7 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
             else
             {
                 float slatPercent = ((float)theta_krit - (float)angleAtMin) / ((float)angleAtMax - (float)angleAtMin) * 100.0f;
+                slatPercent += (float)(int8_t)ParamSHC_CShading1OffsetSlatPosition;
                 if (slatPercent < 0.0f) slatPercent = 0.0f;
                 if (slatPercent > 100.0f) slatPercent = 100.0f;
                 auto slatPosition = (uint8_t)slatPercent;
