@@ -826,6 +826,25 @@ Position die bei Beschattungsstart angefahren wird.
 
 Bei den Modi **Geometrische Positionsnachführung**, **Geometrische Positions- und Lamellennachführung** und **Geo. Positions- und Lamellennachführung (Min/Max)** wird die Position normalerweise dynamisch anhand des Sonnenstands berechnet. Die Beschattungsposition wirkt in diesen Modi nur als **Fallback**: Wenn die Sonne so flach steht, dass die berechnete Schattenkante oberhalb der Fensterhöhe liegt (d.h. der Behang muss vollständig abgesenkt sein), wird die hier konfigurierte Position als Zielwert verwendet.
 
+**Schutzposition:** Bei Beschattungsstart kann die Sonne zwar im konfigurierten Azimut- und Helligkeitsfenster liegen, aber geometrisch noch nicht auf die Fassade treffen (z.B. Westfenster, Sonne kommt noch aus Südosten). In diesem Fall fährt der Behang sofort auf die Beschattungsposition als Schutz gegen indirektes Licht und Reflexionen. Sobald die Sonne die Fassade trifft, übernimmt die geometrische Nachführung.
+
+Hinweis: Die Beschattungsposition wird beim Start **nicht** durch Min./Max.-Begrenzungen eingeschränkt. Soll dieses Verhalten vermieden werden, kann unter **Beschattungsstart** die Option "Nur bei direktem Sonnenlicht" gewählt werden.
+
+<!-- DOC HelpContext="Beschattungsstart-Modus" -->
+#### Beschattungsstart
+
+Legt fest, unter welcher Bedingung die Beschattung gestartet wird, wenn alle Mess- und Sonnenwert-Freigaben erfüllt sind. Diese Einstellung ist nur bei aktivem Geo-Tracking sichtbar (Jalousie: Modi 3–6; Rollo: Modi 1–2).
+
+**Sofort (mit Schutzposition)** (Standard):
+Die Beschattung startet sofort, sobald Azimut, Elevation und Helligkeitswerte die konfigurierten Grenzen erfüllen. Es ist dabei möglich, dass die Sonne geometrisch noch nicht direkt auf die Fassade trifft (z.B. beim Westfenster kommt die Sonne zunächst noch aus Südosten). In diesem Fall fährt der Behang unmittelbar auf die konfigurierte **Beschattungsposition** als Schutz gegen indirektes Licht und Reflexionen. Sobald die Sonne die Fassade trifft (Profilwinkel > 0°), übernimmt die geometrische Nachführung die Positionsberechnung.
+
+**Nur bei direktem Sonnenlicht**:
+Die Beschattung startet erst, wenn die Sonne sowohl alle Mess- und Sonnenwert-Bedingungen erfüllt als auch geometrisch auf die Fassade trifft (Profilwinkel > 0°). Solange die Sonne noch nicht auf die Fassade trifft, bleibt der Behang geöffnet – die Beschattungsposition wird nicht angefahren.
+
+**Beispiel Westfenster** (Azimut 120°–290°): Die Sonne trifft eine Westfassade erst ab ca. 180° Azimut.
+- *Sofort*: Behang fährt ab 120° auf Beschattungsposition, geometrische Nachführung ab ~180°.
+- *Nur bei direktem Sonnenlicht*: Behang bleibt bis ~180° vollständig geöffnet.
+
 <!-- DOC -->
 #### Positions- und Lamellennachführung
 
@@ -838,6 +857,58 @@ Diese Einstellung ist nur für den Gerätetype "Jalousie" vorhanden.
 - **Geo. Positionsnachführung (Min/Max)**: Wie "Geo. Positionsnachführung", jedoch wird die berechnete Position auf konfigurierbare Min./Max.-Grenzen begrenzt.
 - **Geo. Positions- und Lamellennachführung**: Berechnet sowohl Position als auch Lamellenstellung geometrisch anhand der Sonnengeometrie.
 - **Geo. Positions- und Lamellennachführung (Min/Max)**: Wie "Geo. Positions- und Lamellennachführung", jedoch werden Position und Lamellenstellung auf konfigurierbare Min./Max.-Grenzen begrenzt.
+
+<!-- DOC HelpContext="Betriebsart-Lamellennachfuehrung" -->
+#### Betriebsart Lamellennachführung
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn unter "Positions- und Lamellennachführung" "Geo. Positions- und Lamellennachführung" oder "Geo. Positions- und Lamellennachführung (Min/Max)" eingestellt wurde und der Gerätetype "Jalousie" verwendet wird.
+
+Legt fest, wie die Lamellenstellung automatisch berechnet wird:
+
+- **Tageslicht-optimiert**: Geometrische Berechnung des kritischen Kippwinkels θ, bei dem gerade kein direktes Sonnenlicht durch die Lamellen eindringt (Schattenkante). Hierfür werden Lamellenbreite und Lamellenabstand benötigt.
+- **Blendschutz-optimiert**: Die Lamellen werden so gestellt, dass Sonnenstrahlen parallel reflektiert werden (θ = Profilwinkel). Maximaler Blendschutz ohne geometrische Kalibrierung.
+- **Über Tabelle**: Die Lamellenstellung wird anhand einer konfigurierbaren Tabelle mit 6 Stützpunkten (Höhenwinkel → Position in %) per linearer Interpolation berechnet. Geeignet für herstellerspezifische Vorgaben (z. B. Warema-Tabellen).
+
+<!-- DOC HelpContext="Position-bei-Sonne-unter-min-Hoehenwinkel" -->
+#### Position bei Sonne unter min. Höhenwinkel (Tabelle)
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn "Betriebsart Lamellennachführung" auf "Über Tabelle" gesetzt ist.
+
+Lamellenstellung (0–100%), die verwendet wird, wenn der Sonnen-Höhenwinkel unterhalb des konfigurierten Höhenwinkels von Stützpunkt 1 liegt.
+
+<!-- DOC HelpContext="Hoehenwinkel" -->
+#### Min. Höhenwinkel (Tabelle)
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn "Betriebsart Lamellennachführung" auf "Über Tabelle" gesetzt ist.
+
+Minimaler Sonnenhöhenwinkel in Grad (°). Unterhalb dieses Werts wird die "Position bei Sonne unter min. Höhenwinkel" verwendet.
+
+<!-- DOC HelpContext="Bis-Hoehenwinkel" -->
+#### Höhenwinkel Stützpunkt (bis)
+
+<!-- DOC Skip="2" -->
+Diese Einstellung ist nur vorhanden, wenn "Betriebsart Lamellennachführung" auf "Über Tabelle" gesetzt ist.
+
+Sonnenhöhe in Grad (°) als Obergrenze dieses Intervalls. Ab diesem Wert gilt der Lamellenstellungswert des nächsten Stützpunkts. Die Werte müssen aufsteigend sortiert sein.
+
+<!-- DOC HelpContext="Hoehenwinkel-Stuetzpunkt 1-6" -->
+#### Höhenwinkel Stützpunkt 1...6
+
+<!-- DOC Skip="2" -->
+Diese Einstellungen sind nur vorhanden, wenn "Betriebsart Lamellennachführung" auf "Über Tabelle" gesetzt ist.
+
+Sonnenhöhe in Grad (°) für jeden der 6 Stützpunkte der Tabelle. Die Werte müssen aufsteigend sortiert sein (Stützpunkt 1 ≤ 2 ≤ ... ≤ 6). Unterhalb von Stützpunkt 1 gilt die "Position bei Sonne unter min. Höhenwinkel", oberhalb von Stützpunkt 6 bleibt die Lamellenstellung konstant auf dem Wert von Stützpunkt 6.
+
+<!-- DOC HelpContext="Position-Stuetzpunkt 1-6" -->
+#### Lamellenstellung Stützpunkt 1...6
+
+<!-- DOC Skip="2" -->
+Diese Einstellungen sind nur vorhanden, wenn "Betriebsart Lamellennachführung" auf "Über Tabelle" gesetzt ist.
+
+Lamellenstellung (0–100%) beim jeweiligen Höhenwinkel-Stützpunkt. Zwischen zwei Stützpunkten wird die Lamellenstellung linear interpoliert.
 
 <!-- DOC HelpContext="Beschattung Lamellenstellung" -->
 #### Lamellenstellung
@@ -944,6 +1015,8 @@ Aktiviert die dynamische Positionsnachführung für Rollläden basierend auf der
 - **Geo. Positionsnachführung**: Die Rolladenposition wird kontinuierlich berechnet, sodass die Sonneneindringtiefe die konfigurierte maximale Eindringtiefe nicht überschreitet. Die Position ändert sich dynamisch mit dem Sonnenverlauf.
 - **Geo. Positionsnachführung (Min/Max)**: Wie "Geo. Positionsnachführung", jedoch wird die berechnete Position auf konfigurierbare Min./Max.-Grenzen begrenzt.
 
+Siehe auch: **Beschattungsstart** – steuert, ob der Behang beim Start sofort auf die Beschattungsposition fährt oder erst wartet, bis die Sonne geometrisch auf die Fassade trifft.
+
 <!-- DOC HelpContext="Min-Position-Begrenzung" -->
 #### Min. Position
 
@@ -967,6 +1040,8 @@ Maximale Position in Prozent. Die dynamisch berechnete Position wird niemals üb
 Typischer Anwendungsfall: Max. Position = 80% → Die Jalousie schließt nie vollständig zu. Immer etwas Tageslicht bleibt erhalten, und die Lamellenstellung übernimmt den Blend- und Wärmeschutz.
 
 Wenn Min. Position größer als Max. Position konfiguriert ist, wird die Begrenzung ignoriert und das Berechnungsergebnis unverändert ausgegeben.
+
+Hinweis: Die Begrenzung gilt **nicht** für die Beschattungsposition, die beim Start angefahren wird (Schutzposition). Nur die dynamisch berechneten Geo-Nachführungs-Positionen werden begrenzt.
 
 <!-- DOC HelpContext="Lamellenstellung-bei-min-Hoehenwinkel-Begrenzung" -->
 #### Lamellenstellung bei min. Höhenwinkel (Begrenzung)
