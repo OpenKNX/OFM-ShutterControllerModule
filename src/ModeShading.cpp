@@ -457,6 +457,33 @@ bool ModeShading::allowedBySun(const CallContext &callContext)
         _notAllowedReason |= ModeShadingNotAllowedReasonSunBreak;
     else
         _notAllowedReason &= ~ModeShadingNotAllowedReasonSunBreak;
+
+    if (ParamSHC_CShading1RequireFacadeHit == 1)
+    {
+        bool isGeoTracking = (ParamSHC_CType == 2)
+            ? (ParamSHC_CShading1RolloPositionMode >= 1)
+            : (ParamSHC_CShading1SlatElevationDepending >= 3);
+
+        const uint8_t orientation = ParamSHC_CWindowOrientation;
+        if (isGeoTracking && orientation != 5 && orientation != 6)
+        {
+            float beta = calculateProfileAngle(
+                (float)callContext.elevation,
+                (float)callContext.azimuth,
+                orientation,
+                (float)(int8_t)ParamSHC_CFacadeInclination);
+            if (beta <= 0.0f)
+            {
+                if (diagnosticLog)
+                    logInfoP("RequireFacadeHit: Profilwinkel %.2f <= 0, nicht erlaubt", beta);
+                allowed = false;
+                _notAllowedReason |= ModeShadingNotAllowedReasonProfileAngleSentinel;
+            }
+            else
+                _notAllowedReason &= ~ModeShadingNotAllowedReasonProfileAngleSentinel;
+        }
+    }
+
     return allowed;
 }
 
@@ -1099,8 +1126,50 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
             positionController.setAutomaticPosition((uint8_t)targetPos);
         }
 
-        // Lamellenwinkel (Experte-Formel) — nur wenn Profilwinkel berechenbar
+        // Lamellenwinkel — Betriebsart: 0=Tageslicht, 1=Blendschutz, 2=Tabelle
+        uint8_t betriebsart = ParamSHC_CShading1SlatTrackingBetriebsart;
         if (slatTrackingPossible)
+        {
+        float gamma_deg = gamma_rad * (180.0f / (float)M_PI);
+        if (betriebsart == 2)
+        {
+            float startPos = (float)ParamSHC_CShading1SlatTableStartPos;
+            float minElevation = (float)ParamSHC_CShading1SlatTableMinElevation;
+            float e1 = (float)ParamSHC_CShading1SlatTable1Elevation;
+            float p1 = (float)ParamSHC_CShading1SlatTable1Position;
+            float e2 = (float)ParamSHC_CShading1SlatTable2Elevation;
+            float p2 = (float)ParamSHC_CShading1SlatTable2Position;
+            float e3 = (float)ParamSHC_CShading1SlatTable3Elevation;
+            float p3 = (float)ParamSHC_CShading1SlatTable3Position;
+            float e4 = (float)ParamSHC_CShading1SlatTable4Elevation;
+            float p4 = (float)ParamSHC_CShading1SlatTable4Position;
+            float e5 = (float)ParamSHC_CShading1SlatTable5Elevation;
+            float p5 = (float)ParamSHC_CShading1SlatTable5Position;
+            float e6 = (float)ParamSHC_CShading1SlatTable6Elevation;
+            float p6 = (float)ParamSHC_CShading1SlatTable6Position;
+            float slatPercent;
+            if (gamma_deg <= minElevation)
+                slatPercent = startPos;
+            else if (gamma_deg >= e6)
+                slatPercent = p6;
+            else
+            {
+                float lo_e, lo_p, hi_e, hi_p;
+                if (gamma_deg < e2)      { lo_e = e1; lo_p = p1; hi_e = e2; hi_p = p2; }
+                else if (gamma_deg < e3) { lo_e = e2; lo_p = p2; hi_e = e3; hi_p = p3; }
+                else if (gamma_deg < e4) { lo_e = e3; lo_p = p3; hi_e = e4; hi_p = p4; }
+                else if (gamma_deg < e5) { lo_e = e4; lo_p = p4; hi_e = e5; hi_p = p5; }
+                else                     { lo_e = e5; lo_p = p5; hi_e = e6; hi_p = p6; }
+                slatPercent = (hi_e > lo_e) ? lo_p + (hi_p - lo_p) * (gamma_deg - lo_e) / (hi_e - lo_e) : lo_p;
+            }
+            slatPercent += (float)(int8_t)ParamSHC_CShading1OffsetSlatPosition;
+            if (slatPercent < 0.0f) slatPercent = 0.0f;
+            if (slatPercent > 100.0f) slatPercent = 100.0f;
+            auto slatPosition = (uint8_t)slatPercent;
+            if (callContext.modeNewStarted || abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) >= ParamSHC_CShading1MinChangeForSlatAdaption)
+                positionController.setAutomaticSlat(slatPosition);
+        }
+        else
         {
         float a = (float)ParamSHC_CShading1SlatSpacing;
         float b = (float)ParamSHC_CShading1SlatWidth;
@@ -1109,7 +1178,9 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
 
         if (angleAtMin != angleAtMax)
         {
-            float theta_krit = atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
+            float theta_krit = (betriebsart == 1)
+                ? gamma_deg
+                : atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
 
             if (theta_krit < 0.0f)
             {
@@ -1128,9 +1199,10 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
             }
         }
         }
+        }
 
         if (callContext.diagnosticLog)
-            logInfoP("Case5 combined: gamma=%.1f° s_crit=%.1f targetPos=%.1f slatPossible=%d", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos, (int)slatTrackingPossible);
+            logInfoP("Case5 combined: gamma=%.1f° s_crit=%.1f targetPos=%.1f slatPossible=%d betriebsart=%d", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos, (int)slatTrackingPossible, (int)betriebsart);
 
         break;
     }
@@ -1222,45 +1294,90 @@ void ModeShading::control(const CallContext &callContext, PositionController &po
             positionController.setAutomaticPosition((uint8_t)clippedPos);
         }
 
+        uint8_t betriebsart = ParamSHC_CShading1SlatTrackingBetriebsart;
         if (slatTrackingPossible)
         {
-            float a = (float)ParamSHC_CShading1SlatSpacing;
-            float b = (float)ParamSHC_CShading1SlatWidth;
-            uint8_t angleAtMin = ParamSHC_CShading1SlatAngleAtMin;
-            uint8_t angleAtMax = ParamSHC_CShading1SlatAngleAtMax;
-
-            if (angleAtMin != angleAtMax)
+            float gamma_deg = gamma_rad * (180.0f / (float)M_PI);
+            if (betriebsart == 2)
             {
-                float theta_krit = atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
-
-                if (theta_krit < 0.0f)
-                {
-                    positionController.setAutomaticSlat(100);
-                }
+                float startPos = (float)ParamSHC_CShading1SlatTableStartPos;
+                float minElevation = (float)ParamSHC_CShading1SlatTableMinElevation;
+                float e1 = (float)ParamSHC_CShading1SlatTable1Elevation;
+                float p1 = (float)ParamSHC_CShading1SlatTable1Position;
+                float e2 = (float)ParamSHC_CShading1SlatTable2Elevation;
+                float p2 = (float)ParamSHC_CShading1SlatTable2Position;
+                float e3 = (float)ParamSHC_CShading1SlatTable3Elevation;
+                float p3 = (float)ParamSHC_CShading1SlatTable3Position;
+                float e4 = (float)ParamSHC_CShading1SlatTable4Elevation;
+                float p4 = (float)ParamSHC_CShading1SlatTable4Position;
+                float e5 = (float)ParamSHC_CShading1SlatTable5Elevation;
+                float p5 = (float)ParamSHC_CShading1SlatTable5Position;
+                float e6 = (float)ParamSHC_CShading1SlatTable6Elevation;
+                float p6 = (float)ParamSHC_CShading1SlatTable6Position;
+                float slatPercent;
+                if (gamma_deg <= minElevation)
+                    slatPercent = startPos;
+                else if (gamma_deg >= e6)
+                    slatPercent = p6;
                 else
                 {
-                    float slatPercent = ((float)theta_krit - (float)angleAtMin) / ((float)angleAtMax - (float)angleAtMin) * 100.0f;
-                    slatPercent += (float)(int8_t)ParamSHC_CShading1OffsetSlatPosition;
-                    if (slatPercent < 0.0f) slatPercent = 0.0f;
-                    if (slatPercent > 100.0f) slatPercent = 100.0f;
+                    float lo_e, lo_p, hi_e, hi_p;
+                    if (gamma_deg < e2)      { lo_e = e1; lo_p = p1; hi_e = e2; hi_p = p2; }
+                    else if (gamma_deg < e3) { lo_e = e2; lo_p = p2; hi_e = e3; hi_p = p3; }
+                    else if (gamma_deg < e4) { lo_e = e3; lo_p = p3; hi_e = e4; hi_p = p4; }
+                    else if (gamma_deg < e5) { lo_e = e4; lo_p = p4; hi_e = e5; hi_p = p5; }
+                    else                     { lo_e = e5; lo_p = p5; hi_e = e6; hi_p = p6; }
+                    slatPercent = (hi_e > lo_e) ? lo_p + (hi_p - lo_p) * (gamma_deg - lo_e) / (hi_e - lo_e) : lo_p;
+                }
+                slatPercent += (float)(int8_t)ParamSHC_CShading1OffsetSlatPosition;
+                if (slatPercent < 0.0f) slatPercent = 0.0f;
+                if (slatPercent > 100.0f) slatPercent = 100.0f;
+                auto slatPosition = (uint8_t)slatPercent;
+                if (callContext.modeNewStarted || abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) >= ParamSHC_CShading1MinChangeForSlatAdaption)
+                    positionController.setAutomaticSlat(slatPosition);
+            }
+            else
+            {
+                float a = (float)ParamSHC_CShading1SlatSpacing;
+                float b = (float)ParamSHC_CShading1SlatWidth;
+                uint8_t angleAtMin = ParamSHC_CShading1SlatAngleAtMin;
+                uint8_t angleAtMax = ParamSHC_CShading1SlatAngleAtMax;
 
-                    // Lamellen-Clipping: min(PPP+51, PPP+52) bis max(PPP+51, PPP+52)
-                    float slatLow = (float)ParamSHC_CShading1SlatLowSunPosition;
-                    float slatHigh = (float)ParamSHC_CShading1SlatHighSunPosition;
-                    float slatClipMin = (slatLow < slatHigh) ? slatLow : slatHigh;
-                    float slatClipMax = (slatLow > slatHigh) ? slatLow : slatHigh;
-                    if (slatPercent < slatClipMin) slatPercent = slatClipMin;
-                    if (slatPercent > slatClipMax) slatPercent = slatClipMax;
+                if (angleAtMin != angleAtMax)
+                {
+                    float theta_krit = (betriebsart == 1)
+                        ? gamma_deg
+                        : atan2f(a * sinf(gamma_rad), b - a * cosf(gamma_rad)) * (180.0f / (float)M_PI);
 
-                    auto slatPosition = (uint8_t)slatPercent;
-                    if (callContext.modeNewStarted || abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) >= ParamSHC_CShading1MinChangeForSlatAdaption)
-                        positionController.setAutomaticSlat(slatPosition);
+                    if (theta_krit < 0.0f)
+                    {
+                        positionController.setAutomaticSlat(100);
+                    }
+                    else
+                    {
+                        float slatPercent = ((float)theta_krit - (float)angleAtMin) / ((float)angleAtMax - (float)angleAtMin) * 100.0f;
+                        slatPercent += (float)(int8_t)ParamSHC_CShading1OffsetSlatPosition;
+                        if (slatPercent < 0.0f) slatPercent = 0.0f;
+                        if (slatPercent > 100.0f) slatPercent = 100.0f;
+
+                        // Lamellen-Clipping: min(PPP+51, PPP+52) bis max(PPP+51, PPP+52)
+                        float slatLow = (float)ParamSHC_CShading1SlatLowSunPosition;
+                        float slatHigh = (float)ParamSHC_CShading1SlatHighSunPosition;
+                        float slatClipMin = (slatLow < slatHigh) ? slatLow : slatHigh;
+                        float slatClipMax = (slatLow > slatHigh) ? slatLow : slatHigh;
+                        if (slatPercent < slatClipMin) slatPercent = slatClipMin;
+                        if (slatPercent > slatClipMax) slatPercent = slatClipMax;
+
+                        auto slatPosition = (uint8_t)slatPercent;
+                        if (callContext.modeNewStarted || abs((uint8_t)KoSHC_CShutterSlatOutput.value(DPT_Scaling) - slatPosition) >= ParamSHC_CShading1MinChangeForSlatAdaption)
+                            positionController.setAutomaticSlat(slatPosition);
+                    }
                 }
             }
         }
 
         if (callContext.diagnosticLog)
-            logInfoP("Case6 clip: gamma=%.1f° s_crit=%.1f targetPos=%.1f slatPossible=%d", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos, (int)slatTrackingPossible);
+            logInfoP("Case6 clip: gamma=%.1f° s_crit=%.1f targetPos=%.1f slatPossible=%d betriebsart=%d", gamma_rad * (180.0f / (float)M_PI), s_crit, targetPos, (int)slatTrackingPossible, (int)betriebsart);
 
         break;
     }

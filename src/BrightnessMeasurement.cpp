@@ -318,47 +318,28 @@ BrightnessMeasurement::ValueState BrightnessMeasurement::buildAzimuthState(float
         merged.push_back(entry);
     }
 
-    if (merged.size() == 1)
+    static constexpr float kDegToRad = 3.14159265358979323846f / 180.0f;
+    float weightSum = 0.0f;
+    float valueSum = 0.0f;
+    for (const auto& entry : merged)
     {
-        state.ignoreValue = false;
-        state.useFallback = false;
-        state.waitForValue = false;
-        state.valueLux = merged.front().valueLux;
-        return state;
+        float delta = sunAzimuth - entry.azimuth;
+        while (delta > 180.0f) delta -= 360.0f;
+        while (delta < -180.0f) delta += 360.0f;
+        float weight = std::cos(delta * kDegToRad);
+        if (weight <= 0.0f)
+            continue;
+        weightSum += weight;
+        valueSum += weight * entry.valueLux;
     }
 
-    float target = normalizeAzimuth(sunAzimuth);
-    float result = merged.front().valueLux;
-
-    for (size_t i = 0; i < merged.size(); i++)
-    {
-        float a0 = merged[i].azimuth;
-        float a1 = merged[(i + 1) % merged.size()].azimuth;
-        float v0 = merged[i].valueLux;
-        float v1 = merged[(i + 1) % merged.size()].valueLux;
-        float segmentStart = a0;
-        float segmentEnd = a1;
-
-        if (i == merged.size() - 1)
-            segmentEnd += 360.0f;
-
-        float targetWrapped = target;
-        if (targetWrapped < segmentStart)
-            targetWrapped += 360.0f;
-
-        if (targetWrapped >= segmentStart && targetWrapped <= segmentEnd)
-        {
-            float ratio = (segmentEnd - segmentStart) > 0.0f ?
-                (targetWrapped - segmentStart) / (segmentEnd - segmentStart) : 0.0f;
-            result = v0 + (v1 - v0) * ratio;
-            break;
-        }
-    }
+    if (weightSum < 1e-6f)
+        return aggregateState;
 
     state.ignoreValue = false;
     state.useFallback = false;
     state.waitForValue = false;
-    state.valueLux = result;
+    state.valueLux = valueSum / weightSum;
     return state;
 }
 
