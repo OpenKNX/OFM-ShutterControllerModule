@@ -6,3 +6,5 @@ Typischer Anwendungsfall: Max. Position = 80% → Die Jalousie schließt nie vol
 
 Wenn Min. Position größer als Max. Position konfiguriert ist, wird die Begrenzung ignoriert und das Berechnungsergebnis unverändert ausgegeben.
 
+Hinweis: Die Begrenzung gilt **nicht** für die Beschattungsposition, die beim Start angefahren wird (Schutzposition). Nur die dynamisch berechneten Geo-Nachführungs-Positionen werden begrenzt.
+
