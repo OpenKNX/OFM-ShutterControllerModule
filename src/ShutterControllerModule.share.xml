@@ -204,6 +204,19 @@
 									<Enumeration Text="Geo. Positions- und Lamellennachführung (Min/Max)" Value="6" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
+							<ParameterType Id="%AID%_PT-SlatTrackingBetriebsart" Name="SlatTrackingBetriebsart">
+								<TypeRestriction Base="Value" SizeInBit="2">
+									<Enumeration Text="Tageslicht-optimiert" Value="0" Id="%ENID%" />
+									<Enumeration Text="Blendschutz-optimiert" Value="1" Id="%ENID%" />
+									<Enumeration Text="Über Tabelle" Value="2" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-ShadingStartMode" Name="ShadingStartMode">
+								<TypeRestriction Base="Value" SizeInBit="8">
+									<Enumeration Text="Sofort (mit Schutzposition)" Value="0" Id="%ENID%" />
+									<Enumeration Text="Nur bei direktem Sonnenlicht" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
 							<ParameterType Id="%AID%_PT-RolloPositionMode" Name="RolloPositionMode">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<Enumeration Text="Nein" Value="0" Id="%ENID%" />

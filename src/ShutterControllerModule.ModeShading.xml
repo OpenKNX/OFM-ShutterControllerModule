@@ -33,7 +33,7 @@
 							<Parameter Id="%AID%_P-%TT%%CC%%PPP+0%" Name="C%C%Index%Pn%" Access="None" ParameterType="%AID%_PT-SHIndex" Text="Index" Value="%Pn%" />
 
 
-								<Union SizeInBit="416">
+									<Union SizeInBit="528">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="%ParamOffset%" BitOffset="0" />
 			
 								<!-- Temperatur Aktiv -->
@@ -85,6 +85,9 @@
 
 								<!-- Minimale UV-Index -->
 								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+28%" Offset="15" BitOffset="0" Name="C%C%Shading%Pn%UVIMin" ParameterType="%AID%_PT-UVIndex" Text="Minimaler UV-Index" Value="1" />
+
+								<!-- Beschattungsstart: Sofort (mit Schutzposition) / Nur bei direktem Sonnenlicht -->
+								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+82%" Offset="16" BitOffset="0" Name="C%C%Shading%Pn%RequireFacadeHit" ParameterType="%AID%_PT-ShadingStartMode" Text="Beschattungsstart" Value="0" />
 
 
 								<!-- Maximale Wolken -->
@@ -183,7 +186,52 @@
 												<Parameter Id="%AID%_UP-%TT%%CC%%PPP+65%" Offset="50" BitOffset="0" Name="C%C%Shading%Pn%MinClipPosition" ParameterType="%AID%_PT-SHCPercent" Text="Min. Position" SuffixText="%" Value="0" />
 												<!-- PPP+66 Offset=51: MaxClipPosition -->
 												<Parameter Id="%AID%_UP-%TT%%CC%%PPP+66%" Offset="51" BitOffset="0" Name="C%C%Shading%Pn%MaxClipPosition" ParameterType="%AID%_PT-SHCPercent" Text="Max. Position" SuffixText="%" Value="100" />
-								</Union>
+													<!-- Betriebsart Lamellennachführung -->
+													<!-- PPP+67 Offset=52: SlatTrackingBetriebsart -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+67%" Offset="52" BitOffset="0" Name="C%C%Shading%Pn%SlatTrackingBetriebsart" ParameterType="%AID%_PT-SlatTrackingBetriebsart" Text="Betriebsart Lamellennachführung" Value="0" />
+
+													<!-- Tabelle: Position bei Sonne unter min. Höhenwinkel -->
+													<!-- PPP+68 Offset=53: SlatTableStartPos -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+68%" Offset="53" BitOffset="0" Name="C%C%Shading%Pn%SlatTableStartPos" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="100" />
+
+													<!-- Tabelle Stützpunkt 1 -->
+													<!-- PPP+69 Offset=54: SlatTable1Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+69%" Offset="54" BitOffset="0" Name="C%C%Shading%Pn%SlatTable1Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="16" />
+													<!-- PPP+70 Offset=55: SlatTable1Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+70%" Offset="55" BitOffset="0" Name="C%C%Shading%Pn%SlatTable1Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="98" />
+
+													<!-- Tabelle Stützpunkt 2 -->
+													<!-- PPP+71 Offset=56: SlatTable2Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+71%" Offset="56" BitOffset="0" Name="C%C%Shading%Pn%SlatTable2Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="25" />
+													<!-- PPP+72 Offset=57: SlatTable2Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+72%" Offset="57" BitOffset="0" Name="C%C%Shading%Pn%SlatTable2Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="88" />
+
+													<!-- Tabelle Stützpunkt 3 -->
+													<!-- PPP+73 Offset=58: SlatTable3Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+73%" Offset="58" BitOffset="0" Name="C%C%Shading%Pn%SlatTable3Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="34" />
+													<!-- PPP+74 Offset=59: SlatTable3Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+74%" Offset="59" BitOffset="0" Name="C%C%Shading%Pn%SlatTable3Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="78" />
+
+													<!-- Tabelle Stützpunkt 4 -->
+													<!-- PPP+75 Offset=60: SlatTable4Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+75%" Offset="60" BitOffset="0" Name="C%C%Shading%Pn%SlatTable4Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="43" />
+													<!-- PPP+76 Offset=61: SlatTable4Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+76%" Offset="61" BitOffset="0" Name="C%C%Shading%Pn%SlatTable4Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="68" />
+
+													<!-- Tabelle Stützpunkt 5 -->
+													<!-- PPP+77 Offset=62: SlatTable5Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+77%" Offset="62" BitOffset="0" Name="C%C%Shading%Pn%SlatTable5Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="50" />
+													<!-- PPP+78 Offset=63: SlatTable5Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+78%" Offset="63" BitOffset="0" Name="C%C%Shading%Pn%SlatTable5Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="57" />
+
+													<!-- Tabelle Stützpunkt 6 -->
+													<!-- PPP+79 Offset=64: SlatTable6Elevation -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+79%" Offset="64" BitOffset="0" Name="C%C%Shading%Pn%SlatTable6Elevation" ParameterType="%AID%_PT-Elevation" Text="Bis Höhenwinkel" SuffixText="°" Value="90" />
+													<!-- PPP+80 Offset=65: SlatTable6Position -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+80%" Offset="65" BitOffset="0" Name="C%C%Shading%Pn%SlatTable6Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="50" />
+													<!-- Tabelle: min. Höhenwinkel für "Sonne unter min. HW" -->
+													<!-- PPP+81 Offset=34: SlatTableMinElevation (freie Lücke zwischen PPP+46@33 und PPP+44@37) -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+81%" Offset="34" BitOffset="0" Name="C%C%Shading%Pn%SlatTableMinElevation" ParameterType="%AID%_PT-Elevation" Text="Höhenwinkel" SuffixText="°" Value="0" />								</Union>
 						</Parameters>
 						<ParameterRefs>
 
@@ -321,8 +369,32 @@
 							<!-- Min. Position Begrenzung (Modus 6) -->
 							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" RefId="%AID%_UP-%TT%%CC%%PPP+65%" />
 							<!-- Max. Position Begrenzung (Modus 6) -->
-							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" RefId="%AID%_UP-%TT%%CC%%PPP+66%" />
-			
+							<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" RefId="%AID%_UP-%TT%%CC%%PPP+66%" />									<!-- Betriebsart Lamellennachführung -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01" RefId="%AID%_UP-%TT%%CC%%PPP+67%" />
+									<!-- Tabelle: Position bei Sonne unter min. Höhenwinkel -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+68%_R-%TT%%CC%%PPP+68%01" RefId="%AID%_UP-%TT%%CC%%PPP+68%" />
+									<!-- Tabelle Stützpunkt 1 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+69%_R-%TT%%CC%%PPP+69%01" RefId="%AID%_UP-%TT%%CC%%PPP+69%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+70%_R-%TT%%CC%%PPP+70%01" RefId="%AID%_UP-%TT%%CC%%PPP+70%" />
+									<!-- Tabelle Stützpunkt 2 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+71%_R-%TT%%CC%%PPP+71%01" RefId="%AID%_UP-%TT%%CC%%PPP+71%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+72%_R-%TT%%CC%%PPP+72%01" RefId="%AID%_UP-%TT%%CC%%PPP+72%" />
+									<!-- Tabelle Stützpunkt 3 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+73%_R-%TT%%CC%%PPP+73%01" RefId="%AID%_UP-%TT%%CC%%PPP+73%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+74%_R-%TT%%CC%%PPP+74%01" RefId="%AID%_UP-%TT%%CC%%PPP+74%" />
+									<!-- Tabelle Stützpunkt 4 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+75%_R-%TT%%CC%%PPP+75%01" RefId="%AID%_UP-%TT%%CC%%PPP+75%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+76%_R-%TT%%CC%%PPP+76%01" RefId="%AID%_UP-%TT%%CC%%PPP+76%" />
+									<!-- Tabelle Stützpunkt 5 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+77%_R-%TT%%CC%%PPP+77%01" RefId="%AID%_UP-%TT%%CC%%PPP+77%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+78%_R-%TT%%CC%%PPP+78%01" RefId="%AID%_UP-%TT%%CC%%PPP+78%" />
+									<!-- Tabelle Stützpunkt 6 -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+79%_R-%TT%%CC%%PPP+79%01" RefId="%AID%_UP-%TT%%CC%%PPP+79%" />
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+80%_R-%TT%%CC%%PPP+80%01" RefId="%AID%_UP-%TT%%CC%%PPP+80%" />
+									<!-- Tabelle: min. Höhenwinkel für "Sonne unter min. HW" -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+81%_R-%TT%%CC%%PPP+81%01" RefId="%AID%_UP-%TT%%CC%%PPP+81%" />
+									<!-- Beschattungsstart -->
+									<ParameterRef Id="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" RefId="%AID%_UP-%TT%%CC%%PPP+82%" />
 						</ParameterRefs>
 						<ComObjectTable>
 
@@ -566,6 +638,7 @@
 																		</when>
 																		<when test="3">
 																			<!-- Geo. Positionsnachführung -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
@@ -576,6 +649,7 @@
 																		</when>
 																		<when test="4">
 																			<!-- Geo. Positionsnachführung (Min/Max) -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
@@ -589,44 +663,122 @@
 																		</when>
 																		<when test="5">
 																			<!-- Schattenkanten- und Lamellennachführung -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
+																			<!-- Betriebsart Lamellennachführung -->
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellennachführung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01" />
+																			<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01">
+																				<when test="0 1">
+																					<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
+																					<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
+																				</when>
+																				<when test="2">
+																					<ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%SHCSlatTableMode5%Pn%" Text="#" Inline="true" Layout="Table" HelpContext="Empty">
+																						<Rows>
+																							<Row Id="%AID%_PB-nnn_R-1" Name="SunBelowHW" Text="Sonne unter min. HW" />
+																							<Row Id="%AID%_PB-nnn_R-2" Name="SP1" Text="Von 0° bis:" />
+																							<Row Id="%AID%_PB-nnn_R-3" Name="SP2" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-4" Name="SP3" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-5" Name="SP4" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-6" Name="SP5" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-7" Name="SP6" Text="Vom vorherigen bis:" />
+																						</Rows>
+																						<Columns>
+																							<Column Id="%AID%_PB-nnn_C-1" Name="Hoehenwinkel" Width="50%" Text="Höhenwinkel" />
+																							<Column Id="%AID%_PB-nnn_C-2" Name="Lamellenstellung" Width="50%" Text="Lamellenstellung" />
+																						</Columns>
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+81%_R-%TT%%CC%%PPP+81%01" Cell="1,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+68%_R-%TT%%CC%%PPP+68%01"  Cell="1,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+69%_R-%TT%%CC%%PPP+69%01"  Cell="2,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+70%_R-%TT%%CC%%PPP+70%01"  Cell="2,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+71%_R-%TT%%CC%%PPP+71%01"  Cell="3,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+72%_R-%TT%%CC%%PPP+72%01"  Cell="3,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+73%_R-%TT%%CC%%PPP+73%01"  Cell="4,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+74%_R-%TT%%CC%%PPP+74%01"  Cell="4,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+75%_R-%TT%%CC%%PPP+75%01"  Cell="5,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+76%_R-%TT%%CC%%PPP+76%01"  Cell="5,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+77%_R-%TT%%CC%%PPP+77%01"  Cell="6,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+78%_R-%TT%%CC%%PPP+78%01"  Cell="6,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+79%_R-%TT%%CC%%PPP+79%01"  Cell="7,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+80%_R-%TT%%CC%%PPP+80%01"  Cell="7,2" />
+																					</ParameterBlock>
+																				</when>
+																			</choose>
 																			<!-- Mindeständerung Lamellennachführung -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
-																			<!-- Offset Lamellenposition -->
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
 																		</when>
 																		<when test="6">
 																			<!-- Geo. Positions- und Lamellennachführung (Min/Max) -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+62%_R-%TT%%CC%%PPP+62%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+64%_R-%TT%%CC%%PPP+64%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
-																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
+																			<!-- Betriebsart Lamellennachführung -->
+																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellennachführung" UIHint="Headline" />
+																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01" />
+																			<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01">
+																				<when test="0 1">
+																					<ParameterSeparator Id="%AID%_PS-nnn" Text="Lamellengeometrie" UIHint="Headline" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+56%_R-%TT%%CC%%PPP+56%01" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+57%_R-%TT%%CC%%PPP+57%01" />
+																					<ParameterSeparator Id="%AID%_PS-nnn" Text="Kalibrierung" UIHint="Headline" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+58%_R-%TT%%CC%%PPP+58%01" />
+																					<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+59%_R-%TT%%CC%%PPP+59%01" />
+																				</when>
+																				<when test="2">
+																					<ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%SHCSlatTableMode6%Pn%" Text="#" Inline="true" Layout="Table" HelpContext="Empty">
+																						<Rows>
+																							<Row Id="%AID%_PB-nnn_R-1" Name="SunBelowHW" Text="Sonne unter min. HW" />
+																							<Row Id="%AID%_PB-nnn_R-2" Name="SP1" Text="Von 0° bis:" />
+																							<Row Id="%AID%_PB-nnn_R-3" Name="SP2" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-4" Name="SP3" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-5" Name="SP4" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-6" Name="SP5" Text="Vom vorherigen bis:" />
+																							<Row Id="%AID%_PB-nnn_R-7" Name="SP6" Text="Vom vorherigen bis:" />
+																						</Rows>
+																						<Columns>
+																							<Column Id="%AID%_PB-nnn_C-1" Name="Hoehenwinkel" Width="50%" Text="Höhenwinkel" />
+																							<Column Id="%AID%_PB-nnn_C-2" Name="Lamellenstellung" Width="50%" Text="Lamellenstellung" />
+																						</Columns>
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+81%_R-%TT%%CC%%PPP+81%01" Cell="1,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+68%_R-%TT%%CC%%PPP+68%01"  Cell="1,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+69%_R-%TT%%CC%%PPP+69%01"  Cell="2,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+70%_R-%TT%%CC%%PPP+70%01"  Cell="2,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+71%_R-%TT%%CC%%PPP+71%01"  Cell="3,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+72%_R-%TT%%CC%%PPP+72%01"  Cell="3,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+73%_R-%TT%%CC%%PPP+73%01"  Cell="4,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+74%_R-%TT%%CC%%PPP+74%01"  Cell="4,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+75%_R-%TT%%CC%%PPP+75%01"  Cell="5,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+76%_R-%TT%%CC%%PPP+76%01"  Cell="5,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+77%_R-%TT%%CC%%PPP+77%01"  Cell="6,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+78%_R-%TT%%CC%%PPP+78%01"  Cell="6,2" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+79%_R-%TT%%CC%%PPP+79%01"  Cell="7,1" />
+																						<ParameterRefRef HelpContext="%DOC%" RefId="%AID%_UP-%TT%%CC%%PPP+80%_R-%TT%%CC%%PPP+80%01"  Cell="7,2" />
+																					</ParameterBlock>
+																				</when>
+																			</choose>
 																			<!-- Mindeständerung Lamellennachführung -->
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+35%_R-%TT%%CC%%PPP+35%01" />
-																			<!-- Offset Lamellenposition -->
-																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+36%_R-%TT%%CC%%PPP+36%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Begrenzung" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="SHC-Min-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+65%_R-%TT%%CC%%PPP+65%01" />
 																			<ParameterRefRef HelpContext="SHC-Max-Position-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+66%_R-%TT%%CC%%PPP+66%01" />
-																			<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-min-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+51%_R-%TT%%CC%%PPP+51%01" />
-																			<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-max-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+52%_R-%TT%%CC%%PPP+52%01" />
+																			<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+67%_R-%TT%%CC%%PPP+67%01">
+																				<when test="0 1">
+																					<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-min-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+51%_R-%TT%%CC%%PPP+51%01" />
+																					<ParameterRefRef HelpContext="SHC-Lamellenstellung-bei-max-Hoehenwinkel-Begrenzung" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+52%_R-%TT%%CC%%PPP+52%01" />
+																				</when>
+																			</choose>
 																		</when>
 																	</choose>
 																</when>
@@ -638,6 +790,7 @@
 																	<choose ParamRefId="%AID%_UP-%TT%%CC%%PPP+63%_R-%TT%%CC%%PPP+63%01">
 																		<when test="1">
 																			<!-- Geo. Positionsnachführung für Rollo -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
@@ -646,6 +799,7 @@
 																		</when>
 																		<when test="2">
 																			<!-- Geo. Positionsnachführung (Min/Max) für Rollo -->
+																			<ParameterRefRef IndentLevel="1" HelpContext="SHC-Beschattungsstart-Modus" RefId="%AID%_UP-%TT%%CC%%PPP+82%_R-%TT%%CC%%PPP+82%01" />
 																			<ParameterSeparator Id="%AID%_PS-nnn" Text="Eindringtiefe" UIHint="Headline" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+60%_R-%TT%%CC%%PPP+60%01" />
 																			<ParameterRefRef HelpContext="%DOC%" IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%PPP+61%_R-%TT%%CC%%PPP+61%01" />
