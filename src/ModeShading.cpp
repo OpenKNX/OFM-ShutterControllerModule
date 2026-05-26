@@ -362,6 +362,10 @@ bool ModeShading::allowed(const CallContext &callContext)
         return false;
     if (startWaitTimeActive)
         return false;
+    if (callContext.isWindowTiltActive && !windowTiltAllowed())
+        return false;
+    if (callContext.isWindowOpenActive && !callContext.isWindowTiltActive && !windowOpenAllowed())
+        return false;
     if (stopWaitTimeActive)
         return true;
     if (!allowedByHeatingOff)
