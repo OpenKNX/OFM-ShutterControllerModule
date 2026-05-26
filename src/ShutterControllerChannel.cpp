@@ -80,6 +80,7 @@ void ShutterControllerChannel::setup()
     KoSHC_CShadingControl.value(shadingControlActive(), DPT_Switch);
     KoSHC_CShadingControlActive.value(shadingControlActive(), DPT_Switch);
     KoSHC_CShadingActive.value(false, DPT_Switch);
+    KoSHC_CShadingReadyUser.value(false, DPT_Switch);
 
     if (KoSHC_CLock.initialized())
     {
@@ -711,16 +712,19 @@ void ShutterControllerChannel::execute(CallContext &callContext)
             KoSHC_CShading2LockActive.value(DPT_Switch) ||
             KoSHC_CShading2BreakLockActive.value(DPT_Switch);
     }
-    bool shadingPositionAllowed = false;
-    for (auto mode : _modes)
+    bool shadingPositionAllowed = _currentMode != nullptr && _currentMode->isModeShading();
+    if (!shadingPositionAllowed)
     {
-        if (mode->isModeShading())
+        for (auto mode : _modes)
         {
-            auto modeShading = (ModeShading *)mode;
-            if (modeShading->isPositionAllowed(callContext))
+            if (mode->isModeShading())
             {
-                shadingPositionAllowed = true;
-                break;
+                auto modeShading = (ModeShading *)mode;
+                if (modeShading->isPositionAllowed(callContext))
+                {
+                    shadingPositionAllowed = true;
+                    break;
+                }
             }
         }
     }
@@ -746,6 +750,15 @@ void ShutterControllerChannel::execute(CallContext &callContext)
         logInfoP("Shading active: %d", anyShadingModeActive());
         logInfoP("Active shading period: %d", _shadingPeriodActive);
         logInfoP("Current active mode: %s", _currentMode->name());
+        logInfoP("ReadyUser: %d (shadCtrl=%d lock=%d winHandler=%d winState=%d manual=%d modeLock=%d posAllowed=%d)",
+            readinessUser,
+            (int)shadingControlActive(),
+            (int)_channelLockActive,
+            (int)(_currentWindowOpenHandler != nullptr),
+            (int)_windowOpenState,
+            (int)(_currentMode == _modeManual),
+            (int)shadingModeLockActive,
+            (int)shadingPositionAllowed);
     }
 }
 
