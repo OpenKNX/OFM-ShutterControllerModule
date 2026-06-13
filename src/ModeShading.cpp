@@ -271,6 +271,25 @@ bool ModeShading::allowed(const CallContext &callContext)
                 _waitTimeAfterMeasurmentValueChange = 0; // stop wait time, because allowed again
             }
         }
+        else
+        {
+            // Mode is currently inactive (shading not running):
+            // When the measurement values become favorable again after a previous under-shoot
+            // within the same shading period (_needWaitTime == true), (re)start the start wait time
+            // so a short favorable spell does not immediately reactivate shading.
+            // Previously the start wait time was only armed in stop(); once that timer had elapsed
+            // while the values stayed unfavorable, the next favorable change reactivated shading
+            // instantly, so the configured "Beschattungsstart" wait time was effectively ignored.
+            if (_needWaitTime && allowedByMeasurementValuesAndHeatingOffWaitTime)
+            {
+                logDebugP("Restart starting wait time");
+                _waitTimeAfterMeasurmentValueChange = callContext.currentMillis; // (re)activate start wait time
+            }
+            else if (!allowedByMeasurementValuesAndHeatingOffWaitTime)
+            {
+                _waitTimeAfterMeasurmentValueChange = 0; // values unfavorable again, cancel pending start wait time
+            }
+        }
     }
     // Handle start and stop wait time
     bool stopWaitTimeActive = false;
