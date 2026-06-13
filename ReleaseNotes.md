@@ -5,7 +5,8 @@ v 0.6.4
 - Change: „Status Beschattung Bereit (Benutzer)" wird jetzt auch ohne aktiven Beschattungsmodus korrekt als bereit gemeldet, sobald alle anderen Bedingungen erfüllt sind (vorher fälschlich nur bereit, wenn bereits ein Beschattungsmodus aktiv war).
 - Fix: Lamellenwinkel-Skalierung bei geometrischer Berechnung korrigiert – der Nenner war fälschlicherweise „Lamellenwinkel vollständig geschlossen" (Winkel von der Vertikalen), korrekt ist (90° − dieser Wert) (Winkel von der Waagrechten bis vollständig geschlossen). Auswirkung: Lamellen wurden bisher fast immer auf 100% (oder den Clip-Maximalwert) gesetzt, jetzt werden physikalisch korrekte Zwischenstellungen berechnet.
 - Fix: KO „Status Beschattung Bereit (Benutzer)" wird beim Geräteneustart explizit mit „false" initialisiert (vorher uninitialisiert auf dem Bus sichtbar).
-- Breaking: Parameterlayout des Beschattungsmodus-Blocks vergrößert (increment 52 → 66 Bytes / 416 → 528 Bit). Betrifft Kanäle mit zwei konfigurierten Beschattungsmodi. Bestehende ETS-Projekte müssen neu parametriert werden.
+- Fix: Speicherüberlappung im Beschattungsmodus-Block behoben – die Parameter „Beschattungsstart" (RequireFacadeHit) und der Tabellen-Höhenwinkel (SlatTableMinElevation) lagen fälschlicherweise innerhalb der 4-Byte-Float-Parameter „Minimaler UV-Index" bzw. „Minimale Raumtemperatur" und überschrieben sich gegenseitig. Beide wurden auf eigene Bytes am Blockende verschoben.
+- Breaking: Parameterlayout des Beschattungsmodus-Blocks vergrößert (increment 52 → 68 Bytes / 416 → 544 Bit). Betrifft Kanäle mit zwei konfigurierten Beschattungsmodi. Bestehende ETS-Projekte müssen neu parametriert werden.
 - Breaking: Parameterwert für „Über Tabelle" verschoben (Value 2 → 3). Bestehende ETS-Projekte mit „Über Tabelle"-Konfiguration müssen neu parametriert werden.
 
 v 0.6.3

@@ -33,7 +33,7 @@
 							<Parameter Id="%AID%_P-%TT%%CC%%PPP+0%" Name="C%C%Index%Pn%" Access="None" ParameterType="%AID%_PT-SHIndex" Text="Index" Value="%Pn%" />
 
 
-									<Union SizeInBit="528">
+									<Union SizeInBit="544">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="%ParamOffset%" BitOffset="0" />
 			
 								<!-- Temperatur Aktiv -->
@@ -83,11 +83,12 @@
 								<!-- Helligkeit Hysterese-->
 								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+26%" Offset="14" BitOffset="0" Name="C%C%Shading%Pn%BrightnessHyst" ParameterType="%AID%_PT-BrightnessHysteresis" Text="Helligkeit Hysterese" SuffixText="x1000 lux" Value="5" />
 
-								<!-- Minimale UV-Index -->
+								<!-- Minimale UV-Index (PT-UVIndex = IEEE-754 Single, 4 Byte: belegt Offset 15-18) -->
 								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+28%" Offset="15" BitOffset="0" Name="C%C%Shading%Pn%UVIMin" ParameterType="%AID%_PT-UVIndex" Text="Minimaler UV-Index" Value="1" />
 
 								<!-- Beschattungsstart: Sofort (mit Schutzposition) / Nur bei direktem Sonnenlicht -->
-								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+82%" Offset="16" BitOffset="0" Name="C%C%Shading%Pn%RequireFacadeHit" ParameterType="%AID%_PT-ShadingStartMode" Text="Beschattungsstart" Value="0" />
+								<!-- PPP+82 Offset=66: RequireFacadeHit (eigenes Byte am Union-Ende, vorher fälschlich in UVIMin-Float Offset 16) -->
+								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+82%" Offset="66" BitOffset="0" Name="C%C%Shading%Pn%RequireFacadeHit" ParameterType="%AID%_PT-ShadingStartMode" Text="Beschattungsstart" Value="0" />
 
 
 								<!-- Maximale Wolken -->
@@ -153,8 +154,8 @@
 								<!-- Lamellenstellung bei hoher Sonne (Benutzerdefiniert) -->
 								<Parameter Id="%AID%_UP-%TT%%CC%%PPP+52%" Offset="39" BitOffset="0" Name="C%C%Shading%Pn%SlatHighSunPosition" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung bei max. Höhenwinkel" SuffixText="%" Value="50" />
 
-								<!-- Next Offset = 40 -->
-								<!-- Next Id: %AID%_UP-%TT%%CC%%PPP+53% -->
+								<!-- Next Offset = 68 (Union SizeInBit=544 / 68 Byte) -->
+								<!-- Next Id: %AID%_UP-%TT%%CC%%PPP+83% -->
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+53%" Offset="31" BitOffset="5" Name="C%C%Shading%Pn%LockEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Sperren Beschattungsmodus freigeben" Value="1" />
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+54%" Offset="31" BitOffset="6" Name="C%C%Shading%Pn%BereitschaftEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus bereit freigeben" Value="1" />
 										<Parameter Id="%AID%_UP-%TT%%CC%%PPP+55%" Offset="31" BitOffset="7" Name="C%C%Shading%Pn%ActiveStatusEnabled" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Beschattungsmodus freigeben" Value="1" />
@@ -230,8 +231,8 @@
 													<!-- PPP+80 Offset=65: SlatTable6Position -->
 													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+80%" Offset="65" BitOffset="0" Name="C%C%Shading%Pn%SlatTable6Position" ParameterType="%AID%_PT-SHCPercent" Text="Lamellenstellung" SuffixText="%" Value="50" />
 													<!-- Tabelle: min. Höhenwinkel für "Sonne unter min. HW" -->
-													<!-- PPP+81 Offset=34: SlatTableMinElevation (freie Lücke zwischen PPP+46@33 und PPP+44@37) -->
-													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+81%" Offset="34" BitOffset="0" Name="C%C%Shading%Pn%SlatTableMinElevation" ParameterType="%AID%_PT-Elevation" Text="Höhenwinkel" SuffixText="°" Value="0" />								</Union>
+													<!-- PPP+81 Offset=67: SlatTableMinElevation (eigenes Byte am Union-Ende, vorher fälschlich in RoomTemperaturMinimum-Float Offset 34) -->
+													<Parameter Id="%AID%_UP-%TT%%CC%%PPP+81%" Offset="67" BitOffset="0" Name="C%C%Shading%Pn%SlatTableMinElevation" ParameterType="%AID%_PT-Elevation" Text="Höhenwinkel" SuffixText="°" Value="0" />								</Union>
 						</Parameters>
 						<ParameterRefs>
 
