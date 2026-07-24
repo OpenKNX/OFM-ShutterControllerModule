@@ -738,6 +738,13 @@ void ModeShading::start(const CallContext &callContext, const ModeBase *previous
     _active = true;
     _lastSentShadowPos = -1.0f;
     KoSHC_CShading1Active.value(true, DPT_Switch);
+    // Restore-Position nur beim ersten Shading-Start speichern (nicht bei Shading->Shading-Wechsel),
+    // damit "Position vor Beschattungsstart" die tatsächliche Position vor der gesamten Beschattungsphase ist.
+    if (previous == nullptr || !previous->isModeShading())
+    {
+        positionController.storeCurrentPositionForRestore();
+        positionController.setRestoreSlat(positionController.slat());
+    }
     positionController.setAutomaticPosition(ParamSHC_CShading1ShadingPosition);
 
     // <Enumeration Text="Channel disabled" Value="0" Id="%ENID%" />
