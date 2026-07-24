@@ -35,10 +35,10 @@
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="40" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-BrightnessLimit" Name="BrightnessLimit">
-								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="50" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-BrightnessHysteresis" Name="BrightnessHysteresis">
-								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="20" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="50" />
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-BrightnessAggregation" Name="BrightnessAggregation">
 								<TypeRestriction Base="Value" SizeInBit="8">
