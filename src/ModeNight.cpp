@@ -244,7 +244,7 @@ void ModeNight::stop(const CallContext &callContext, const ModeBase *next, Posit
     KoSHC_CNightActive.value(false, DPT_Switch);
     if (next != (const ModeBase *)callContext.modeManual && ParamSHC_CNightStopPositionEnabled)
     {
-        logDebugP("Set night stop position %d slat %d", (int) ParamSHC_CNightStartPosition, (int) ParamSHC_CNightStartSlatPosition);  
+        logDebugP("Set night stop position %d slat %d", (int) ParamSHC_CNightStopPosition, (int) ParamSHC_CNightStopSlatPosition);  
         positionController.setAutomaticPositionAndStoreForRestore(ParamSHC_CNightStopPosition); 
         positionController.setAutomaticSlatAndStoreForRestore(ParamSHC_CNightStopSlatPosition);
     }
