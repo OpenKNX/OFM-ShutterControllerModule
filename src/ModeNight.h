@@ -57,6 +57,7 @@ private:
     bool isBrightnessReached(const CallContext& callContext, uint16_t lux, bool evening, unsigned long& since, bool& valid);
     bool readBrightness(const CallContext& callContext, float& lux);
     bool isTimeReached(const CallContext& callContext, int16_t minuteOfDay, bool evening);
+    static bool twilightTime(bool evening, double elevation, int16_t& minuteOfDay);
     void fireStage(uint8_t stage, bool silent);
     void scheduleStage(uint8_t stage, bool silent);
     void applyNightKo(bool night);

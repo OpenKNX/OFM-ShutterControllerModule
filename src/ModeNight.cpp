@@ -1,6 +1,8 @@
 #include "ModeNight.h"
 #include "PositionController.h"
 #include "BrightnessMeasurement.h"
+#include "OpenKNX/Sun/SunRiseAndSet.h"
+#include <cmath>
 
 namespace
 {
@@ -159,6 +161,20 @@ bool ModeNight::isTimeReached(const CallContext &callContext, int16_t minuteOfDa
     return cyclePosition(callContext.minuteOfDay) >= cyclePosition(minuteOfDay);
 }
 
+bool ModeNight::twilightTime(bool evening, double elevation, int16_t& minuteOfDay)
+{
+    // same calculation as the sun rise/set times in OGM-Common, but for the twilight elevation
+    auto utc = openknx.time.getUtcTime();
+    double rise, set;
+    if (OpenKNX::Sun::SunRiseAndSet::sunRiseSet(utc.year, utc.month, utc.day, ParamBASE_Longitude, ParamBASE_Latitude, elevation, 0, &rise, &set) != 0)
+        return false;
+    const double hours = evening ? set : rise;
+    OpenKNX::DateTime time(utc.year, utc.month, utc.day, (int32_t)floor(hours), (uint8_t)(60 * (hours - floor(hours))), 0, OpenKNX::DateTimeTypeUTC);
+    auto localTime = time.toLocalTime();
+    minuteOfDay = localTime.hour * 60 + localTime.minute;
+    return true;
+}
+
 bool ModeNight::readBrightness(const CallContext &callContext, float& lux)
 {
     // <Enumeration Text="Nein" Value="0" Id="%ENID%" />
@@ -218,6 +234,8 @@ bool ModeNight::isTriggerReached(const CallContext &callContext, SwitchPoint& sw
     // <Enumeration Text="dunkler/heller als" Value="6" Id="%ENID%" />
     // <Enumeration Text="Ende/Beginn bürgerliche Dämmerung (6° unter Horizont)" Value="7" Id="%ENID%" />
     // <Enumeration Text="Ende/Beginn nautische Dämmerung (12° unter Horizont)" Value="8" Id="%ENID%" />
+    // <Enumeration Text="Ende/Beginn bürgerliche Dämmerung minus/plus Zeitversatz" Value="9/10" Id="%ENID%" />
+    // <Enumeration Text="Ende/Beginn nautische Dämmerung minus/plus Zeitversatz" Value="11/12" Id="%ENID%" />
     if (switchPoint.trigger == 0)
         return isTimeReached(callContext, switchPoint.time, evening);
     if (switchPoint.trigger == 6)
@@ -233,6 +251,16 @@ bool ModeNight::isTriggerReached(const CallContext &callContext, SwitchPoint& sw
         auto sunTime = evening ? openknx.sun.sunSetLocalTime() : openknx.sun.sunRiseLocalTime();
         int16_t minute = sunTime.hour * 60 + sunTime.minute;
         minute += switchPoint.trigger == 2 ? -(int16_t)switchPoint.timeOffset : (int16_t)switchPoint.timeOffset;
+        return isTimeReached(callContext, minute, evening);
+    }
+    if (switchPoint.trigger >= 9 && switchPoint.trigger <= 12)
+    {
+        int16_t minute = 0;
+        // the sun does not reach the twilight elevation on every day, e.g. nautical twilight in summer
+        if (!twilightTime(evening, switchPoint.trigger <= 10 ? -6.0 : -12.0, minute))
+            return false;
+        const bool minus = switchPoint.trigger == 9 || switchPoint.trigger == 11;
+        minute += minus ? -(int16_t)switchPoint.timeOffset : (int16_t)switchPoint.timeOffset;
         return isTimeReached(callContext, minute, evening);
     }
     double elevation;
@@ -452,6 +480,11 @@ bool ModeNight::allowed(const CallContext &callContext)
     {
         logInfoP("Night active: %s, stage: %s, pending: %s", _allowed ? "true" : "false", stageName(_stage), stageName(_pendingStage));
         logInfoP("Fired: evening %d, night %d, morning %d, day %d", (int)_fired[StageEvening], (int)_fired[StageNight], (int)_fired[StageMorning], (int)_fired[StageDay]);
+        int16_t dawn = 0, dusk = 0;
+        if (twilightTime(false, -6.0, dawn) && twilightTime(true, -6.0, dusk))
+            logInfoP("Civil twilight: begin %02d:%02d, end %02d:%02d", dawn / 60, dawn % 60, dusk / 60, dusk % 60);
+        if (twilightTime(false, -12.0, dawn) && twilightTime(true, -12.0, dusk))
+            logInfoP("Nautical twilight: begin %02d:%02d, end %02d:%02d", dawn / 60, dawn % 60, dusk / 60, dusk % 60);
     }
     if (KoSHC_CNightLockActive.value(DPT_Switch))
     {

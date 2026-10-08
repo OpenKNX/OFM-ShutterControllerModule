@@ -332,7 +332,11 @@
 									<Enumeration Text="Sonnenuntergang minus Zeitversatz" Value="2" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang plus Zeitversatz" Value="3" Id="%ENID%" />
 									<Enumeration Text="Ende bürgerliche Dämmerung (6° unter Horizont)" Value="7" Id="%ENID%" />
+									<Enumeration Text="Ende bürgerliche Dämmerung minus Zeitversatz" Value="9" Id="%ENID%" />
+									<Enumeration Text="Ende bürgerliche Dämmerung plus Zeitversatz" Value="10" Id="%ENID%" />
 									<Enumeration Text="Ende nautische Dämmerung (12° unter Horizont)" Value="8" Id="%ENID%" />
+									<Enumeration Text="Ende nautische Dämmerung minus Zeitversatz" Value="11" Id="%ENID%" />
+									<Enumeration Text="Ende nautische Dämmerung plus Zeitversatz" Value="12" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang: über Horizont" Value="4" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang: unter Horizont" Value="5" Id="%ENID%" />
 									<Enumeration Text="dunkler als" Value="6" Id="%ENID%" />
@@ -345,7 +349,11 @@
 									<Enumeration Text="Sonnenaufgang minus Zeitversatz" Value="2" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang plus Zeitversatz" Value="3" Id="%ENID%" />
 									<Enumeration Text="Beginn bürgerliche Dämmerung (6° unter Horizont)" Value="7" Id="%ENID%" />
+									<Enumeration Text="Beginn bürgerliche Dämmerung minus Zeitversatz" Value="9" Id="%ENID%" />
+									<Enumeration Text="Beginn bürgerliche Dämmerung plus Zeitversatz" Value="10" Id="%ENID%" />
 									<Enumeration Text="Beginn nautische Dämmerung (12° unter Horizont)" Value="8" Id="%ENID%" />
+									<Enumeration Text="Beginn nautische Dämmerung minus Zeitversatz" Value="11" Id="%ENID%" />
+									<Enumeration Text="Beginn nautische Dämmerung plus Zeitversatz" Value="12" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang: über Horizont" Value="4" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang: unter Horizont" Value="5" Id="%ENID%" />
 									<Enumeration Text="heller als" Value="6" Id="%ENID%" />
@@ -358,7 +366,11 @@
 									<Enumeration Text="Sonnenuntergang minus Zeitversatz" Value="2" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang plus Zeitversatz" Value="3" Id="%ENID%" />
 									<Enumeration Text="Ende bürgerliche Dämmerung (6° unter Horizont)" Value="7" Id="%ENID%" />
+									<Enumeration Text="Ende bürgerliche Dämmerung minus Zeitversatz" Value="9" Id="%ENID%" />
+									<Enumeration Text="Ende bürgerliche Dämmerung plus Zeitversatz" Value="10" Id="%ENID%" />
 									<Enumeration Text="Ende nautische Dämmerung (12° unter Horizont)" Value="8" Id="%ENID%" />
+									<Enumeration Text="Ende nautische Dämmerung minus Zeitversatz" Value="11" Id="%ENID%" />
+									<Enumeration Text="Ende nautische Dämmerung plus Zeitversatz" Value="12" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang: über Horizont" Value="4" Id="%ENID%" />
 									<Enumeration Text="Sonnenuntergang: unter Horizont" Value="5" Id="%ENID%" />
 								</TypeRestriction>
@@ -370,7 +382,11 @@
 									<Enumeration Text="Sonnenaufgang minus Zeitversatz" Value="2" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang plus Zeitversatz" Value="3" Id="%ENID%" />
 									<Enumeration Text="Beginn bürgerliche Dämmerung (6° unter Horizont)" Value="7" Id="%ENID%" />
+									<Enumeration Text="Beginn bürgerliche Dämmerung minus Zeitversatz" Value="9" Id="%ENID%" />
+									<Enumeration Text="Beginn bürgerliche Dämmerung plus Zeitversatz" Value="10" Id="%ENID%" />
 									<Enumeration Text="Beginn nautische Dämmerung (12° unter Horizont)" Value="8" Id="%ENID%" />
+									<Enumeration Text="Beginn nautische Dämmerung minus Zeitversatz" Value="11" Id="%ENID%" />
+									<Enumeration Text="Beginn nautische Dämmerung plus Zeitversatz" Value="12" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang: über Horizont" Value="4" Id="%ENID%" />
 									<Enumeration Text="Sonnenaufgang: unter Horizont" Value="5" Id="%ENID%" />
 								</TypeRestriction>
