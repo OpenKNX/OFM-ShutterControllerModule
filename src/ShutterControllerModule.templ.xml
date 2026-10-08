@@ -506,7 +506,7 @@
 							<!-- Zweistufiger Nachtmodus -->
 							<!-- Nur ETS: 1, wenn im Kanal Helligkeit verwendet wird (per Assign aus der sichtbaren Quellen-Variante) -->
 							<Parameter Id="%AID%_P-%TT%%CC%489" Name="C%C%NightBrightnessUsed" ParameterType="%AID%_PT-OnOffYesNo" Text="Helligkeit verwendet" Value="0" />
-							<Union SizeInBit="1096">
+							<Union SizeInBit="1104">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="281" BitOffset="0" />
 								<Parameter Id="%AID%_UP-%TT%%CC%476" Offset="0" BitOffset="0" Name="C%C%NightLockBehavior" ParameterType="%AID%_PT-SHCNightLockBehavior" Text="Verhalten bei Sperre" Value="0" />
 								<Parameter Id="%AID%_UP-%TT%%CC%477" Offset="0" BitOffset="1" Name="C%C%NightShadingPrecedence" ParameterType="%AID%_PT-OnOffYesNo" Text="Beschattung hat in den Vorstufen Vorrang" Value="0" />
@@ -712,8 +712,9 @@
 								<Parameter Id="%AID%_UP-%TT%%CC%686" Offset="133" BitOffset="0" Name="C%C%NightPoint8ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Verzögerung je Kanal -->
 								<Parameter Id="%AID%_UP-%TT%%CC%702" Offset="135" BitOffset="0" Name="C%C%NightDelay" ParameterType="%AID%_PT-SHCNightDelay" Text="Fahrverzögerung" Value="0" SuffixText="s" />
-								<!-- Next offset: 137-->
-								<!-- Next Id: %AID%_UP-%TT%%CC%703 -->
+								<Parameter Id="%AID%_UP-%TT%%CC%705" Offset="137" BitOffset="0" Name="C%C%NightUnlockBehavior" ParameterType="%AID%_PT-SHCNightUnlockBehavior" Text="Verhalten nach Entsperren" Value="0" />
+								<!-- Next offset: 138-->
+								<!-- Next Id: %AID%_UP-%TT%%CC%706 -->
 							</Union>
 
 							<!-- ShutterControllerModule.ModeWindowOpen.xml will be included here -->
@@ -1098,6 +1099,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%702_R-%TT%%CC%70201" RefId="%AID%_UP-%TT%%CC%702" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%703_R-%TT%%CC%70301" RefId="%AID%_UP-%TT%%CC%703" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%704_R-%TT%%CC%70401" RefId="%AID%_UP-%TT%%CC%704" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%705_R-%TT%%CC%70501" RefId="%AID%_UP-%TT%%CC%705" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%481_R-%TT%%CC%48101" RefId="%AID%_UP-%TT%%CC%481" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%482_R-%TT%%CC%48201" RefId="%AID%_UP-%TT%%CC%482" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%483_R-%TT%%CC%48301" RefId="%AID%_UP-%TT%%CC%483" />
@@ -2141,6 +2143,7 @@
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 															<ParameterSeparator Id="%AID%_PS-nnn" Text="Nachtstufen" UIHint="Headline" />
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%476_R-%TT%%CC%47601" HelpContext="%DOC%" IndentLevel="1" />
+															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%705_R-%TT%%CC%70501" HelpContext="%DOC%" IndentLevel="1" />
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%477_R-%TT%%CC%47701" HelpContext="%DOC%" IndentLevel="1" />
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%702_R-%TT%%CC%70201" HelpContext="%DOC%" IndentLevel="1" />
 															<ParameterRefRef RefId="%AID%_UP-%TT%%CC%703_R-%TT%%CC%70301" HelpContext="%DOC%" IndentLevel="1" />

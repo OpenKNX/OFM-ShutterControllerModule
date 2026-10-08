@@ -664,6 +664,14 @@ Legt fest, was passiert, wenn das Kommunikationsobjekt "Nachtmodus Sperre" währ
 - keine Aktion: Der Behang bleibt stehen. Die Position der Stufe "Tag" wird erst angefahren, wenn die Nacht wirklich endet.
 
 <!-- DOC -->
+#### Verhalten nach Entsperren
+
+Legt fest, was passiert, wenn die Sperre des Nachtmodus wieder aufgehoben wird:
+
+- keine Aktion: Der Behang bleibt, wo er ist. Nur eine Stufe, die während der Sperre neu ausgelöst hat, wird angefahren.
+- aktuelle Stufe anfahren: Die Position der aktuellen Stufe wird erneut angefahren (entsprechend ihrer Aktion), z. B. schließt der Rollladen wieder, wenn während der Sperre Nacht war. Hat während der Sperre die Stufe "Tag" ausgelöst, wird nach dem Entsperren die Tag-Position angefahren.
+
+<!-- DOC -->
 #### Beschattung hat in den Vorstufen Vorrang
 
 Bei "Ja" überlässt der Nachtmodus während der Vorstufe Abend und der Vorstufe Morgen einer erlaubten Beschattung den Vorrang, z. B. wenn morgens die Sonne schon auf ein Ostfenster scheint. Endet die Beschattung vor der nächsten Stufe, übernimmt der Nachtmodus wieder, ohne zu fahren. Die Stufen "Nacht" und "Tag" haben immer Vorrang vor der Beschattung.

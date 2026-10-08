@@ -394,6 +394,7 @@ void ModeNight::fireStage(uint8_t stage, bool silent)
     case StageNight:
         if (stage == StageNight)
             _fired[StageEvening] = true;
+        _endAfterPending = false;
         _allowed = true;
         _stage = stage;
         _pendingStage = silent ? StageNone : stage;
@@ -407,6 +408,14 @@ void ModeNight::fireStage(uint8_t stage, bool silent)
         break;
     case StageDay:
         _fired[StageMorning] = true;
+        if (_allowed && KoSHC_CNightLockActive.value(DPT_Switch) && ParamSHC_CNightUnlockBehavior == 1)
+        {
+            // keep the night mode until it is unlocked, then move to the day position and end it
+            logInfoP("Locked, day position after unlock");
+            _endAfterPending = true;
+            _pendingStage = StageDay;
+            break;
+        }
         _allowed = false;
         _stage = StageNone;
         _pendingStage = StageNone;
@@ -464,6 +473,7 @@ void ModeNight::scheduleStage(uint8_t stage, bool silent)
 
 void ModeNight::applyNightKo(bool night)
 {
+    _endAfterPending = false;
     if (night)
     {
         // same as stage "Nacht": a following "Vorstufe Abend" must not open again
@@ -531,7 +541,15 @@ bool ModeNight::allowed(const CallContext &callContext)
         if (twilightTime(false, -12.0, dawn) && twilightTime(true, -12.0, dusk))
             logInfoP("Nautical twilight: begin %02d:%02d, end %02d:%02d", dawn / 60, dawn % 60, dusk / 60, dusk % 60);
     }
-    if (KoSHC_CNightLockActive.value(DPT_Switch))
+    // the lock can also be set by scenes, so detect the unlock here and not only on the KO
+    const bool locked = KoSHC_CNightLockActive.value(DPT_Switch);
+    if (_lastLocked && !locked && ParamSHC_CNightUnlockBehavior == 1 && _allowed && !_endAfterPending && _stage != StageNone)
+    {
+        logInfoP("Unlocked, move to stage %s again", stageName(_stage));
+        _pendingStage = _stage;
+    }
+    _lastLocked = locked;
+    if (locked)
     {
         if (callContext.diagnosticLog)
             logInfoP("Lock KO active");
@@ -653,6 +671,14 @@ void ModeNight::control(const CallContext &callContext, PositionController& posi
         return;
     applyStage(_pendingStage, positionController);
     _pendingStage = StageNone;
+    if (_endAfterPending)
+    {
+        // the day position reached during the lock has been applied, the night ends now
+        _endAfterPending = false;
+        _allowed = false;
+        _stage = StageNone;
+        updateStageStatus();
+    }
 }
 
 void ModeNight::stop(const CallContext &callContext, const ModeBase *next, PositionController& positionController)

@@ -434,6 +434,12 @@
 									<Enumeration Text="keine Aktion" Value="1" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
+							<ParameterType Id="%AID%_PT-SHCNightUnlockBehavior" Name="SHCNightUnlockBehavior">
+								<TypeRestriction Base="Value" SizeInBit="1">
+									<Enumeration Text="keine Aktion" Value="0" Id="%ENID%" />
+									<Enumeration Text="aktuelle Stufe anfahren" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
 							<ParameterType Id="%AID%_PT-SHCNightBrightnessSource" Name="SHCNightBrightnessSource">
 								<TypeRestriction Base="Value" SizeInBit="3">
 									<Enumeration Text="Nein" Value="0" Id="%ENID%" />

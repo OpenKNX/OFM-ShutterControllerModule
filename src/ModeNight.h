@@ -42,6 +42,8 @@ private:
     uint8_t _pendingStage = StageNone;
     bool _cycleInitialized = false;
     bool _yieldedToShading = false;
+    bool _lastLocked = false;
+    bool _endAfterPending = false; // day reached while locked: move to the day position after unlock
     // stage or night KO waiting for the channel specific delay
     uint8_t _delayedStage = StageNone;
     bool _delayedSilent = false;
