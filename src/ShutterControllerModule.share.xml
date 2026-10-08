@@ -406,10 +406,12 @@
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-SHCNightCondition" Name="SHCNightCondition">
-								<TypeRestriction Base="Value" SizeInBit="2">
+								<TypeRestriction Base="Value" SizeInBit="3">
 									<Enumeration Text="keine" Value="0" Id="%ENID%" />
 									<Enumeration Text="frühestens um" Value="1" Id="%ENID%" />
 									<Enumeration Text="spätestens um" Value="2" Id="%ENID%" />
+									<Enumeration Text="zwischen" Value="3" Id="%ENID%" />
+									<Enumeration Text="zufällig zwischen" Value="4" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 							<ParameterType Id="%AID%_PT-SHCNightActionClose" Name="SHCNightActionClose">

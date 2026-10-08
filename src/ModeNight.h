@@ -29,6 +29,8 @@ private:
         uint16_t lux = 0;
         uint16_t linkLux = 0;
         uint16_t conditionTime = 0;
+        uint16_t conditionTime2 = 0; // "bis" for (random) between
+        uint16_t randomTime = 0;     // rolled once per night cycle for "zufällig zwischen"
         unsigned long luxSince = 0;
         unsigned long linkLuxSince = 0;
     };
@@ -49,6 +51,7 @@ private:
     uint16_t _lastMinuteOfDay = 0;
 
     void readSwitchPoints();
+    void rollRandomTimes();
     void readLegacySwitchPoint(SwitchPoint& switchPoint, uint8_t stage, uint8_t behavior, uint16_t time, uint8_t sun, uint8_t elevation);
     void evaluate(const CallContext& callContext, bool reconstruct);
     bool isStageReached(const CallContext& callContext, uint8_t stage);

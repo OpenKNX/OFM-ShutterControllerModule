@@ -506,7 +506,7 @@
 							<!-- Zweistufiger Nachtmodus -->
 							<!-- Nur ETS: 1, wenn im Kanal Helligkeit verwendet wird (per Assign aus der sichtbaren Quellen-Variante) -->
 							<Parameter Id="%AID%_P-%TT%%CC%489" Name="C%C%NightBrightnessUsed" ParameterType="%AID%_PT-OnOffYesNo" Text="Helligkeit verwendet" Value="0" />
-							<Union SizeInBit="968">
+							<Union SizeInBit="1096">
 								<Memory CodeSegment="%AID%_RS-04-00000" Offset="281" BitOffset="0" />
 								<Parameter Id="%AID%_UP-%TT%%CC%476" Offset="0" BitOffset="0" Name="C%C%NightLockBehavior" ParameterType="%AID%_PT-SHCNightLockBehavior" Text="Verhalten bei Sperre" Value="0" />
 								<Parameter Id="%AID%_UP-%TT%%CC%477" Offset="0" BitOffset="1" Name="C%C%NightShadingPrecedence" ParameterType="%AID%_PT-OnOffYesNo" Text="Beschattung hat in den Vorstufen Vorrang" Value="0" />
@@ -539,171 +539,179 @@
 								<Parameter Id="%AID%_UP-%TT%%CC%502" Offset="8" BitOffset="3" Name="C%C%NightPoint1TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
 								<Parameter Id="%AID%_UP-%TT%%CC%503" Offset="8" BitOffset="3" Name="C%C%NightPoint1TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
 								<Parameter Id="%AID%_UP-%TT%%CC%504" Offset="9" BitOffset="0" Name="C%C%NightPoint1Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%497" Offset="9" BitOffset="2" Name="C%C%NightPoint1LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%498" Offset="9" BitOffset="2" Name="C%C%NightPoint1LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%497" Offset="9" BitOffset="3" Name="C%C%NightPoint1LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%498" Offset="9" BitOffset="3" Name="C%C%NightPoint1LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
 								<Parameter Id="%AID%_UP-%TT%%CC%505" Offset="10" BitOffset="0" Name="C%C%NightPoint1Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
 								<Parameter Id="%AID%_UP-%TT%%CC%506" Offset="12" BitOffset="0" Name="C%C%NightPoint1TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
 								<Parameter Id="%AID%_UP-%TT%%CC%507" Offset="14" BitOffset="0" Name="C%C%NightPoint1Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
 								<Parameter Id="%AID%_UP-%TT%%CC%508" Offset="15" BitOffset="0" Name="C%C%NightPoint1Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
 								<Parameter Id="%AID%_UP-%TT%%CC%509" Offset="17" BitOffset="0" Name="C%C%NightPoint1AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
 								<Parameter Id="%AID%_UP-%TT%%CC%510" Offset="19" BitOffset="0" Name="C%C%NightPoint1ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%511" Offset="21" BitOffset="0" Name="C%C%NightPoint1ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 2 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%515" Offset="21" BitOffset="0" Name="C%C%NightPoint2Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%516" Offset="21" BitOffset="1" Name="C%C%NightPoint2Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%517" Offset="21" BitOffset="2" Name="C%C%NightPoint2Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%518" Offset="21" BitOffset="3" Name="C%C%NightPoint2Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%519" Offset="21" BitOffset="4" Name="C%C%NightPoint2Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%520" Offset="21" BitOffset="5" Name="C%C%NightPoint2Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%521" Offset="21" BitOffset="6" Name="C%C%NightPoint2Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%524" Offset="22" BitOffset="0" Name="C%C%NightPoint2Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%525" Offset="22" BitOffset="3" Name="C%C%NightPoint2TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%526" Offset="22" BitOffset="3" Name="C%C%NightPoint2TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%527" Offset="22" BitOffset="3" Name="C%C%NightPoint2TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%528" Offset="22" BitOffset="3" Name="C%C%NightPoint2TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%529" Offset="23" BitOffset="0" Name="C%C%NightPoint2Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%522" Offset="23" BitOffset="2" Name="C%C%NightPoint2LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%523" Offset="23" BitOffset="2" Name="C%C%NightPoint2LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%530" Offset="24" BitOffset="0" Name="C%C%NightPoint2Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%531" Offset="26" BitOffset="0" Name="C%C%NightPoint2TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%532" Offset="28" BitOffset="0" Name="C%C%NightPoint2Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%533" Offset="29" BitOffset="0" Name="C%C%NightPoint2Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%534" Offset="31" BitOffset="0" Name="C%C%NightPoint2AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%535" Offset="33" BitOffset="0" Name="C%C%NightPoint2ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%515" Offset="23" BitOffset="0" Name="C%C%NightPoint2Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%516" Offset="23" BitOffset="1" Name="C%C%NightPoint2Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%517" Offset="23" BitOffset="2" Name="C%C%NightPoint2Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%518" Offset="23" BitOffset="3" Name="C%C%NightPoint2Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%519" Offset="23" BitOffset="4" Name="C%C%NightPoint2Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%520" Offset="23" BitOffset="5" Name="C%C%NightPoint2Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%521" Offset="23" BitOffset="6" Name="C%C%NightPoint2Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%524" Offset="24" BitOffset="0" Name="C%C%NightPoint2Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%525" Offset="24" BitOffset="3" Name="C%C%NightPoint2TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%526" Offset="24" BitOffset="3" Name="C%C%NightPoint2TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%527" Offset="24" BitOffset="3" Name="C%C%NightPoint2TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%528" Offset="24" BitOffset="3" Name="C%C%NightPoint2TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%529" Offset="25" BitOffset="0" Name="C%C%NightPoint2Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%522" Offset="25" BitOffset="3" Name="C%C%NightPoint2LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%523" Offset="25" BitOffset="3" Name="C%C%NightPoint2LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%530" Offset="26" BitOffset="0" Name="C%C%NightPoint2Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%531" Offset="28" BitOffset="0" Name="C%C%NightPoint2TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%532" Offset="30" BitOffset="0" Name="C%C%NightPoint2Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%533" Offset="31" BitOffset="0" Name="C%C%NightPoint2Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%534" Offset="33" BitOffset="0" Name="C%C%NightPoint2AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%535" Offset="35" BitOffset="0" Name="C%C%NightPoint2ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%536" Offset="37" BitOffset="0" Name="C%C%NightPoint2ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 3 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%540" Offset="35" BitOffset="0" Name="C%C%NightPoint3Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%541" Offset="35" BitOffset="1" Name="C%C%NightPoint3Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%542" Offset="35" BitOffset="2" Name="C%C%NightPoint3Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%543" Offset="35" BitOffset="3" Name="C%C%NightPoint3Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%544" Offset="35" BitOffset="4" Name="C%C%NightPoint3Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%545" Offset="35" BitOffset="5" Name="C%C%NightPoint3Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%546" Offset="35" BitOffset="6" Name="C%C%NightPoint3Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%549" Offset="36" BitOffset="0" Name="C%C%NightPoint3Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%550" Offset="36" BitOffset="3" Name="C%C%NightPoint3TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%551" Offset="36" BitOffset="3" Name="C%C%NightPoint3TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%552" Offset="36" BitOffset="3" Name="C%C%NightPoint3TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%553" Offset="36" BitOffset="3" Name="C%C%NightPoint3TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%554" Offset="37" BitOffset="0" Name="C%C%NightPoint3Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%547" Offset="37" BitOffset="2" Name="C%C%NightPoint3LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%548" Offset="37" BitOffset="2" Name="C%C%NightPoint3LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%555" Offset="38" BitOffset="0" Name="C%C%NightPoint3Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%556" Offset="40" BitOffset="0" Name="C%C%NightPoint3TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%557" Offset="42" BitOffset="0" Name="C%C%NightPoint3Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%558" Offset="43" BitOffset="0" Name="C%C%NightPoint3Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%559" Offset="45" BitOffset="0" Name="C%C%NightPoint3AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%560" Offset="47" BitOffset="0" Name="C%C%NightPoint3ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%540" Offset="39" BitOffset="0" Name="C%C%NightPoint3Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%541" Offset="39" BitOffset="1" Name="C%C%NightPoint3Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%542" Offset="39" BitOffset="2" Name="C%C%NightPoint3Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%543" Offset="39" BitOffset="3" Name="C%C%NightPoint3Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%544" Offset="39" BitOffset="4" Name="C%C%NightPoint3Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%545" Offset="39" BitOffset="5" Name="C%C%NightPoint3Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%546" Offset="39" BitOffset="6" Name="C%C%NightPoint3Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%549" Offset="40" BitOffset="0" Name="C%C%NightPoint3Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%550" Offset="40" BitOffset="3" Name="C%C%NightPoint3TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%551" Offset="40" BitOffset="3" Name="C%C%NightPoint3TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%552" Offset="40" BitOffset="3" Name="C%C%NightPoint3TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%553" Offset="40" BitOffset="3" Name="C%C%NightPoint3TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%554" Offset="41" BitOffset="0" Name="C%C%NightPoint3Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%547" Offset="41" BitOffset="3" Name="C%C%NightPoint3LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%548" Offset="41" BitOffset="3" Name="C%C%NightPoint3LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%555" Offset="42" BitOffset="0" Name="C%C%NightPoint3Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%556" Offset="44" BitOffset="0" Name="C%C%NightPoint3TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%557" Offset="46" BitOffset="0" Name="C%C%NightPoint3Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%558" Offset="47" BitOffset="0" Name="C%C%NightPoint3Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%559" Offset="49" BitOffset="0" Name="C%C%NightPoint3AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%560" Offset="51" BitOffset="0" Name="C%C%NightPoint3ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%561" Offset="53" BitOffset="0" Name="C%C%NightPoint3ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 4 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%565" Offset="49" BitOffset="0" Name="C%C%NightPoint4Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%566" Offset="49" BitOffset="1" Name="C%C%NightPoint4Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%567" Offset="49" BitOffset="2" Name="C%C%NightPoint4Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%568" Offset="49" BitOffset="3" Name="C%C%NightPoint4Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%569" Offset="49" BitOffset="4" Name="C%C%NightPoint4Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%570" Offset="49" BitOffset="5" Name="C%C%NightPoint4Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%571" Offset="49" BitOffset="6" Name="C%C%NightPoint4Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%574" Offset="50" BitOffset="0" Name="C%C%NightPoint4Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%575" Offset="50" BitOffset="3" Name="C%C%NightPoint4TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%576" Offset="50" BitOffset="3" Name="C%C%NightPoint4TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%577" Offset="50" BitOffset="3" Name="C%C%NightPoint4TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%578" Offset="50" BitOffset="3" Name="C%C%NightPoint4TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%579" Offset="51" BitOffset="0" Name="C%C%NightPoint4Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%572" Offset="51" BitOffset="2" Name="C%C%NightPoint4LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%573" Offset="51" BitOffset="2" Name="C%C%NightPoint4LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%580" Offset="52" BitOffset="0" Name="C%C%NightPoint4Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%581" Offset="54" BitOffset="0" Name="C%C%NightPoint4TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%582" Offset="56" BitOffset="0" Name="C%C%NightPoint4Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%583" Offset="57" BitOffset="0" Name="C%C%NightPoint4Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%584" Offset="59" BitOffset="0" Name="C%C%NightPoint4AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%585" Offset="61" BitOffset="0" Name="C%C%NightPoint4ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%565" Offset="55" BitOffset="0" Name="C%C%NightPoint4Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%566" Offset="55" BitOffset="1" Name="C%C%NightPoint4Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%567" Offset="55" BitOffset="2" Name="C%C%NightPoint4Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%568" Offset="55" BitOffset="3" Name="C%C%NightPoint4Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%569" Offset="55" BitOffset="4" Name="C%C%NightPoint4Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%570" Offset="55" BitOffset="5" Name="C%C%NightPoint4Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%571" Offset="55" BitOffset="6" Name="C%C%NightPoint4Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%574" Offset="56" BitOffset="0" Name="C%C%NightPoint4Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%575" Offset="56" BitOffset="3" Name="C%C%NightPoint4TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%576" Offset="56" BitOffset="3" Name="C%C%NightPoint4TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%577" Offset="56" BitOffset="3" Name="C%C%NightPoint4TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%578" Offset="56" BitOffset="3" Name="C%C%NightPoint4TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%579" Offset="57" BitOffset="0" Name="C%C%NightPoint4Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%572" Offset="57" BitOffset="3" Name="C%C%NightPoint4LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%573" Offset="57" BitOffset="3" Name="C%C%NightPoint4LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%580" Offset="58" BitOffset="0" Name="C%C%NightPoint4Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%581" Offset="60" BitOffset="0" Name="C%C%NightPoint4TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%582" Offset="62" BitOffset="0" Name="C%C%NightPoint4Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%583" Offset="63" BitOffset="0" Name="C%C%NightPoint4Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%584" Offset="65" BitOffset="0" Name="C%C%NightPoint4AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%585" Offset="67" BitOffset="0" Name="C%C%NightPoint4ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%586" Offset="69" BitOffset="0" Name="C%C%NightPoint4ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 5 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%590" Offset="63" BitOffset="0" Name="C%C%NightPoint5Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%591" Offset="63" BitOffset="1" Name="C%C%NightPoint5Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%592" Offset="63" BitOffset="2" Name="C%C%NightPoint5Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%593" Offset="63" BitOffset="3" Name="C%C%NightPoint5Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%594" Offset="63" BitOffset="4" Name="C%C%NightPoint5Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%595" Offset="63" BitOffset="5" Name="C%C%NightPoint5Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%596" Offset="63" BitOffset="6" Name="C%C%NightPoint5Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%599" Offset="64" BitOffset="0" Name="C%C%NightPoint5Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%600" Offset="64" BitOffset="3" Name="C%C%NightPoint5TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%601" Offset="64" BitOffset="3" Name="C%C%NightPoint5TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%602" Offset="64" BitOffset="3" Name="C%C%NightPoint5TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%603" Offset="64" BitOffset="3" Name="C%C%NightPoint5TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%604" Offset="65" BitOffset="0" Name="C%C%NightPoint5Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%597" Offset="65" BitOffset="2" Name="C%C%NightPoint5LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%598" Offset="65" BitOffset="2" Name="C%C%NightPoint5LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%605" Offset="66" BitOffset="0" Name="C%C%NightPoint5Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%606" Offset="68" BitOffset="0" Name="C%C%NightPoint5TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%607" Offset="70" BitOffset="0" Name="C%C%NightPoint5Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%608" Offset="71" BitOffset="0" Name="C%C%NightPoint5Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%609" Offset="73" BitOffset="0" Name="C%C%NightPoint5AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%610" Offset="75" BitOffset="0" Name="C%C%NightPoint5ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%590" Offset="71" BitOffset="0" Name="C%C%NightPoint5Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%591" Offset="71" BitOffset="1" Name="C%C%NightPoint5Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%592" Offset="71" BitOffset="2" Name="C%C%NightPoint5Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%593" Offset="71" BitOffset="3" Name="C%C%NightPoint5Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%594" Offset="71" BitOffset="4" Name="C%C%NightPoint5Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%595" Offset="71" BitOffset="5" Name="C%C%NightPoint5Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%596" Offset="71" BitOffset="6" Name="C%C%NightPoint5Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%599" Offset="72" BitOffset="0" Name="C%C%NightPoint5Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%600" Offset="72" BitOffset="3" Name="C%C%NightPoint5TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%601" Offset="72" BitOffset="3" Name="C%C%NightPoint5TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%602" Offset="72" BitOffset="3" Name="C%C%NightPoint5TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%603" Offset="72" BitOffset="3" Name="C%C%NightPoint5TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%604" Offset="73" BitOffset="0" Name="C%C%NightPoint5Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%597" Offset="73" BitOffset="3" Name="C%C%NightPoint5LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%598" Offset="73" BitOffset="3" Name="C%C%NightPoint5LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%605" Offset="74" BitOffset="0" Name="C%C%NightPoint5Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%606" Offset="76" BitOffset="0" Name="C%C%NightPoint5TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%607" Offset="78" BitOffset="0" Name="C%C%NightPoint5Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%608" Offset="79" BitOffset="0" Name="C%C%NightPoint5Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%609" Offset="81" BitOffset="0" Name="C%C%NightPoint5AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%610" Offset="83" BitOffset="0" Name="C%C%NightPoint5ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%611" Offset="85" BitOffset="0" Name="C%C%NightPoint5ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 6 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%615" Offset="77" BitOffset="0" Name="C%C%NightPoint6Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%616" Offset="77" BitOffset="1" Name="C%C%NightPoint6Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%617" Offset="77" BitOffset="2" Name="C%C%NightPoint6Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%618" Offset="77" BitOffset="3" Name="C%C%NightPoint6Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%619" Offset="77" BitOffset="4" Name="C%C%NightPoint6Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%620" Offset="77" BitOffset="5" Name="C%C%NightPoint6Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%621" Offset="77" BitOffset="6" Name="C%C%NightPoint6Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%624" Offset="78" BitOffset="0" Name="C%C%NightPoint6Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%625" Offset="78" BitOffset="3" Name="C%C%NightPoint6TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%626" Offset="78" BitOffset="3" Name="C%C%NightPoint6TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%627" Offset="78" BitOffset="3" Name="C%C%NightPoint6TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%628" Offset="78" BitOffset="3" Name="C%C%NightPoint6TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%629" Offset="79" BitOffset="0" Name="C%C%NightPoint6Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%622" Offset="79" BitOffset="2" Name="C%C%NightPoint6LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%623" Offset="79" BitOffset="2" Name="C%C%NightPoint6LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%630" Offset="80" BitOffset="0" Name="C%C%NightPoint6Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%631" Offset="82" BitOffset="0" Name="C%C%NightPoint6TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%632" Offset="84" BitOffset="0" Name="C%C%NightPoint6Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%633" Offset="85" BitOffset="0" Name="C%C%NightPoint6Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%634" Offset="87" BitOffset="0" Name="C%C%NightPoint6AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%635" Offset="89" BitOffset="0" Name="C%C%NightPoint6ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%615" Offset="87" BitOffset="0" Name="C%C%NightPoint6Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%616" Offset="87" BitOffset="1" Name="C%C%NightPoint6Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%617" Offset="87" BitOffset="2" Name="C%C%NightPoint6Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%618" Offset="87" BitOffset="3" Name="C%C%NightPoint6Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%619" Offset="87" BitOffset="4" Name="C%C%NightPoint6Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%620" Offset="87" BitOffset="5" Name="C%C%NightPoint6Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%621" Offset="87" BitOffset="6" Name="C%C%NightPoint6Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%624" Offset="88" BitOffset="0" Name="C%C%NightPoint6Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%625" Offset="88" BitOffset="3" Name="C%C%NightPoint6TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%626" Offset="88" BitOffset="3" Name="C%C%NightPoint6TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%627" Offset="88" BitOffset="3" Name="C%C%NightPoint6TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%628" Offset="88" BitOffset="3" Name="C%C%NightPoint6TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%629" Offset="89" BitOffset="0" Name="C%C%NightPoint6Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%622" Offset="89" BitOffset="3" Name="C%C%NightPoint6LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%623" Offset="89" BitOffset="3" Name="C%C%NightPoint6LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%630" Offset="90" BitOffset="0" Name="C%C%NightPoint6Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%631" Offset="92" BitOffset="0" Name="C%C%NightPoint6TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%632" Offset="94" BitOffset="0" Name="C%C%NightPoint6Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%633" Offset="95" BitOffset="0" Name="C%C%NightPoint6Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%634" Offset="97" BitOffset="0" Name="C%C%NightPoint6AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%635" Offset="99" BitOffset="0" Name="C%C%NightPoint6ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%636" Offset="101" BitOffset="0" Name="C%C%NightPoint6ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 7 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%640" Offset="91" BitOffset="0" Name="C%C%NightPoint7Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%641" Offset="91" BitOffset="1" Name="C%C%NightPoint7Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%642" Offset="91" BitOffset="2" Name="C%C%NightPoint7Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%643" Offset="91" BitOffset="3" Name="C%C%NightPoint7Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%644" Offset="91" BitOffset="4" Name="C%C%NightPoint7Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%645" Offset="91" BitOffset="5" Name="C%C%NightPoint7Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%646" Offset="91" BitOffset="6" Name="C%C%NightPoint7Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%649" Offset="92" BitOffset="0" Name="C%C%NightPoint7Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%650" Offset="92" BitOffset="3" Name="C%C%NightPoint7TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%651" Offset="92" BitOffset="3" Name="C%C%NightPoint7TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%652" Offset="92" BitOffset="3" Name="C%C%NightPoint7TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%653" Offset="92" BitOffset="3" Name="C%C%NightPoint7TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%654" Offset="93" BitOffset="0" Name="C%C%NightPoint7Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%647" Offset="93" BitOffset="2" Name="C%C%NightPoint7LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%648" Offset="93" BitOffset="2" Name="C%C%NightPoint7LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%655" Offset="94" BitOffset="0" Name="C%C%NightPoint7Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%656" Offset="96" BitOffset="0" Name="C%C%NightPoint7TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%657" Offset="98" BitOffset="0" Name="C%C%NightPoint7Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%658" Offset="99" BitOffset="0" Name="C%C%NightPoint7Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%659" Offset="101" BitOffset="0" Name="C%C%NightPoint7AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%660" Offset="103" BitOffset="0" Name="C%C%NightPoint7ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%640" Offset="103" BitOffset="0" Name="C%C%NightPoint7Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%641" Offset="103" BitOffset="1" Name="C%C%NightPoint7Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%642" Offset="103" BitOffset="2" Name="C%C%NightPoint7Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%643" Offset="103" BitOffset="3" Name="C%C%NightPoint7Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%644" Offset="103" BitOffset="4" Name="C%C%NightPoint7Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%645" Offset="103" BitOffset="5" Name="C%C%NightPoint7Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%646" Offset="103" BitOffset="6" Name="C%C%NightPoint7Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%649" Offset="104" BitOffset="0" Name="C%C%NightPoint7Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%650" Offset="104" BitOffset="3" Name="C%C%NightPoint7TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%651" Offset="104" BitOffset="3" Name="C%C%NightPoint7TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%652" Offset="104" BitOffset="3" Name="C%C%NightPoint7TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%653" Offset="104" BitOffset="3" Name="C%C%NightPoint7TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%654" Offset="105" BitOffset="0" Name="C%C%NightPoint7Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%647" Offset="105" BitOffset="3" Name="C%C%NightPoint7LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%648" Offset="105" BitOffset="3" Name="C%C%NightPoint7LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%655" Offset="106" BitOffset="0" Name="C%C%NightPoint7Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%656" Offset="108" BitOffset="0" Name="C%C%NightPoint7TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%657" Offset="110" BitOffset="0" Name="C%C%NightPoint7Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%658" Offset="111" BitOffset="0" Name="C%C%NightPoint7Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%659" Offset="113" BitOffset="0" Name="C%C%NightPoint7AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%660" Offset="115" BitOffset="0" Name="C%C%NightPoint7ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%661" Offset="117" BitOffset="0" Name="C%C%NightPoint7ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Schaltpunkt 8 -->
-								<Parameter Id="%AID%_UP-%TT%%CC%665" Offset="105" BitOffset="0" Name="C%C%NightPoint8Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%666" Offset="105" BitOffset="1" Name="C%C%NightPoint8Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%667" Offset="105" BitOffset="2" Name="C%C%NightPoint8Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%668" Offset="105" BitOffset="3" Name="C%C%NightPoint8Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%669" Offset="105" BitOffset="4" Name="C%C%NightPoint8Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%670" Offset="105" BitOffset="5" Name="C%C%NightPoint8Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%671" Offset="105" BitOffset="6" Name="C%C%NightPoint8Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
-								<Parameter Id="%AID%_UP-%TT%%CC%674" Offset="106" BitOffset="0" Name="C%C%NightPoint8Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%675" Offset="106" BitOffset="3" Name="C%C%NightPoint8TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%676" Offset="106" BitOffset="3" Name="C%C%NightPoint8TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%677" Offset="106" BitOffset="3" Name="C%C%NightPoint8TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%678" Offset="106" BitOffset="3" Name="C%C%NightPoint8TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%679" Offset="107" BitOffset="0" Name="C%C%NightPoint8Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
-								<Parameter Id="%AID%_UP-%TT%%CC%672" Offset="107" BitOffset="2" Name="C%C%NightPoint8LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%673" Offset="107" BitOffset="2" Name="C%C%NightPoint8LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
-								<Parameter Id="%AID%_UP-%TT%%CC%680" Offset="108" BitOffset="0" Name="C%C%NightPoint8Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
-								<Parameter Id="%AID%_UP-%TT%%CC%681" Offset="110" BitOffset="0" Name="C%C%NightPoint8TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
-								<Parameter Id="%AID%_UP-%TT%%CC%682" Offset="112" BitOffset="0" Name="C%C%NightPoint8Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
-								<Parameter Id="%AID%_UP-%TT%%CC%683" Offset="113" BitOffset="0" Name="C%C%NightPoint8Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%684" Offset="115" BitOffset="0" Name="C%C%NightPoint8AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
-								<Parameter Id="%AID%_UP-%TT%%CC%685" Offset="117" BitOffset="0" Name="C%C%NightPoint8ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%665" Offset="119" BitOffset="0" Name="C%C%NightPoint8Mon" ParameterType="%AID%_PT-CheckBox" Text="Mo" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%666" Offset="119" BitOffset="1" Name="C%C%NightPoint8Tue" ParameterType="%AID%_PT-CheckBox" Text="Di" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%667" Offset="119" BitOffset="2" Name="C%C%NightPoint8Wed" ParameterType="%AID%_PT-CheckBox" Text="Mi" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%668" Offset="119" BitOffset="3" Name="C%C%NightPoint8Thu" ParameterType="%AID%_PT-CheckBox" Text="Do" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%669" Offset="119" BitOffset="4" Name="C%C%NightPoint8Fri" ParameterType="%AID%_PT-CheckBox" Text="Fr" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%670" Offset="119" BitOffset="5" Name="C%C%NightPoint8Sat" ParameterType="%AID%_PT-CheckBox" Text="Sa" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%671" Offset="119" BitOffset="6" Name="C%C%NightPoint8Sun" ParameterType="%AID%_PT-CheckBox" Text="So" Value="1" />
+								<Parameter Id="%AID%_UP-%TT%%CC%674" Offset="120" BitOffset="0" Name="C%C%NightPoint8Stage" ParameterType="%AID%_PT-SHCNightPointStage" Text="Stufe" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%675" Offset="120" BitOffset="3" Name="C%C%NightPoint8TriggerEvening" ParameterType="%AID%_PT-SHCNightTriggerEvening" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%676" Offset="120" BitOffset="3" Name="C%C%NightPoint8TriggerEveningNoB" ParameterType="%AID%_PT-SHCNightTriggerEveningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%677" Offset="120" BitOffset="3" Name="C%C%NightPoint8TriggerMorning" ParameterType="%AID%_PT-SHCNightTriggerMorning" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%678" Offset="120" BitOffset="3" Name="C%C%NightPoint8TriggerMorningNoB" ParameterType="%AID%_PT-SHCNightTriggerMorningNoB" Text="Auslöser" Value="1" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%679" Offset="121" BitOffset="0" Name="C%C%NightPoint8Condition" ParameterType="%AID%_PT-SHCNightCondition" Text="Bedingung" Value="0" />
+								<Parameter Id="%AID%_UP-%TT%%CC%672" Offset="121" BitOffset="3" Name="C%C%NightPoint8LinkEvening" ParameterType="%AID%_PT-SHCNightLinkEvening" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%673" Offset="121" BitOffset="3" Name="C%C%NightPoint8LinkMorning" ParameterType="%AID%_PT-SHCNightLinkMorning" Text="Helligkeit" Value="0" op:nowarn="true" />
+								<Parameter Id="%AID%_UP-%TT%%CC%680" Offset="122" BitOffset="0" Name="C%C%NightPoint8Time" ParameterType="%AID%_PT-ActivationTime" Text="Uhrzeit" Value="1320" />
+								<Parameter Id="%AID%_UP-%TT%%CC%681" Offset="124" BitOffset="0" Name="C%C%NightPoint8TimeOffset" ParameterType="%AID%_PT-SHCNightTimeOffset" Text="Zeitversatz" Value="30" />
+								<Parameter Id="%AID%_UP-%TT%%CC%682" Offset="126" BitOffset="0" Name="C%C%NightPoint8Elevation" ParameterType="%AID%_PT-ElevationBeforeAfterSunSetRise" Text="Höhenwinkel" Value="3" SuffixText="°" />
+								<Parameter Id="%AID%_UP-%TT%%CC%683" Offset="127" BitOffset="0" Name="C%C%NightPoint8Lux" ParameterType="%AID%_PT-SHCNightLux" Text="Helligkeit" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%684" Offset="129" BitOffset="0" Name="C%C%NightPoint8AndLux" ParameterType="%AID%_PT-SHCNightLux" Text="Lux" Value="20" SuffixText="Lux" />
+								<Parameter Id="%AID%_UP-%TT%%CC%685" Offset="131" BitOffset="0" Name="C%C%NightPoint8ConditionTime" ParameterType="%AID%_PT-ActivationTime" Text="Zeit" Value="1020" />
+								<Parameter Id="%AID%_UP-%TT%%CC%686" Offset="133" BitOffset="0" Name="C%C%NightPoint8ConditionTime2" ParameterType="%AID%_PT-ActivationTime" Text="bis" Value="1080" />
 								<!-- Verzögerung je Kanal -->
-								<Parameter Id="%AID%_UP-%TT%%CC%702" Offset="119" BitOffset="0" Name="C%C%NightDelay" ParameterType="%AID%_PT-SHCNightDelay" Text="Fahrverzögerung" Value="0" SuffixText="s" />
-								<!-- Next offset: 121-->
+								<Parameter Id="%AID%_UP-%TT%%CC%702" Offset="135" BitOffset="0" Name="C%C%NightDelay" ParameterType="%AID%_PT-SHCNightDelay" Text="Fahrverzögerung" Value="0" SuffixText="s" />
+								<!-- Next offset: 137-->
 								<!-- Next Id: %AID%_UP-%TT%%CC%703 -->
 							</Union>
 
@@ -1117,6 +1125,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%508_R-%TT%%CC%50801" RefId="%AID%_UP-%TT%%CC%508" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%509_R-%TT%%CC%50901" RefId="%AID%_UP-%TT%%CC%509" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" RefId="%AID%_UP-%TT%%CC%510" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" RefId="%AID%_UP-%TT%%CC%511" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%515_R-%TT%%CC%51501" RefId="%AID%_UP-%TT%%CC%515" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%516_R-%TT%%CC%51601" RefId="%AID%_UP-%TT%%CC%516" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%517_R-%TT%%CC%51701" RefId="%AID%_UP-%TT%%CC%517" />
@@ -1138,6 +1147,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%533_R-%TT%%CC%53301" RefId="%AID%_UP-%TT%%CC%533" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%534_R-%TT%%CC%53401" RefId="%AID%_UP-%TT%%CC%534" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" RefId="%AID%_UP-%TT%%CC%535" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" RefId="%AID%_UP-%TT%%CC%536" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%540_R-%TT%%CC%54001" RefId="%AID%_UP-%TT%%CC%540" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%541_R-%TT%%CC%54101" RefId="%AID%_UP-%TT%%CC%541" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%542_R-%TT%%CC%54201" RefId="%AID%_UP-%TT%%CC%542" />
@@ -1159,6 +1169,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%558_R-%TT%%CC%55801" RefId="%AID%_UP-%TT%%CC%558" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%559_R-%TT%%CC%55901" RefId="%AID%_UP-%TT%%CC%559" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" RefId="%AID%_UP-%TT%%CC%560" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" RefId="%AID%_UP-%TT%%CC%561" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%565_R-%TT%%CC%56501" RefId="%AID%_UP-%TT%%CC%565" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%566_R-%TT%%CC%56601" RefId="%AID%_UP-%TT%%CC%566" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%567_R-%TT%%CC%56701" RefId="%AID%_UP-%TT%%CC%567" />
@@ -1180,6 +1191,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%583_R-%TT%%CC%58301" RefId="%AID%_UP-%TT%%CC%583" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%584_R-%TT%%CC%58401" RefId="%AID%_UP-%TT%%CC%584" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" RefId="%AID%_UP-%TT%%CC%585" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" RefId="%AID%_UP-%TT%%CC%586" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%590_R-%TT%%CC%59001" RefId="%AID%_UP-%TT%%CC%590" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%591_R-%TT%%CC%59101" RefId="%AID%_UP-%TT%%CC%591" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%592_R-%TT%%CC%59201" RefId="%AID%_UP-%TT%%CC%592" />
@@ -1201,6 +1213,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%608_R-%TT%%CC%60801" RefId="%AID%_UP-%TT%%CC%608" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%609_R-%TT%%CC%60901" RefId="%AID%_UP-%TT%%CC%609" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" RefId="%AID%_UP-%TT%%CC%610" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" RefId="%AID%_UP-%TT%%CC%611" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%615_R-%TT%%CC%61501" RefId="%AID%_UP-%TT%%CC%615" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%616_R-%TT%%CC%61601" RefId="%AID%_UP-%TT%%CC%616" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%617_R-%TT%%CC%61701" RefId="%AID%_UP-%TT%%CC%617" />
@@ -1222,6 +1235,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%633_R-%TT%%CC%63301" RefId="%AID%_UP-%TT%%CC%633" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%634_R-%TT%%CC%63401" RefId="%AID%_UP-%TT%%CC%634" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" RefId="%AID%_UP-%TT%%CC%635" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" RefId="%AID%_UP-%TT%%CC%636" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%640_R-%TT%%CC%64001" RefId="%AID%_UP-%TT%%CC%640" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%641_R-%TT%%CC%64101" RefId="%AID%_UP-%TT%%CC%641" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%642_R-%TT%%CC%64201" RefId="%AID%_UP-%TT%%CC%642" />
@@ -1243,6 +1257,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%658_R-%TT%%CC%65801" RefId="%AID%_UP-%TT%%CC%658" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%659_R-%TT%%CC%65901" RefId="%AID%_UP-%TT%%CC%659" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" RefId="%AID%_UP-%TT%%CC%660" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" RefId="%AID%_UP-%TT%%CC%661" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%665_R-%TT%%CC%66501" RefId="%AID%_UP-%TT%%CC%665" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%666_R-%TT%%CC%66601" RefId="%AID%_UP-%TT%%CC%666" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%667_R-%TT%%CC%66701" RefId="%AID%_UP-%TT%%CC%667" />
@@ -1264,6 +1279,7 @@
 							<ParameterRef Id="%AID%_UP-%TT%%CC%683_R-%TT%%CC%68301" RefId="%AID%_UP-%TT%%CC%683" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%684_R-%TT%%CC%68401" RefId="%AID%_UP-%TT%%CC%684" />
 							<ParameterRef Id="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" RefId="%AID%_UP-%TT%%CC%685" />
+							<ParameterRef Id="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" RefId="%AID%_UP-%TT%%CC%686" />
 						</ParameterRefs>
 						<ParameterCalculations>
 							<ParameterCalculation Id="%AID%_PC-%TT%%CC%001" Language="JavaScript" Name="SyncType%CC%" RLTransformationFunc="BASE_SyncChannelType" LRTransformationFunc="BASE_SyncChannelType">
@@ -2214,8 +2230,9 @@
 																	<Column Id="%AID%_PB-nnn_C-10" Name="Col10" Width="20%" Text="Wert" />
 																	<Column Id="%AID%_PB-nnn_C-11" Name="Col11" Width="36%" Text="Helligkeit" />
 																	<Column Id="%AID%_PB-nnn_C-12" Name="Col12" Width="18%" Text="Lux" />
-																	<Column Id="%AID%_PB-nnn_C-13" Name="Col13" Width="30%" Text="Bedingung" />
-																	<Column Id="%AID%_PB-nnn_C-14" Name="Col14" Width="18%" Text="Zeit" />
+																	<Column Id="%AID%_PB-nnn_C-13" Name="Col13" Width="34%" Text="Bedingung" />
+																	<Column Id="%AID%_PB-nnn_C-14" Name="Col14" Width="18%" Text="von / Zeit" />
+																	<Column Id="%AID%_PB-nnn_C-15" Name="Col15" Width="18%" Text="bis" />
 																</Columns>
 																<ParameterRefRef RefId="%AID%_UP-%TT%%CC%499_R-%TT%%CC%49901" Cell="1,1" HelpContext="SHC-Schaltpunkte" />
 																<choose ParamRefId="%AID%_UP-%TT%%CC%499_R-%TT%%CC%49901">
@@ -2251,8 +2268,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2266,8 +2288,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2281,8 +2308,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2290,8 +2322,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%508_R-%TT%%CC%50801" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2306,8 +2343,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2315,8 +2357,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%506_R-%TT%%CC%50601" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2324,8 +2371,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%507_R-%TT%%CC%50701" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2358,8 +2410,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2373,8 +2430,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2388,8 +2450,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2397,8 +2464,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%508_R-%TT%%CC%50801" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2413,8 +2485,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2422,8 +2499,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%506_R-%TT%%CC%50601" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2431,8 +2513,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%507_R-%TT%%CC%50701" Cell="1,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401" Cell="1,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%510_R-%TT%%CC%51001" Cell="1,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%504_R-%TT%%CC%50401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%511_R-%TT%%CC%51101" Cell="1,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2477,8 +2564,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2492,8 +2584,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2507,8 +2604,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2516,8 +2618,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%533_R-%TT%%CC%53301" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2532,8 +2639,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2541,8 +2653,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%531_R-%TT%%CC%53101" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2550,8 +2667,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%532_R-%TT%%CC%53201" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2584,8 +2706,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2599,8 +2726,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2614,8 +2746,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2623,8 +2760,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%533_R-%TT%%CC%53301" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2639,8 +2781,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2648,8 +2795,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%531_R-%TT%%CC%53101" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2657,8 +2809,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%532_R-%TT%%CC%53201" Cell="2,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901" Cell="2,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%535_R-%TT%%CC%53501" Cell="2,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%529_R-%TT%%CC%52901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%536_R-%TT%%CC%53601" Cell="2,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2703,8 +2860,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2718,8 +2880,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2733,8 +2900,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2742,8 +2914,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%558_R-%TT%%CC%55801" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2758,8 +2935,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2767,8 +2949,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%556_R-%TT%%CC%55601" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2776,8 +2963,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%557_R-%TT%%CC%55701" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2810,8 +3002,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2825,8 +3022,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2840,8 +3042,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2849,8 +3056,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%558_R-%TT%%CC%55801" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2865,8 +3077,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2874,8 +3091,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%556_R-%TT%%CC%55601" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2883,8 +3105,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%557_R-%TT%%CC%55701" Cell="3,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401" Cell="3,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%560_R-%TT%%CC%56001" Cell="3,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%554_R-%TT%%CC%55401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%561_R-%TT%%CC%56101" Cell="3,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2929,8 +3156,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2944,8 +3176,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2959,8 +3196,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2968,8 +3210,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%583_R-%TT%%CC%58301" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2984,8 +3231,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -2993,8 +3245,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%581_R-%TT%%CC%58101" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3002,8 +3259,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%582_R-%TT%%CC%58201" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3036,8 +3298,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3051,8 +3318,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3066,8 +3338,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3075,8 +3352,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%583_R-%TT%%CC%58301" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3091,8 +3373,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3100,8 +3387,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%581_R-%TT%%CC%58101" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3109,8 +3401,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%582_R-%TT%%CC%58201" Cell="4,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901" Cell="4,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%585_R-%TT%%CC%58501" Cell="4,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%579_R-%TT%%CC%57901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%586_R-%TT%%CC%58601" Cell="4,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3155,8 +3452,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3170,8 +3472,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3185,8 +3492,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3194,8 +3506,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%608_R-%TT%%CC%60801" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3210,8 +3527,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3219,8 +3541,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%606_R-%TT%%CC%60601" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3228,8 +3555,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%607_R-%TT%%CC%60701" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3262,8 +3594,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3277,8 +3614,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3292,8 +3634,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3301,8 +3648,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%608_R-%TT%%CC%60801" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3317,8 +3669,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3326,8 +3683,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%606_R-%TT%%CC%60601" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3335,8 +3697,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%607_R-%TT%%CC%60701" Cell="5,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401" Cell="5,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%610_R-%TT%%CC%61001" Cell="5,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%604_R-%TT%%CC%60401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%611_R-%TT%%CC%61101" Cell="5,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3381,8 +3748,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3396,8 +3768,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3411,8 +3788,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3420,8 +3802,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%633_R-%TT%%CC%63301" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3436,8 +3823,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3445,8 +3837,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%631_R-%TT%%CC%63101" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3454,8 +3851,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%632_R-%TT%%CC%63201" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3488,8 +3890,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3503,8 +3910,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3518,8 +3930,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3527,8 +3944,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%633_R-%TT%%CC%63301" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3543,8 +3965,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3552,8 +3979,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%631_R-%TT%%CC%63101" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3561,8 +3993,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%632_R-%TT%%CC%63201" Cell="6,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901" Cell="6,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%635_R-%TT%%CC%63501" Cell="6,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%629_R-%TT%%CC%62901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%636_R-%TT%%CC%63601" Cell="6,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3607,8 +4044,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3622,8 +4064,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3637,8 +4084,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3646,8 +4098,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%658_R-%TT%%CC%65801" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3662,8 +4119,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3671,8 +4133,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%656_R-%TT%%CC%65601" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3680,8 +4147,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%657_R-%TT%%CC%65701" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3714,8 +4186,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3729,8 +4206,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3744,8 +4226,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3753,8 +4240,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%658_R-%TT%%CC%65801" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3769,8 +4261,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3778,8 +4275,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%656_R-%TT%%CC%65601" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3787,8 +4289,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%657_R-%TT%%CC%65701" Cell="7,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401" Cell="7,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%660_R-%TT%%CC%66001" Cell="7,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%654_R-%TT%%CC%65401">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%661_R-%TT%%CC%66101" Cell="7,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3833,8 +4340,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3848,8 +4360,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3863,8 +4380,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3872,8 +4394,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%683_R-%TT%%CC%68301" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3888,8 +4415,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3897,8 +4429,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%681_R-%TT%%CC%68101" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3906,8 +4443,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%682_R-%TT%%CC%68201" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3940,8 +4482,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3955,8 +4502,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3970,8 +4522,13 @@
 																										</choose>
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3979,8 +4536,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%683_R-%TT%%CC%68301" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -3995,8 +4557,13 @@
 																							<when test="1 7 8">
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -4004,8 +4571,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%681_R-%TT%%CC%68101" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>
@@ -4013,8 +4585,13 @@
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%682_R-%TT%%CC%68201" Cell="8,10" HelpContext="SHC-Schaltpunkte" />
 																										<ParameterRefRef RefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901" Cell="8,13" HelpContext="SHC-Schaltpunkte" />
 																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
-																											<when test="1 2">
+																											<when test="1 2 3 4">
 																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%685_R-%TT%%CC%68501" Cell="8,14" HelpContext="SHC-Schaltpunkte" />
+																											</when>
+																										</choose>
+																										<choose ParamRefId="%AID%_UP-%TT%%CC%679_R-%TT%%CC%67901">
+																											<when test="3 4">
+																												<ParameterRefRef RefId="%AID%_UP-%TT%%CC%686_R-%TT%%CC%68601" Cell="8,15" HelpContext="SHC-Schaltpunkte" />
 																											</when>
 																										</choose>
 																							</when>

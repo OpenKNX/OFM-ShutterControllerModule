@@ -111,6 +111,39 @@ void ModeNight::readSwitchPoints()
         switchPoint.lux = NightPointWord(SHC_CNightPoint1Lux, i);
         switchPoint.linkLux = NightPointWord(SHC_CNightPoint1AndLux, i);
         switchPoint.conditionTime = NightPointWord(SHC_CNightPoint1ConditionTime, i);
+        switchPoint.conditionTime2 = NightPointWord(SHC_CNightPoint1ConditionTime2, i);
+    }
+}
+
+void ModeNight::rollRandomTimes()
+{
+    static bool seeded = false;
+    if (!seeded)
+    {
+        randomSeed(micros());
+        seeded = true;
+    }
+    for (uint8_t i = 0; i < NumberOfSwitchPoints; i++)
+    {
+        auto& switchPoint = _switchPoints[i];
+        if (switchPoint.stage == StageNone || switchPoint.condition != 4)
+            continue;
+        // roll on the night cycle, so that a range across midnight works as well
+        const bool evening = switchPoint.stage <= StageNight;
+        int16_t from = switchPoint.conditionTime;
+        int16_t to = switchPoint.conditionTime2;
+        if (!evening)
+        {
+            from = from >= Noon ? Noon - 1 : from;
+            to = to >= Noon ? Noon - 1 : to;
+        }
+        int16_t fromPosition = cyclePosition(from);
+        int16_t toPosition = cyclePosition(to);
+        if (toPosition < fromPosition)
+            toPosition = fromPosition;
+        const int16_t position = random(fromPosition, toPosition + 1);
+        switchPoint.randomTime = (position + Noon) % MinutesPerDay;
+        logInfoP("Switch point %d: random time %02d:%02d", i + 1, switchPoint.randomTime / 60, switchPoint.randomTime % 60);
     }
 }
 
@@ -320,6 +353,14 @@ bool ModeNight::isSwitchPointReached(const CallContext &callContext, SwitchPoint
     case 2: // spätestens um
         reached = reached || isTimeReached(callContext, switchPoint.conditionTime, evening);
         break;
+    case 3: // zwischen (von, bis)
+        reached = (reached && isTimeReached(callContext, switchPoint.conditionTime, evening)) ||
+                  isTimeReached(callContext, switchPoint.conditionTime2, evening);
+        break;
+    case 4: // zufällig zwischen (von, Zufallszeit bis "bis")
+        reached = (reached && isTimeReached(callContext, switchPoint.conditionTime, evening)) ||
+                  isTimeReached(callContext, switchPoint.randomTime, evening);
+        break;
     }
     return reached;
 }
@@ -470,7 +511,10 @@ bool ModeNight::allowed(const CallContext &callContext)
             logInfoP("New night cycle");
             for (auto& fired : _fired)
                 fired = false;
+            rollRandomTimes();
         }
+        if (reconstruct)
+            rollRandomTimes();
         _lastMinuteOfDay = callContext.minuteOfDay;
         _cycleInitialized = true;
         evaluate(callContext, reconstruct);
