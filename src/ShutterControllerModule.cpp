@@ -71,6 +71,7 @@ void ShutterControllerModule::loop()
     _callContext.timeAndSunValid = openknx.time.isValid() && openknx.sun.isSunCalculatioValid();
 #ifdef LOGICMODULE
     _callContext.holidayToday = Timer::instance().holidayToday() > 0;
+    _callContext.vacation = KoLOG_Vacation.value(DPT_Switch);
 #endif
     auto utcTime = openknx.time.getUtcTime();
     _callContext.minuteChanged = false;

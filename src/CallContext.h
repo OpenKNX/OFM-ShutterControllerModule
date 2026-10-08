@@ -35,6 +35,7 @@ class CallContext
         uint16_t minuteOfDay = 0;
         uint8_t dayOfWeek = 0; // local time, 0 = Sunday ... 6 = Saturday
         bool holidayToday = false; // holiday calculated by the logic module
+        bool vacation = false;     // vacation object of the logic module
 
         // window orientation of the current channel
         uint16_t windowAzimuth = 0;
