@@ -3,18 +3,22 @@
 Jeder Kanal hat 8 Schaltpunkte. Ein Schaltpunkt legt fest, an welchen Wochentagen und unter welcher Bedingung eine Stufe auslöst. Mehrere Schaltpunkte derselben Stufe sind ODER-verknüpft: Der erste erfüllte Schaltpunkt löst die Stufe aus.
 
 - **Stufe**: Die Stufe, die der Schaltpunkt auslöst, oder "nicht aktiv".
-- **Mo-So**: Die Wochentage, an denen der Schaltpunkt gilt. Für Abendstufen zählt der Tag, an dem der Nachtzyklus begonnen hat (eine Zeit nach Mitternacht am Freitag gehört noch zum Freitag). An Feiertagen gelten je nach Einstellung "Feiertage" die Einstellungen für Sonntag.
+- **Mo-So**: Die Wochentage, an denen der Schaltpunkt gilt. Für Abendstufen zählt der Tag, an dem der Nachtzyklus begonnen hat (eine Zeit nach Mitternacht am Freitag gehört noch zum Freitag). An Feiertagen und im Urlaub gelten je nach Einstellung "Feiertage" bzw. "Urlaub" die Einstellungen für Sonntag.
 - **Auslöser**:
   - Uhrzeit
   - bei Sonnenuntergang / Sonnenaufgang
   - Sonnenuntergang / Sonnenaufgang minus bzw. plus Zeitversatz (hh:mm)
-  - Ende bzw. Beginn der bürgerlichen Dämmerung (Sonne 6° unter dem Horizont)
-  - Ende bzw. Beginn der nautischen Dämmerung (Sonne 12° unter dem Horizont)
+  - Ende bzw. Beginn der bürgerlichen Dämmerung (Sonne 6° unter dem Horizont), auch minus bzw. plus Zeitversatz
+  - Ende bzw. Beginn der nautischen Dämmerung (Sonne 12° unter dem Horizont), auch minus bzw. plus Zeitversatz. Im Sommer erreicht die Sonne in nördlichen Breiten 12° unter dem Horizont teilweise nicht, dann löst dieser Auslöser nicht aus.
   - Sonnenuntergang / Sonnenaufgang über bzw. unter Horizont (Höhenwinkel in Grad)
   - dunkler als / heller als (Lux), nur wenn "Helligkeit im Nachtmodus" verwendet wird
 - **Wert**: Uhrzeit, Zeitversatz, Höhenwinkel oder Lux, je nach Auslöser.
 - **Helligkeit / Lux**: Verknüpft den Auslöser innerhalb des Schaltpunkts mit der Helligkeit: "und dunkler als" (beides muss erfüllt sein) oder "oder dunkler als" (eines genügt). Morgens entsprechend "heller als".
-- **Bedingung / Zeit**: "frühestens um" verhindert ein Auslösen vor dieser Zeit. "spätestens um" löst zu dieser Zeit auch dann aus, wenn Auslöser und Helligkeit noch nicht erfüllt sind.
+- **Bedingung / von / bis**:
+  - frühestens um (von): verhindert ein Auslösen vor dieser Zeit.
+  - spätestens um (von): löst zu dieser Zeit auch dann aus, wenn Auslöser und Helligkeit noch nicht erfüllt sind.
+  - zwischen (von, bis): frühestens um "von", spätestens um "bis".
+  - zufällig zwischen (von, bis): frühestens um "von"; sind Auslöser und Helligkeit bis dahin nicht erfüllt, löst der Schaltpunkt zu einem zufälligen Zeitpunkt zwischen "von" und "bis" aus. Der Zeitpunkt wird einmal pro Nachtzyklus (um 12:00 und nach einem Neustart) neu bestimmt und im Diagnose-Log ausgegeben.
 
 Ausgewertet wird in dieser Reihenfolge: (Auslöser und/oder Helligkeit), danach die Bedingung.
 
@@ -25,6 +29,8 @@ Beispiele:
 | Nacht | Mo-So | bei Sonnenuntergang | oder dunkler als 20 Lux | spätestens um 22:00 | schließt bei Sonnenuntergang oder Dunkelheit, spätestens um 22:00 |
 | Nacht | Mo-So | dunkler als 20 Lux | | frühestens um 17:00 | kein Schließen bei einem Gewitter am Nachmittag |
 | Tag | Mo-Fr | bei Sonnenaufgang | | frühestens um 06:00 | Wochentags nicht vor 06:00 |
+| Tag | Mo-Fr | bei Sonnenaufgang | und heller als 300 Lux | zufällig zwischen 07:00 und 08:00 | bei Helligkeit ab 07:00, sonst zu einer zufälligen Zeit bis 08:00 |
+| Nacht | Mo-So | Ende bürgerliche Dämmerung plus Zeitversatz 00:10 | | | 10 Minuten nach Ende der bürgerlichen Dämmerung |
 | Tag | Sa, So | Uhrzeit 08:30 | | | am Wochenende um 08:30 |
 | Vorstufe Abend | Mo-So | Sonnenuntergang minus Zeitversatz 00:30 | | | 30 Minuten vor Sonnenuntergang |
 
