@@ -757,6 +757,21 @@ Beispiele:
 
 Uhrzeiten von Abendstufen vor 12:00 gelten als "nach Mitternacht". Uhrzeiten von Morgenstufen ab 12:00 werden wie 11:59 behandelt.
 
+**Vollständiges Beispiel** (ein Fenster mit allen vier Stufen und einer Wochenend-Variante):
+
+| # | Stufe | Tage | Auslöser | Wert | Helligkeit | Lux | Bedingung | von | bis |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Vorstufe Morgen | Mo-Fr | Beginn bürgerliche Dämmerung | | und heller als | 20 | frühestens um | 06:40 | |
+| 2 | Tag | Mo-Fr | bei Sonnenaufgang | | und heller als | 300 | zufällig zwischen | 07:00 | 08:00 |
+| 3 | Vorstufe Morgen | Sa, So | Beginn bürgerliche Dämmerung | | und heller als | 20 | frühestens um | 07:30 | |
+| 4 | Tag | Sa, So | bei Sonnenaufgang | | und heller als | 300 | zufällig zwischen | 08:20 | 09:30 |
+| 5 | Vorstufe Abend | Mo-So | Sonnenuntergang plus Zeitversatz 00:20 | | oder dunkler als | 300 | | | |
+| 6 | Nacht | Mo-So | Ende bürgerliche Dämmerung | | oder dunkler als | 20 | | | |
+
+Dazu passend die Stufen: Vorstufe Abend "Nur schließen" 70 % / Lamelle 50 %, Nacht "Nur schließen" 100 % / 100 %, Vorstufe Morgen "Nur öffnen" 70 % / 50 %, Tag "Nur öffnen" 0 % / 0 %.
+
+Ergebnis: Werktags schließt der Behang abends 20 Minuten nach Sonnenuntergang (oder schon vorher bei einem dunklen Himmel) auf die Vorstufe, zur bürgerlichen Dämmerung ganz zu. Morgens öffnet er ab der Morgendämmerung auf die Vorstufe und ab Sonnenaufgang vollständig, spätestens aber zur zufällig gewählten Zeit zwischen 07:00 und 08:00 (am Wochenende zwischen 08:20 und 09:30), auch wenn es noch nicht hell genug ist. Die Schaltpunkte 1-4 greifen nicht, solange es z. B. an einem dunklen Wintermorgen nicht heller als 20 bzw. 300 Lux wird, bis die jeweilige Bedingung "frühestens um"/"zufällig zwischen" das Öffnen trotzdem auslöst.
+
 <!-- DOC HelpContext="Stufen" -->
 ### Stufen
 
