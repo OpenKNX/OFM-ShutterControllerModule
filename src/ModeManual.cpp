@@ -226,9 +226,9 @@ void ModeManual::processInputKo(GroupObject &ko, PositionController &positionCon
         }
     }
     // special key handling if closed
-    int closedPosition = 100;
-    if (positionController.slat() != 100)
-        closedPosition = -3; // if slat is not closed, the Position will be less then 100
+    uint8_t closedPosition = 100;
+    if (positionController.hasSlat() && positionController.slat() != 100)
+        closedPosition = 97; // if slat is not closed, the Position will be less then 100
 
     if (positionController.state() == PositionControllerState::Idle && positionController.position() >= closedPosition)
     {
