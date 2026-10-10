@@ -620,7 +620,7 @@ bool ModeShading::allowedByMeasurmentValues(const CallContext &callContext)
         callContext.measurementRoomTemperature,
         callContext,
         [](const MeasurementSource *m, uint8_t _channelIndex, uint8_t _index, bool previousAllowed)
-        { return (float)m->getValue() >= ParamSHC_CRoomTemp; },
+        { return (float)m->getValue() >= ParamSHC_CShading1RoomTemperaturMinimum; },
         ModeShadingNotAllowedReason::ModeShadingNotAllowedReasonRoomTemperature);
 
     // <Enumeration Text="No" Value="0" Id="%ENID%" />
