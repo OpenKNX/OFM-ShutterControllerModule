@@ -159,6 +159,14 @@ void ModeScene::applyScene(uint8_t slot, PositionController &positionController)
 
 bool ModeScene::allowed(const CallContext &callContext)
 {
+    if (callContext.channelLockActive)
+    {
+        // a locked channel ignores scene recalls outright, instead of queuing them for later
+        _activeSlot = 0;
+        _pendingSlot = 0;
+        _releaseAfterApply = false;
+        return false;
+    }
     if (_releaseAfterApply)
     {
         // The scene has been applied and does not hold the automatics back.
