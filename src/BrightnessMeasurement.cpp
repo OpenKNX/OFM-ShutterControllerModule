@@ -269,10 +269,12 @@ BrightnessMeasurement::AggregateStates BrightnessMeasurement::buildAggregateStat
     case MeasurementWatchdogFallbackBehavior::RequestValueAndProvideFallbackValue:
         states.mean.ignoreValue = false;
         states.mean.useFallback = true;
+        states.mean.waitForValue = false;
         states.mean.valueLux = _fallbackLux;
 
         states.max.ignoreValue = false;
         states.max.useFallback = true;
+        states.max.waitForValue = false;
         states.max.valueLux = _fallbackLux;
         break;
     case MeasurementWatchdogFallbackBehavior::IgnoreValue:
