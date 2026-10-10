@@ -330,8 +330,8 @@ bool ModeNight::isSwitchPointReached(const CallContext &callContext, SwitchPoint
     uint8_t dayOfWeek = callContext.dayOfWeek;
     if (evening && callContext.minuteOfDay < Noon)
         dayOfWeek = (dayOfWeek + 6) % 7;
-    else if ((callContext.holidayToday && ParamSHC_CNightHoliday == 1) ||
-             (callContext.vacation && ParamSHC_CNightVacation == 1))
+    if ((callContext.holidayToday && ParamSHC_CNightHoliday == 1) ||
+        (callContext.vacation && ParamSHC_CNightVacation == 1))
         dayOfWeek = 0;
     if (!(switchPoint.days & (1 << dayOfWeek)))
         return false;
@@ -468,7 +468,7 @@ void ModeNight::scheduleStage(uint8_t stage, bool silent)
     logInfoP("Stage %s reached, delayed by %ds", stageName(stage), (int)ParamSHC_CNightDelay);
     _delayedStage = stage;
     _delayedSilent = silent;
-    _delayStart = max(millis(), 1uL);
+    _delayedStageStart = max(millis(), 1uL);
 }
 
 void ModeNight::applyNightKo(bool night)
@@ -494,16 +494,13 @@ void ModeNight::applyNightKo(bool night)
 
 void ModeNight::handleDelayed()
 {
-    if (_delayStart == 0 || millis() - _delayStart < ParamSHC_CNightDelay * 1000UL)
-        return;
-    _delayStart = 0;
-    if (_delayedStage != StageNone)
+    if (_delayedStage != StageNone && millis() - _delayedStageStart >= ParamSHC_CNightDelay * 1000UL)
     {
         const uint8_t stage = _delayedStage;
         _delayedStage = StageNone;
         fireStage(stage, _delayedSilent);
     }
-    if (_delayedNightKo >= 0)
+    if (_delayedNightKo >= 0 && millis() - _delayedNightKoStart >= ParamSHC_CNightDelay * 1000UL)
     {
         logInfoP("Delayed night KO %d", (int)_delayedNightKo);
         const bool night = _delayedNightKo == 1;
@@ -686,6 +683,11 @@ void ModeNight::stop(const CallContext &callContext, const ModeBase *next, Posit
     KoSHC_CNightActive.value(false, DPT_Switch);
     if (next == (const ModeBase *)callContext.modeManual)
         return;
+    if (callContext.channelLockActive)
+    {
+        logInfoP("Channel lock active, no action");
+        return;
+    }
     if (_yieldedToShading)
     {
         logInfoP("Shading takes over in stage %s", stageName(_stage));
@@ -713,7 +715,7 @@ void ModeNight::processInputKo(GroupObject &ko, PositionController& positionCont
         }
         logInfoP("Night KO %d, delayed by %ds", (int)(bool)ko.value(DPT_Switch), (int)ParamSHC_CNightDelay);
         _delayedNightKo = ko.value(DPT_Switch) ? 1 : 0;
-        _delayStart = max(millis(), 1uL);
+        _delayedNightKoStart = max(millis(), 1uL);
         break;
     case SHC_KoCNightLock:
         KoSHC_CNightLockActive.value(ko.value(DPT_Switch), DPT_Switch);

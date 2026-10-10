@@ -44,11 +44,13 @@ private:
     bool _yieldedToShading = false;
     bool _lastLocked = false;
     bool _endAfterPending = false; // day reached while locked: move to the day position after unlock
-    // stage or night KO waiting for the channel specific delay
+    // stage or night KO waiting for the channel specific delay, each with its own
+    // start time so one does not reset the other's remaining delay
     uint8_t _delayedStage = StageNone;
     bool _delayedSilent = false;
+    unsigned long _delayedStageStart = 0;
     int8_t _delayedNightKo = -1;
-    unsigned long _delayStart = 0;
+    unsigned long _delayedNightKoStart = 0;
     uint8_t _stageStatus = 0xFF;
     uint16_t _lastMinuteOfDay = 0;
 
