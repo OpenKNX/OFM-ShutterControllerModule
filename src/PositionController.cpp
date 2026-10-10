@@ -340,7 +340,10 @@ void PositionController::control(const CallContext &callContext)
     if (_shutterSimulation != nullptr)
         _shutterSimulation->update(callContext);
     auto now = callContext.currentMillis;
-    if (_waitForMovingFinshed > 0 && now - _waitForMovingFinshed > _waitForMovingTimeout)
+    // setMovingTimeout() stamps _waitForMovingFinshed with millis(), which can be
+    // slightly ahead of this cycle's currentMillis snapshot; guard against that
+    // so the subtraction below cannot underflow and fire the timeout early.
+    if (_waitForMovingFinshed > 0 && now > _waitForMovingFinshed && now - _waitForMovingFinshed > _waitForMovingTimeout)
     {
         logDebugP("Moving timeout %ds reached", (int)(_waitForMovingTimeout / 1000));
         _waitForMovingFinshed = 0;
